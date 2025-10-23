@@ -1,0 +1,28 @@
+# robots.txt - America Cannabis
+# Otimizado para SEO Enterprise
+
+User-agent: *
+Allow: /
+Allow: /produtos/*
+Allow: /api/products
+Disallow: /admin/
+Disallow: /admin/*
+Disallow: /api/auth/
+
+# Sitemap
+Sitemap: https://www.americacannabis.com/sitemap.xml
+
+# Crawl-delay para evitar sobrecarga
+Crawl-delay: 1
+
+# Permitir imagens
+User-agent: Googlebot-Image
+Allow: /_next/image
+Allow: /images/
+
+# Bloquear bots maliciosos
+User-agent: AhrefsBot
+User-agent: SemrushBot
+User-agent: DotBot
+User-agent: MJ12bot
+Crawl-delay: 10

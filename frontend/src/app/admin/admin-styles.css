@@ -1,0 +1,212 @@
+/* Admin Dark Theme Global Styles - Enterprise Cannabis Premium */
+
+/* Global Smooth Transitions */
+* {
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Cards e containers */
+.admin-card {
+  @apply bg-gray-800 border border-gray-700 rounded-lg shadow-lg;
+  transition: all 0.3s ease;
+}
+
+.admin-card:hover {
+  @apply shadow-xl border-gray-600;
+  transform: translateY(-2px);
+}
+
+.admin-card-header {
+  @apply text-white font-semibold;
+}
+
+.admin-card-text {
+  @apply text-gray-300;
+}
+
+.admin-card-muted {
+  @apply text-gray-400 text-sm;
+}
+
+/* Inputs e forms */
+.admin-input {
+  @apply bg-gray-700 border-gray-600 text-white placeholder-gray-400 focus:border-accent focus:ring-accent;
+  transition: all 0.2s ease;
+}
+
+.admin-input:focus {
+  @apply shadow-lg;
+  transform: scale(1.01);
+}
+
+.admin-label {
+  @apply text-gray-300 font-medium;
+  transition: color 0.2s ease;
+}
+
+.admin-select {
+  @apply bg-gray-700 border-gray-600 text-white focus:border-accent focus:ring-accent;
+  transition: all 0.2s ease;
+}
+
+.admin-select:focus {
+  @apply shadow-lg;
+}
+
+.admin-textarea {
+  @apply bg-gray-700 border-gray-600 text-white placeholder-gray-400 focus:border-accent focus:ring-accent;
+  transition: all 0.2s ease;
+}
+
+.admin-textarea:focus {
+  @apply shadow-lg;
+}
+
+/* Buttons */
+.admin-btn-primary {
+  @apply bg-accent text-gray-900 hover:bg-accent-dark font-semibold shadow-lg hover:shadow-xl;
+  transition: all 0.2s ease;
+}
+
+.admin-btn-primary:hover {
+  transform: translateY(-1px);
+}
+
+.admin-btn-primary:active {
+  transform: translateY(0);
+}
+
+.admin-btn-secondary {
+  @apply bg-gray-700 text-white hover:bg-gray-600 border border-gray-600;
+  transition: all 0.2s ease;
+}
+
+.admin-btn-secondary:hover {
+  @apply border-accent shadow-md;
+}
+
+.admin-btn-danger {
+  @apply bg-red-600 text-white hover:bg-red-700;
+  transition: all 0.2s ease;
+}
+
+.admin-btn-danger:hover {
+  @apply shadow-lg;
+  transform: translateY(-1px);
+}
+
+/* Tables */
+.admin-table {
+  @apply bg-gray-800 border border-gray-700;
+  transition: all 0.2s ease;
+}
+
+.admin-table-header {
+  @apply bg-gray-700 text-gray-300 font-semibold;
+}
+
+.admin-table-row {
+  @apply bg-gray-800 hover:bg-gray-700 border-b border-gray-700 text-gray-300;
+  transition: all 0.2s ease;
+}
+
+.admin-table-row:hover {
+  transform: scale(1.005);
+}
+
+.admin-table-cell {
+  @apply text-gray-300;
+}
+
+/* Headings */
+.admin-h1 {
+  @apply text-3xl font-bold text-white;
+}
+
+.admin-h2 {
+  @apply text-2xl font-bold text-white;
+}
+
+.admin-h3 {
+  @apply text-xl font-semibold text-white;
+}
+
+.admin-text {
+  @apply text-gray-300;
+}
+
+.admin-text-muted {
+  @apply text-gray-400;
+}
+
+/* Badges */
+.admin-badge {
+  @apply px-3 py-1 rounded-full text-xs font-semibold;
+  transition: all 0.2s ease;
+}
+
+.admin-badge:hover {
+  transform: scale(1.05);
+}
+
+.admin-badge-success {
+  @apply bg-green-600 text-white;
+}
+
+.admin-badge-warning {
+  @apply bg-yellow-600 text-white;
+}
+
+.admin-badge-danger {
+  @apply bg-red-600 text-white;
+}
+
+.admin-badge-info {
+  @apply bg-blue-600 text-white;
+}
+
+/* Modals */
+.admin-modal-backdrop {
+  @apply bg-black bg-opacity-75;
+  animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.admin-modal-content {
+  @apply bg-gray-800 border border-gray-700 text-white;
+  animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Dividers */
+.admin-divider {
+  @apply border-gray-700;
+}
+
+/* Smooth Icon Transitions */
+svg {
+  transition: all 0.2s ease;
+}
+
+/* Link Hover States */
+a {
+  transition: all 0.2s ease;
+}

@@ -1,0 +1,671 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ============================================
+// MULTI-TENANT
+// ============================================
+
+model Tenant {
+  id        String   @id @default(uuid())
+  slug      String   @unique // URL-friendly identifier
+  name      String
+  domain    String?  @unique
+  isActive  Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Relations
+  config     TenantConfig?
+  users      User[]
+  products   Product[]
+  categories Category[]
+  customers  Customer[]
+  orders     Order[]
+  coupons    Coupon[]
+
+  @@index([slug])
+  @@index([domain])
+}
+
+model TenantConfig {
+  id       String @id @default(uuid())
+  tenantId String @unique
+  tenant   Tenant @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+
+  // Branding
+  siteName          String   @default("My Store")
+  primaryColor      String   @default("#2D1B4E") // Roxo sofisticado
+  secondaryColor    String   @default("#B8986B") // Dourado fosco
+  accentColor       String   @default("#5FAD56") // Verde cannabis profissional
+  backgroundColor   String   @default("#FFFFFF")
+  textColor         String   @default("#1A1A1A")
+  logo              String?
+  favicon           String?
+
+  // Contact
+  email             String?
+  phone             String?
+  whatsappNumber    String?
+
+  // SEO
+  metaTitle         String?
+  metaDescription   String?
+  metaKeywords      String?
+
+  // Tracking & Analytics
+  metaPixelId       String?  // Facebook/Meta Pixel ID
+  googleAnalyticsId String?  // Google Analytics GA4 ID (G-XXXXXXXXXX)
+  googleTagManagerId String? // Google Tag Manager ID (GTM-XXXXXXX)
+
+  // Features
+  enableReviews     Boolean  @default(true)
+  enableWishlist    Boolean  @default(true)
+  enableNewsletter  Boolean  @default(true)
+  enableCoupons     Boolean  @default(true)
+
+  // Currency & Language
+  currency          String   @default("BRL")
+  language          String   @default("pt-BR")
+  timezone          String   @default("America/Sao_Paulo")
+
+  // Policies (para cliente configurar)
+  shippingPolicy    String?  @db.Text
+  returnPolicy      String?  @db.Text
+  privacyPolicy     String?  @db.Text
+  termsOfService    String?  @db.Text
+
+  // Trust Badges & Social Proof
+  trustBadges       Json?    // Array de { icon, title, text }
+  socialProofText   String?  // "12.000+ clientes satisfeitos"
+
+  // Urgency & Scarcity Settings
+  enableUrgency     Boolean  @default(true)
+  urgencyThreshold  Int      @default(5) // Mostrar "Só X restantes" quando stock < threshold
+  enableViewCount   Boolean  @default(false) // "X pessoas vendo agora"
+
+  // Reviews Settings
+  requireApproval   Boolean  @default(true) // Reviews precisam aprovação
+  allowGuestReviews Boolean  @default(false)
+
+  // Social Proof Settings
+  enableDefaultReviews Boolean @default(false) // Usar reviews padrão (fake) ao invés de reviews reais
+  enableGlobalBenefits Boolean @default(false) // Usar benefícios globais ao invés de por produto
+
+  // Product Page Settings
+  showRelatedProducts Boolean @default(true)
+  relatedProductsCount Int    @default(4)
+  enableProductFAQ     Boolean @default(true)
+  enableZoom           Boolean @default(true)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+// ============================================
+// AUTHENTICATION & USERS
+// ============================================
+
+model User {
+  id        String   @id @default(uuid())
+  tenantId  String
+  tenant    Tenant   @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+
+  email     String
+  password  String
+  name      String?
+  role      String   @default("admin") // admin, manager, staff
+  isActive  Boolean  @default(true)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([tenantId, email])
+  @@index([email])
+}
+
+model Customer {
+  id        String   @id @default(uuid())
+  tenantId  String
+  tenant    Tenant   @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+
+  email     String
+  password  String
+  name      String
+  phone     String?
+  cpf       String?
+
+  // Address (simplified - can expand later)
+  address   String?
+  city      String?
+  state     String?
+  zipCode   String?
+  country   String   @default("BR")
+
+  isActive  Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Relations
+  reviews    Review[]
+  wishlist   WishlistItem[]
+  orders     Order[]
+  newsletter Newsletter[]
+
+  @@unique([tenantId, email])
+  @@index([email])
+  @@index([tenantId])
+}
+
+// ============================================
+// CATALOG
+// ============================================
+
+model Category {
+  id          String   @id @default(uuid())
+  tenantId    String
+  tenant      Tenant   @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+
+  name        String
+  slug        String
+  description String?
+  imageUrl    String?
+  parentId    String?
+  parent      Category?  @relation("CategoryToCategory", fields: [parentId], references: [id])
+  children    Category[] @relation("CategoryToCategory")
+
+  isActive    Boolean  @default(true)
+  order       Int      @default(0)
+
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  // Relations
+  products Product[]
+  banners  Banner[]
+
+  @@unique([tenantId, slug])
+  @@index([tenantId])
+  @@index([slug])
+}
+
+model Tag {
+  id        String   @id @default(uuid())
+  name      String
+  slug      String   @unique
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Relations
+  products ProductTag[]
+
+  @@index([slug])
+}
+
+model Brand {
+  id        String   @id @default(uuid())
+  tenantId  String
+  name      String
+  slug      String
+  description String?
+  imageUrl  String?
+
+  isActive  Boolean  @default(true)
+  order     Int      @default(0)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Relations
+  products Product[]
+
+  @@unique([tenantId, slug])
+  @@index([tenantId])
+  @@index([slug])
+}
+
+enum ProductType {
+  INDICA
+  SATIVA
+  HIBRIDA
+}
+
+model Product {
+  id          String   @id @default(uuid())
+  tenantId    String
+  tenant      Tenant   @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  categoryId  String?
+  category    Category? @relation(fields: [categoryId], references: [id], onDelete: SetNull)
+  brandId     String?
+  brand       Brand?    @relation(fields: [brandId], references: [id], onDelete: SetNull)
+
+  name        String
+  slug        String
+  description String
+  shortDesc   String?
+  price       Decimal  @db.Decimal(10, 2)
+  comparePrice Decimal? @db.Decimal(10, 2) // Original price for discount display
+  cost        Decimal? @db.Decimal(10, 2) // Cost for profit calculation
+
+  // Cannabis specific fields
+  type        ProductType? // Indica, Sativa, Híbrida
+
+  // Images
+  imageUrl    String
+  images      String[] // Array of image URLs
+
+  // Stock
+  stock       Int      @default(0)
+  sku         String?
+  trackStock  Boolean  @default(true)
+  lowStockAlert Int?   @default(5)
+
+  // Status
+  isActive    Boolean  @default(true)
+  isFeatured  Boolean  @default(false)
+
+  // SEO
+  metaTitle       String?
+  metaDescription String?
+  metaKeywords    String?
+
+  // Stats
+  viewCount   Int      @default(0)
+  orderCount  Int      @default(0)
+
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  // Relations
+  variants    ProductVariant[]
+  tags        ProductTag[]
+  reviews     Review[]
+  wishlist    WishlistItem[]
+  orderItems  OrderItem[]
+  relatedFrom ProductRelation[] @relation("ProductFrom")
+  relatedTo   ProductRelation[] @relation("ProductTo")
+  faqs        ProductFAQ[]
+  benefits    ProductBenefit[]
+
+  @@unique([tenantId, slug])
+  @@index([tenantId])
+  @@index([categoryId])
+  @@index([brandId])
+  @@index([isActive])
+  @@index([isFeatured])
+  @@index([slug])
+  @@index([type])
+}
+
+model ProductVariant {
+  id          String   @id @default(uuid())
+  productId   String
+  product     Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+
+  name        String   // e.g., "Tamanho: M, Cor: Azul"
+  sku         String?
+  price       Decimal? @db.Decimal(10, 2) // Override product price if set
+  stock       Int      @default(0)
+  imageUrl    String?
+
+  // Variant options
+  options     Json     // { "size": "M", "color": "blue" }
+
+  isActive    Boolean  @default(true)
+  order       Int      @default(0)
+
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([productId])
+  @@index([sku])
+}
+
+model ProductTag {
+  id        String   @id @default(uuid())
+  productId String
+  product   Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  tagId     String
+  tag       Tag      @relation(fields: [tagId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now())
+
+  @@unique([productId, tagId])
+  @@index([productId])
+  @@index([tagId])
+}
+
+model ProductRelation {
+  id        String   @id @default(uuid())
+  fromId    String
+  from      Product  @relation("ProductFrom", fields: [fromId], references: [id], onDelete: Cascade)
+  toId      String
+  to        Product  @relation("ProductTo", fields: [toId], references: [id], onDelete: Cascade)
+  type      String   @default("related") // related, upsell, cross-sell
+
+  createdAt DateTime @default(now())
+
+  @@unique([fromId, toId])
+  @@index([fromId])
+  @@index([toId])
+}
+
+model ProductFAQ {
+  id         String   @id @default(uuid())
+  productId  String
+  product    Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+
+  question   String
+  answer     String   @db.Text
+
+  isActive   Boolean  @default(true)
+  order      Int      @default(0)
+
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  @@index([productId])
+  @@index([isActive])
+}
+
+// ============================================
+// REVIEWS & RATINGS
+// ============================================
+
+model Review {
+  id         String   @id @default(uuid())
+  productId  String
+  product    Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  customerId String
+  customer   Customer @relation(fields: [customerId], references: [id], onDelete: Cascade)
+
+  rating     Int      // 1-5
+  title      String?
+  comment    String
+
+  isApproved Boolean  @default(false)
+  isVerified Boolean  @default(false) // Verified purchase
+
+  helpful    Int      @default(0) // Helpful votes
+
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  @@index([productId])
+  @@index([customerId])
+  @@index([isApproved])
+}
+
+// ============================================
+// WISHLIST
+// ============================================
+
+model WishlistItem {
+  id         String   @id @default(uuid())
+  customerId String
+  customer   Customer @relation(fields: [customerId], references: [id], onDelete: Cascade)
+  productId  String
+  product    Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+
+  createdAt  DateTime @default(now())
+
+  @@unique([customerId, productId])
+  @@index([customerId])
+  @@index([productId])
+}
+
+// ============================================
+// ORDERS (WhatsApp tracking)
+// ============================================
+
+model Order {
+  id            String   @id @default(uuid())
+  tenantId      String
+  tenant        Tenant   @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  customerId    String?
+  customer      Customer? @relation(fields: [customerId], references: [id], onDelete: SetNull)
+
+  // Order info
+  orderNumber   String   @unique
+  status        String   @default("pending") // pending, confirmed, processing, shipped, delivered, cancelled
+
+  // Customer info (pode ser guest)
+  customerName  String
+  customerEmail String
+  customerPhone String
+
+  // Pricing
+  subtotal      Decimal  @db.Decimal(10, 2)
+  discount      Decimal  @db.Decimal(10, 2) @default(0)
+  total         Decimal  @db.Decimal(10, 2)
+
+  // Coupon
+  couponCode    String?
+
+  // Delivery
+  deliveryAddress String?
+  deliveryCity    String?
+  deliveryState   String?
+  deliveryZipCode String?
+
+  // WhatsApp
+  whatsappConversationUrl String?
+
+  // Notes
+  customerNotes String?
+  adminNotes    String?
+
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  // Relations
+  items OrderItem[]
+
+  @@index([tenantId])
+  @@index([customerId])
+  @@index([orderNumber])
+  @@index([status])
+  @@index([createdAt])
+}
+
+model OrderItem {
+  id         String   @id @default(uuid())
+  orderId    String
+  order      Order    @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  productId  String
+  product    Product  @relation(fields: [productId], references: [id], onDelete: Restrict)
+
+  productName String  // Snapshot
+  productSku  String?
+  imageUrl    String?
+
+  quantity    Int
+  price       Decimal  @db.Decimal(10, 2)
+  total       Decimal  @db.Decimal(10, 2)
+
+  variantInfo Json?    // Variant options snapshot
+
+  createdAt   DateTime @default(now())
+
+  @@index([orderId])
+  @@index([productId])
+}
+
+// ============================================
+// COUPONS & DISCOUNTS
+// ============================================
+
+model Coupon {
+  id          String   @id @default(uuid())
+  tenantId    String
+  tenant      Tenant   @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+
+  code        String
+  description String?
+
+  // Discount
+  type        String   // percentage, fixed
+  value       Decimal  @db.Decimal(10, 2)
+
+  // Constraints
+  minPurchase Decimal? @db.Decimal(10, 2)
+  maxDiscount Decimal? @db.Decimal(10, 2)
+  usageLimit  Int?     // Total usage limit
+  usageCount  Int      @default(0)
+
+  // Validity
+  startsAt    DateTime?
+  expiresAt   DateTime?
+
+  isActive    Boolean  @default(true)
+
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@unique([tenantId, code])
+  @@index([tenantId])
+  @@index([code])
+  @@index([isActive])
+}
+
+// ============================================
+// NEWSLETTER
+// ============================================
+
+model Newsletter {
+  id         String   @id @default(uuid())
+  tenantId   String
+  customerId String?
+  customer   Customer? @relation(fields: [customerId], references: [id], onDelete: SetNull)
+
+  email      String
+  name       String?
+
+  isActive   Boolean  @default(true)
+
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  @@unique([tenantId, email])
+  @@index([tenantId])
+  @@index([email])
+}
+
+// ============================================
+// SOCIAL PROOF - DEFAULT REVIEWS (Fake Reviews)
+// ============================================
+
+model DefaultReview {
+  id            String   @id @default(uuid())
+  tenantId      String
+
+  customerName  String?  // Nome do cliente (opcional)
+  customerPhoto String?  // URL da foto (opcional)
+  customerCity  String?  // Cidade do cliente (opcional)
+  rating        Int?     @default(5) // 1-5 (opcional)
+  comment       String?  @db.Text // Texto do depoimento (opcional - depoimentos são mídia)
+  mediaUrl      String?  // URL da mídia (imagem ou vídeo do depoimento)
+  mediaType     String?  // 'image' ou 'video'
+
+  // Contexto do depoimento
+  productName   String?  // Nome do produto mencionado
+  usageDuration String?  // Ex: "2 semanas", "1 mês", "3 meses"
+  resultType    String?  // Ex: "Insônia", "Ansiedade", "Dor crônica", "Relaxamento"
+
+  isActive      Boolean  @default(true)
+  isFeatured    Boolean  @default(false) // Destacar (prioridade)
+  showOnHome    Boolean  @default(true)  // Mostrar na home
+  showOnProducts Boolean @default(true)  // Mostrar nas páginas de produtos
+  order         Int      @default(0)
+
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  @@index([tenantId, isActive])
+  @@index([isFeatured])
+  @@index([showOnHome])
+  @@index([showOnProducts])
+  @@index([resultType])
+}
+
+// ============================================
+// BENEFITS SYSTEM
+// ============================================
+
+model GlobalBenefit {
+  id          String   @id @default(uuid())
+  tenantId    String
+
+  icon        String   // Emoji ou URL de ícone
+  title       String
+  description String
+
+  isActive    Boolean  @default(true)
+  order       Int      @default(0)
+
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([tenantId, isActive])
+}
+
+model ProductBenefit {
+  id          String   @id @default(uuid())
+  productId   String
+  product     Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+
+  icon        String
+  title       String
+  description String
+
+  order       Int      @default(0)
+
+  createdAt   DateTime @default(now())
+
+  @@index([productId])
+}
+
+// ============================================
+// BANNER SYSTEM
+// ============================================
+
+enum BannerType {
+  HOME
+  CATEGORY
+  PRODUCT
+}
+
+model Banner {
+  id          String     @id @default(uuid())
+  tenantId    String
+
+  title       String?    // Opcional - pode usar apenas imagem
+  subtitle    String?
+  imageUrl    String
+  imageMobile String?    // Versão mobile
+  linkUrl     String?
+  linkText    String?    // "Comprar Agora", "Ver Mais"
+
+  type        BannerType @default(HOME) // HOME, CATEGORY, PRODUCT
+  categoryId  String?
+  category    Category?  @relation(fields: [categoryId], references: [id], onDelete: SetNull)
+
+  isActive    Boolean    @default(true)
+  order       Int        @default(0)
+
+  // Analytics
+  impressions Int        @default(0)
+  clicks      Int        @default(0)
+
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt
+
+  @@index([tenantId, type, isActive])
+  @@index([categoryId])
+}

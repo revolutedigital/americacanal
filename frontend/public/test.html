@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test API Connection</title>
+</head>
+<body>
+    <h1>America Cannabis - API Connection Test</h1>
+    <button onclick="testLogin()">Test Login</button>
+    <div id="result"></div>
+
+    <script>
+        async function testLogin() {
+            const resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = 'Testing...';
+
+            try {
+                const response = await fetch('http://localhost:5177/api/auth/login', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        email: 'admin@americacannabis.com',
+                        password: 'Admin@2025'
+                    })
+                });
+
+                const data = await response.json();
+                resultDiv.innerHTML = '<pre>' + JSON.stringify(data, null, 2) + '</pre>';
+                console.log('Success:', data);
+            } catch (error) {
+                resultDiv.innerHTML = '<pre style="color: red;">Error: ' + error.message + '</pre>';
+                console.error('Error:', error);
+            }
+        }
+    </script>
+</body>
+</html>

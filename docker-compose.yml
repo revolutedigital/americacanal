@@ -1,0 +1,74 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: america-cannabis-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres123
+      POSTGRES_DB: america_cannabis
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - app-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: america-cannabis-backend
+    restart: unless-stopped
+    ports:
+      - "5177:5177"
+    environment:
+      DATABASE_URL: postgresql://postgres:postgres123@postgres:5432/america_cannabis
+      JWT_SECRET: seu_jwt_secret_super_seguro_mude_em_producao_2025
+      PORT: 5177
+      NODE_ENV: development
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - app-network
+    volumes:
+      - ./backend:/app
+      - /app/node_modules
+      - /app/dist
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+      args:
+        NEXT_PUBLIC_API_URL: http://localhost:5177
+        NEXT_PUBLIC_WHATSAPP_NUMBER: 595982574068
+        NEXT_PUBLIC_SITE_URL: http://localhost:5178
+    container_name: america-cannabis-frontend
+    restart: unless-stopped
+    ports:
+      - "5178:3000"
+    environment:
+      NEXT_PUBLIC_API_URL: http://localhost:5177
+      NEXT_PUBLIC_WHATSAPP_NUMBER: 595982574068
+      NEXT_PUBLIC_SITE_URL: http://localhost:5178
+    depends_on:
+      - backend
+    networks:
+      - app-network
+
+volumes:
+  postgres_data:
+    driver: local
+
+networks:
+  app-network:
+    driver: bridge

@@ -1,0 +1,149 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply text-gray-900;
+    /* Fundo sofisticado e sutil */
+    background: linear-gradient(135deg, #FAF9F7 0%, #F5F3F0 50%, #F8F6F4 100%);
+    background-size: 400% 400%;
+    animation: gradientShift 20s ease infinite;
+  }
+
+  @keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+  }
+
+  @keyframes slideInRight {
+    from {
+      transform: translateX(100%);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  /* Mobile Menu Animations */
+  .mobile-menu-panel {
+    animation: slideInRight 0.3s ease-out;
+  }
+
+  .mobile-menu-backdrop {
+    animation: fadeIn 0.3s ease-out;
+  }
+
+  @keyframes shimmer {
+    0% {
+      background-position: -1000px 0;
+    }
+    100% {
+      background-position: 1000px 0;
+    }
+  }
+
+  /* Skeleton Shimmer Effect */
+  .skeleton-shimmer {
+    animation: shimmer 2s infinite linear;
+    background: linear-gradient(
+      to right,
+      transparent 0%,
+      rgba(255, 255, 255, 0.3) 50%,
+      transparent 100%
+    );
+    background-size: 1000px 100%;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold;
+  }
+
+  /* Acessibilidade: Estados de foco visível para navegação por teclado */
+  *:focus {
+    @apply outline-none;
+  }
+
+  *:focus-visible {
+    @apply outline-none ring-2 ring-accent ring-offset-2;
+  }
+
+  /* Remover outline padrão apenas quando usando mouse */
+  *:focus:not(:focus-visible) {
+    @apply outline-none ring-0;
+  }
+
+  /* Garantir foco visível em links e botões */
+  a:focus-visible,
+  button:focus-visible,
+  input:focus-visible,
+  textarea:focus-visible,
+  select:focus-visible {
+    @apply ring-2 ring-accent ring-offset-2;
+  }
+}
+
+@layer components {
+  /* Botões sofisticados e premium */
+  .btn-primary {
+    @apply bg-primary hover:bg-primary-dark text-white font-semibold py-3 px-8 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2;
+    box-shadow: 0 4px 14px 0 rgba(45, 27, 78, 0.25);
+  }
+
+  .btn-secondary {
+    @apply bg-secondary hover:bg-secondary-dark text-white font-semibold py-3 px-8 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2;
+    box-shadow: 0 4px 14px 0 rgba(184, 152, 107, 0.25);
+  }
+
+  .btn-accent {
+    @apply bg-accent hover:bg-accent-dark text-white font-semibold py-3 px-8 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2;
+    box-shadow: 0 4px 14px 0 rgba(95, 173, 86, 0.25);
+  }
+
+  .btn-outline {
+    @apply border-2 border-primary text-primary hover:bg-primary hover:text-white font-semibold py-3 px-8 rounded-lg transition-all duration-300 focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2;
+  }
+
+  .btn-warning {
+    @apply bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-semibold py-3 px-8 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2;
+  }
+
+  .btn-danger {
+    @apply bg-red-600 hover:bg-red-700 text-white font-semibold py-3 px-8 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2;
+  }
+
+  .input-field {
+    @apply w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary focus-visible:ring-2 focus-visible:ring-accent transition-all duration-200;
+  }
+
+  .card {
+    @apply bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-all duration-300 border border-gray-100;
+  }
+
+  .card-product {
+    @apply bg-white rounded-xl shadow-lg p-4 hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-primary/20;
+  }
+
+  .gradient-purple {
+    @apply bg-gradient-to-r from-primary via-primary-light to-primary;
+  }
+
+  .gradient-premium {
+    @apply bg-gradient-to-r from-primary via-secondary to-primary-dark;
+  }
+}
