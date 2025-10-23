@@ -10,6 +10,9 @@ import WebVitals from "@/components/WebVitals";
 import SkipLink from "@/components/SkipLink";
 import TrackingScripts from "@/components/TrackingScripts";
 
+// Forçar renderização dinâmica globalmente para evitar erros de SSG
+export const dynamic = 'force-dynamic'
+
 const inter = Inter({
   subsets: ["latin"],
   display: 'swap',
