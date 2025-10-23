@@ -4,9 +4,7 @@ const withPWA = require('@ducanh2912/next-pwa').default({
   register: true,
   skipWaiting: true,
   sw: 'sw.js',
-  fallbacks: {
-    document: '/offline',
-  },
+  // Fallbacks removidos para evitar timeout no build
 })
 
 /** @type {import('next').NextConfig} */
