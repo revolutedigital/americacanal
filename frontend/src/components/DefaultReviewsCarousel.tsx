@@ -36,7 +36,7 @@ export default function DefaultReviewsCarousel() {
       // Filtrar apenas os que devem aparecer na home
       const homeTestimonials = response.data.filter((t: Testimonial) => t.showOnHome);
       // Ordenar por destaque primeiro
-      homeTestimonials.sort((a, b) => (b.isFeatured ? 1 : 0) - (a.isFeatured ? 1 : 0));
+      homeTestimonials.sort((a: Testimonial, b: Testimonial) => (b.isFeatured ? 1 : 0) - (a.isFeatured ? 1 : 0));
       setTestimonials(homeTestimonials);
     } catch (error) {
       console.error('Error fetching testimonials:', error);
