@@ -1,9 +1,9 @@
+'use client';
+
 import Link from 'next/link'
 
-export const metadata = {
-  title: 'Offline - America Cannabis',
-  description: 'Você está offline. Verifique sua conexão com a internet.',
-}
+// Forçar renderização dinâmica para evitar timeout no build
+export const dynamic = 'force-dynamic'
 
 export default function OfflinePage() {
   return (
