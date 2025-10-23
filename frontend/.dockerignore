@@ -13,3 +13,10 @@ yarn-error.log
 .vscode
 .idea
 .DS_Store
+
+# Storybook (development only)
+**/*.stories.tsx
+**/*.stories.ts
+**/*.stories.jsx
+**/*.stories.js
+.storybook
