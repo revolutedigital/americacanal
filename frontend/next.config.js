@@ -1,10 +1,9 @@
 const withPWA = require('@ducanh2912/next-pwa').default({
   dest: 'public',
-  disable: process.env.NODE_ENV === 'development',
+  disable: true, // PWA desabilitado para evitar problemas no Railway build
   register: true,
   skipWaiting: true,
   sw: 'sw.js',
-  // Fallbacks removidos para evitar timeout no build
 })
 
 /** @type {import('next').NextConfig} */
