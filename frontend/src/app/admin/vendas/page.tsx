@@ -11,6 +11,7 @@ interface Product {
   price: number;
   stock: number;
   imageUrl: string;
+  isActive?: boolean;
 }
 
 interface SaleItem {
