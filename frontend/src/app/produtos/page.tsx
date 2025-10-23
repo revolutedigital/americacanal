@@ -141,16 +141,16 @@ export default function ProdutosPage() {
     // Ordenar
     switch (sortBy) {
       case 'price-asc':
-        filtered.sort((a, b) => Number(a.price) - Number(b.price));
+        filtered.sort((a: Product, b: Product) => Number(a.price) - Number(b.price));
         break;
       case 'price-desc':
-        filtered.sort((a, b) => Number(b.price) - Number(a.price));
+        filtered.sort((a: Product, b: Product) => Number(b.price) - Number(a.price));
         break;
       case 'name-asc':
-        filtered.sort((a, b) => a.name.localeCompare(b.name));
+        filtered.sort((a: Product, b: Product) => a.name.localeCompare(b.name));
         break;
       case 'newest':
-        filtered.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
+        filtered.sort((a: Product, b: Product) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
         break;
       default:
         // relevance - sem ordenação específica

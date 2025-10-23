@@ -77,14 +77,14 @@ export default function AdminDashboard() {
   const getTopProducts = () => {
     return products
       .filter(p => p.isActive)
-      .sort((a, b) => (b._count?.orderItems || 0) - (a._count?.orderItems || 0))
+      .sort((a: ExtendedProduct, b: ExtendedProduct) => (b._count?.orderItems || 0) - (a._count?.orderItems || 0))
       .slice(0, 5);
   };
 
   const getMostReviewedProducts = () => {
     return products
       .filter(p => p._count && p._count.reviews && p._count.reviews > 0)
-      .sort((a, b) => (b._count?.reviews || 0) - (a._count?.reviews || 0))
+      .sort((a: ExtendedProduct, b: ExtendedProduct) => (b._count?.reviews || 0) - (a._count?.reviews || 0))
       .slice(0, 5);
   };
 

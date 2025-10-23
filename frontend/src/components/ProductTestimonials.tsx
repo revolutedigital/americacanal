@@ -36,7 +36,7 @@ export default function ProductTestimonials() {
       // Filtrar apenas os que devem aparecer em produtos
       const productTestimonials = response.data.filter((t: Testimonial) => t.showOnProducts);
       // Ordenar por destaque primeiro, depois por data
-      productTestimonials.sort((a, b) => {
+      productTestimonials.sort((a: Testimonial, b: Testimonial) => {
         if (a.isFeatured !== b.isFeatured) {
           return b.isFeatured ? 1 : -1;
         }
