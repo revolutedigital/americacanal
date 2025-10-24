@@ -89,7 +89,7 @@ export default function Header() {
   };
 
   return (
-    <header className="gradient-premium text-white shadow-lg">
+    <header className="bg-gradient-to-r from-primary via-primary-vibrant to-primary text-white shadow-lg">
       <div className="container mx-auto px-4 py-4">
         {/* Top Row: Logo, Search, User */}
         <div className="flex items-center justify-between gap-4 mb-4">
@@ -139,7 +139,7 @@ export default function Header() {
               <button
                 type="submit"
                 aria-label="Realizar busca"
-                className="absolute right-2 top-1/2 -translate-y-1/2 bg-secondary hover:bg-secondary-dark text-white px-6 py-2 rounded-full font-semibold transition-all shadow-md hover:shadow-lg focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
+                className="absolute right-2 top-1/2 -translate-y-1/2 bg-accent hover:bg-accent-dark text-white px-6 py-2 rounded-full font-semibold transition-all shadow-md hover:shadow-lg hover:scale-105 focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
               >
                 Buscar
               </button>
@@ -151,7 +151,7 @@ export default function Header() {
             <Link
               href="/admin/login"
               aria-label="Acessar área administrativa"
-              className="hover:text-accent hover:scale-110 transition-all duration-200 flex items-center gap-2 bg-white/10 px-5 py-3 rounded-full focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
+              className="hover:text-info hover:scale-110 transition-all duration-200 flex items-center gap-2 bg-white/10 hover:bg-white/20 px-5 py-3 rounded-full focus-visible:ring-2 focus-visible:ring-info focus-visible:ring-offset-2"
             >
               <span className="hidden lg:inline">Admin</span>
             </Link>
@@ -164,7 +164,7 @@ export default function Header() {
             <Link
               href="/"
               aria-label="Ir para página inicial"
-              className="text-white/90 hover:text-white font-semibold transition-colors px-5 py-3 hover:bg-white/10 rounded-full focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
+              className="text-white/90 hover:text-accent-light font-semibold transition-all duration-200 px-5 py-3 hover:bg-white/10 rounded-full focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 hover:scale-105"
             >
               Início
             </Link>
@@ -176,7 +176,7 @@ export default function Header() {
                 aria-expanded={showCategoriesMenu}
                 aria-haspopup="true"
                 aria-label="Menu de categorias"
-                className="text-white/90 hover:text-white font-semibold transition-colors px-5 py-3 hover:bg-white/10 rounded-full flex items-center gap-2 focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
+                className="text-white/90 hover:text-accent-light font-semibold transition-all duration-200 px-5 py-3 hover:bg-white/10 rounded-full flex items-center gap-2 focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 hover:scale-105"
               >
                 Categorias
                 <span className="text-xs" aria-hidden="true">▼</span>
@@ -186,13 +186,13 @@ export default function Header() {
                 <div
                   role="menu"
                   aria-label="Categorias de produtos"
-                  className="absolute top-full left-0 mt-2 bg-white text-gray-900 rounded-lg shadow-2xl py-3 min-w-[220px] z-[100]"
+                  className="absolute top-full left-0 mt-2 bg-white text-gray-900 rounded-lg shadow-2xl py-3 min-w-[220px] z-[100] border-2 border-accent/20"
                 >
                   <Link
                     href="/produtos"
                     role="menuitem"
                     onClick={() => setShowCategoriesMenu(false)}
-                    className="block px-6 py-3 hover:bg-purple-50 transition-colors font-medium focus-visible:bg-purple-50 focus-visible:outline-none"
+                    className="block px-6 py-3 hover:bg-accent/10 hover:text-accent transition-all font-medium focus-visible:bg-accent/10 focus-visible:outline-none"
                   >
                     Todos os Produtos
                   </Link>
@@ -202,7 +202,7 @@ export default function Header() {
                       href={`/produtos?categoria=${category.slug}`}
                       role="menuitem"
                       onClick={() => setShowCategoriesMenu(false)}
-                      className="block px-6 py-3 hover:bg-purple-50 transition-colors focus-visible:bg-purple-50 focus-visible:outline-none"
+                      className="block px-6 py-3 hover:bg-accent/10 hover:text-accent transition-all focus-visible:bg-accent/10 focus-visible:outline-none"
                     >
                       {category.name}
                     </Link>
@@ -218,7 +218,7 @@ export default function Header() {
                 aria-expanded={showBrandsMenu}
                 aria-haspopup="true"
                 aria-label="Menu de marcas"
-                className="text-white/90 hover:text-white font-semibold transition-colors px-5 py-3 hover:bg-white/10 rounded-full flex items-center gap-2 focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
+                className="text-white/90 hover:text-accent-light font-semibold transition-all duration-200 px-5 py-3 hover:bg-white/10 rounded-full flex items-center gap-2 focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 hover:scale-105"
               >
                 Marcas
                 <span className="text-xs" aria-hidden="true">▼</span>
@@ -228,13 +228,13 @@ export default function Header() {
                 <div
                   role="menu"
                   aria-label="Marcas de produtos"
-                  className="absolute top-full left-0 mt-2 bg-white text-gray-900 rounded-lg shadow-2xl py-3 min-w-[220px] z-[100]"
+                  className="absolute top-full left-0 mt-2 bg-white text-gray-900 rounded-lg shadow-2xl py-3 min-w-[220px] z-[100] border-2 border-accent/20"
                 >
                   <Link
                     href="/produtos"
                     role="menuitem"
                     onClick={() => setShowBrandsMenu(false)}
-                    className="block px-6 py-3 hover:bg-purple-50 transition-colors font-medium focus-visible:bg-purple-50 focus-visible:outline-none"
+                    className="block px-6 py-3 hover:bg-accent/10 hover:text-accent transition-all font-medium focus-visible:bg-accent/10 focus-visible:outline-none"
                   >
                     Todas as Marcas
                   </Link>
@@ -244,7 +244,7 @@ export default function Header() {
                       href={`/produtos?marca=${brand.slug}`}
                       role="menuitem"
                       onClick={() => setShowBrandsMenu(false)}
-                      className="block px-6 py-3 hover:bg-purple-50 transition-colors focus-visible:bg-purple-50 focus-visible:outline-none"
+                      className="block px-6 py-3 hover:bg-accent/10 hover:text-accent transition-all focus-visible:bg-accent/10 focus-visible:outline-none"
                     >
                       {brand.name}
                     </Link>
@@ -260,7 +260,7 @@ export default function Header() {
                 aria-expanded={showTypesMenu}
                 aria-haspopup="true"
                 aria-label="Menu de tipos de produto"
-                className="text-white/90 hover:text-white font-semibold transition-colors px-5 py-3 hover:bg-white/10 rounded-full flex items-center gap-2 focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
+                className="text-white/90 hover:text-accent-light font-semibold transition-all duration-200 px-5 py-3 hover:bg-white/10 rounded-full flex items-center gap-2 focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 hover:scale-105"
               >
                 Tipo
                 <span className="text-xs" aria-hidden="true">▼</span>
@@ -270,31 +270,40 @@ export default function Header() {
                 <div
                   role="menu"
                   aria-label="Tipos de produto"
-                  className="absolute top-full left-0 mt-2 bg-white text-gray-900 rounded-lg shadow-2xl py-3 min-w-[220px] z-[100]"
+                  className="absolute top-full left-0 mt-2 bg-white text-gray-900 rounded-lg shadow-2xl py-3 min-w-[220px] z-[100] border-2 border-accent/20"
                 >
                   <Link
                     href="/produtos?tipo=INDICA"
                     role="menuitem"
                     onClick={() => setShowTypesMenu(false)}
-                    className="block px-6 py-3 hover:bg-purple-50 transition-colors focus-visible:bg-purple-50 focus-visible:outline-none"
+                    className="block px-6 py-3 hover:bg-blue-50 hover:text-blue-700 transition-all focus-visible:bg-blue-50 focus-visible:outline-none"
                   >
-                    Indica
+                    <span className="inline-flex items-center gap-2">
+                      <span className="w-2 h-2 rounded-full bg-blue-500"></span>
+                      Indica
+                    </span>
                   </Link>
                   <Link
                     href="/produtos?tipo=SATIVA"
                     role="menuitem"
                     onClick={() => setShowTypesMenu(false)}
-                    className="block px-6 py-3 hover:bg-purple-50 transition-colors focus-visible:bg-purple-50 focus-visible:outline-none"
+                    className="block px-6 py-3 hover:bg-green-50 hover:text-green-700 transition-all focus-visible:bg-green-50 focus-visible:outline-none"
                   >
-                    Sativa
+                    <span className="inline-flex items-center gap-2">
+                      <span className="w-2 h-2 rounded-full bg-green-500"></span>
+                      Sativa
+                    </span>
                   </Link>
                   <Link
                     href="/produtos?tipo=HIBRIDA"
                     role="menuitem"
                     onClick={() => setShowTypesMenu(false)}
-                    className="block px-6 py-3 hover:bg-purple-50 transition-colors focus-visible:bg-purple-50 focus-visible:outline-none"
+                    className="block px-6 py-3 hover:bg-yellow-50 hover:text-yellow-700 transition-all focus-visible:bg-yellow-50 focus-visible:outline-none"
                   >
-                    Híbrida
+                    <span className="inline-flex items-center gap-2">
+                      <span className="w-2 h-2 rounded-full bg-yellow-500"></span>
+                      Híbrida
+                    </span>
                   </Link>
                 </div>
               )}
@@ -303,7 +312,7 @@ export default function Header() {
             <Link
               href="/produtos"
               aria-label="Ver todos os produtos"
-              className="text-white/90 hover:text-white font-semibold transition-colors px-5 py-3 hover:bg-white/10 rounded-full focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
+              className="text-white/90 hover:text-accent-light font-semibold transition-all duration-200 px-5 py-3 hover:bg-white/10 rounded-full focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 hover:scale-105"
             >
               Produtos
             </Link>
