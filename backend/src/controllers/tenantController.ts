@@ -7,7 +7,7 @@ const prisma = new PrismaClient();
 export const getTenantConfig = async (req: Request, res: Response): Promise<void> => {
   try {
     // TODO: Get tenantId from authenticated user
-    const tenantId = '0fb61585-3cb3-48b3-ae76-0a5358084a8c'; // America Cannabis tenant ID
+    const tenantId = 'df192cfd-fb87-470a-8ea8-81784633409c'; // America Cannabis tenant ID
 
     const config = await prisma.tenantConfig.findUnique({
       where: { tenantId },
@@ -29,7 +29,7 @@ export const getTenantConfig = async (req: Request, res: Response): Promise<void
 export const updateTenantConfig = async (req: Request, res: Response): Promise<void> => {
   try {
     // TODO: Get tenantId from authenticated user
-    const tenantId = '0fb61585-3cb3-48b3-ae76-0a5358084a8c'; // America Cannabis tenant ID
+    const tenantId = 'df192cfd-fb87-470a-8ea8-81784633409c'; // America Cannabis tenant ID
 
     const {
       primaryColor,
