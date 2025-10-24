@@ -17,6 +17,7 @@ import defaultReviewRoutes from './routes/defaultReviewRoutes';
 import benefitRoutes from './routes/benefitRoutes';
 import bannerRoutes from './routes/bannerRoutes';
 import manualSaleRoutes from './routes/manualSaleRoutes';
+import seedRoutes from './routes/seedRoutes';
 
 // Carregar variáveis de ambiente
 dotenv.config();
@@ -63,6 +64,7 @@ app.use('/api/default-reviews', defaultReviewRoutes);
 app.use('/api/benefits', benefitRoutes);
 app.use('/api/banners', bannerRoutes);
 app.use('/api/sales', manualSaleRoutes);
+app.use(seedRoutes); // Rota temporária para seed
 
 // Rota de health check
 app.get('/health', (req: Request, res: Response) => {
