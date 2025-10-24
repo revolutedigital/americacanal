@@ -578,6 +578,271 @@ export async function runSeed() {
   }
 
   // ============================================
+  // 12. CREATE BRANDS
+  // ============================================
+  console.log('\n🏷️  Creating brands...');
+
+  const brandsData = [
+    {
+      name: 'Green Leaf',
+      slug: 'green-leaf',
+      description: 'Produtos premium de cannabis orgânica',
+      logoUrl: '/uploads/brands/green-leaf.png',
+      isActive: true,
+      order: 1,
+    },
+    {
+      name: 'CBD Pure',
+      slug: 'cbd-pure',
+      description: 'Especializada em óleos de CBD de alta pureza',
+      logoUrl: '/uploads/brands/cbd-pure.png',
+      isActive: true,
+      order: 2,
+    },
+    {
+      name: 'Hemp World',
+      slug: 'hemp-world',
+      description: 'Flores de hemp premium certificadas',
+      logoUrl: '/uploads/brands/hemp-world.png',
+      isActive: true,
+      order: 3,
+    },
+  ];
+
+  const brands = [];
+  for (const brandData of brandsData) {
+    const brand = await prisma.brand.upsert({
+      where: {
+        tenantId_slug: {
+          tenantId: tenant.id,
+          slug: brandData.slug,
+        },
+      },
+      update: {},
+      create: {
+        tenantId: tenant.id,
+        ...brandData,
+      },
+    });
+    brands.push(brand);
+  }
+
+  console.log(`  ✓ ${brands.length} Brands created`);
+
+  // ============================================
+  // 13. CREATE DEFAULT REVIEWS (TESTIMONIALS)
+  // ============================================
+  console.log('\n⭐ Creating default reviews (testimonials)...');
+
+  const defaultReviewsData = [
+    {
+      customerName: 'Maria Silva',
+      customerPhoto: '/uploads/customers/maria.jpg',
+      customerCity: 'São Paulo, SP',
+      rating: 5,
+      comment: 'Excelente produto! Me ajudou muito com ansiedade. Recomendo!',
+      productName: 'CBD Oil 30%',
+      usageDuration: '2 meses',
+      resultType: 'Ansiedade',
+      isActive: true,
+      isFeatured: true,
+      showOnHome: true,
+      showOnProducts: true,
+      order: 1,
+    },
+    {
+      customerName: 'João Santos',
+      customerPhoto: '/uploads/customers/joao.jpg',
+      customerCity: 'Rio de Janeiro, RJ',
+      rating: 5,
+      comment: 'Produto de qualidade excepcional. Sono muito melhor!',
+      productName: 'Full Spectrum CBD Oil',
+      usageDuration: '3 meses',
+      resultType: 'Insônia',
+      isActive: true,
+      isFeatured: true,
+      showOnHome: true,
+      showOnProducts: true,
+      order: 2,
+    },
+    {
+      customerName: 'Ana Costa',
+      customerPhoto: '/uploads/customers/ana.jpg',
+      customerCity: 'Belo Horizonte, MG',
+      rating: 5,
+      comment: 'Maravilhoso! Dores crônicas diminuíram significativamente.',
+      productName: 'CBD Balm',
+      usageDuration: '1 mês',
+      resultType: 'Dor Crônica',
+      isActive: true,
+      isFeatured: true,
+      showOnHome: true,
+      showOnProducts: true,
+      order: 3,
+    },
+    {
+      customerName: 'Pedro Oliveira',
+      customerPhoto: '/uploads/customers/pedro.jpg',
+      customerCity: 'Curitiba, PR',
+      rating: 4,
+      comment: 'Muito bom! Estou mais calmo e focado no trabalho.',
+      productName: 'CBD Capsules',
+      usageDuration: '6 semanas',
+      resultType: 'Foco e Concentração',
+      isActive: true,
+      isFeatured: false,
+      showOnHome: true,
+      showOnProducts: true,
+      order: 4,
+    },
+    {
+      customerName: 'Carla Mendes',
+      customerPhoto: '/uploads/customers/carla.jpg',
+      customerCity: 'Porto Alegre, RS',
+      rating: 5,
+      comment: 'Produto incrível! Qualidade de vida melhorou muito.',
+      productName: 'Hemp Flowers',
+      usageDuration: '4 meses',
+      resultType: 'Bem-estar Geral',
+      isActive: true,
+      isFeatured: true,
+      showOnHome: true,
+      showOnProducts: true,
+      order: 5,
+    },
+  ];
+
+  const defaultReviews = [];
+  for (const reviewData of defaultReviewsData) {
+    const review = await prisma.defaultReview.create({
+      data: {
+        tenantId: tenant.id,
+        ...reviewData,
+      },
+    });
+    defaultReviews.push(review);
+  }
+
+  console.log(`  ✓ ${defaultReviews.length} Default Reviews created`);
+
+  // ============================================
+  // 14. CREATE BANNERS
+  // ============================================
+  console.log('\n🎨 Creating banners...');
+
+  const bannersData = [
+    {
+      title: 'Produtos Premium de Cannabis',
+      subtitle: 'Qualidade certificada e entrega rápida',
+      imageUrl: '/uploads/banners/banner-home-1.jpg',
+      mobileImageUrl: '/uploads/banners/banner-home-1-mobile.jpg',
+      ctaText: 'Comprar Agora',
+      ctaUrl: '/produtos',
+      type: 'HOME' as const,
+      isActive: true,
+      order: 1,
+    },
+    {
+      title: 'Black Friday: 25% OFF',
+      subtitle: 'Aproveite nossas ofertas especiais',
+      imageUrl: '/uploads/banners/banner-home-2.jpg',
+      mobileImageUrl: '/uploads/banners/banner-home-2-mobile.jpg',
+      ctaText: 'Ver Ofertas',
+      ctaUrl: '/produtos?featured=true',
+      type: 'HOME' as const,
+      isActive: true,
+      order: 2,
+    },
+    {
+      title: 'CBD Oil Premium',
+      subtitle: 'A mais alta qualidade do mercado',
+      imageUrl: '/uploads/banners/banner-home-3.jpg',
+      mobileImageUrl: '/uploads/banners/banner-home-3-mobile.jpg',
+      ctaText: 'Conhecer',
+      ctaUrl: '/produtos/cbd-oil-30-10ml',
+      type: 'HOME' as const,
+      isActive: true,
+      order: 3,
+    },
+  ];
+
+  const banners = [];
+  for (const bannerData of bannersData) {
+    const banner = await prisma.banner.create({
+      data: {
+        tenantId: tenant.id,
+        ...bannerData,
+      },
+    });
+    banners.push(banner);
+  }
+
+  console.log(`  ✓ ${banners.length} Banners created`);
+
+  // ============================================
+  // 15. CREATE GLOBAL BENEFITS
+  // ============================================
+  console.log('\n✨ Creating global benefits...');
+
+  const globalBenefitsData = [
+    {
+      icon: '🚚',
+      title: 'Frete Grátis',
+      description: 'Em compras acima de R$ 200',
+      isActive: true,
+      order: 1,
+    },
+    {
+      icon: '🔒',
+      title: 'Compra Segura',
+      description: 'Certificado SSL e criptografia',
+      isActive: true,
+      order: 2,
+    },
+    {
+      icon: '↩️',
+      title: 'Devolução Grátis',
+      description: 'Até 30 dias após a compra',
+      isActive: true,
+      order: 3,
+    },
+    {
+      icon: '💳',
+      title: 'Parcelamento',
+      description: 'Em até 12x sem juros',
+      isActive: true,
+      order: 4,
+    },
+    {
+      icon: '✅',
+      title: 'Produto Certificado',
+      description: 'Qualidade garantida',
+      isActive: true,
+      order: 5,
+    },
+    {
+      icon: '📞',
+      title: 'Atendimento 24/7',
+      description: 'Suporte via WhatsApp',
+      isActive: true,
+      order: 6,
+    },
+  ];
+
+  const globalBenefits = [];
+  for (const benefitData of globalBenefitsData) {
+    const benefit = await prisma.globalBenefit.create({
+      data: {
+        tenantId: tenant.id,
+        ...benefitData,
+      },
+    });
+    globalBenefits.push(benefit);
+  }
+
+  console.log(`  ✓ ${globalBenefits.length} Global Benefits created`);
+
+  // ============================================
   // FINAL SUMMARY
   // ============================================
   console.log('\n═══════════════════════════════════════');
@@ -589,6 +854,10 @@ export async function runSeed() {
   console.log(`  ✓ ${createdCategories.length} Categories created`);
   console.log(`  ✓ ${createdTags.length} Tags created`);
   console.log(`  ✓ ${createdProducts.length} Products created`);
+  console.log(`  ✓ ${brands.length} Brands created`);
+  console.log(`  ✓ ${defaultReviews.length} Default Reviews created`);
+  console.log(`  ✓ ${banners.length} Banners created`);
+  console.log(`  ✓ ${globalBenefits.length} Global Benefits created`);
   console.log(`  ✓ ${createdCustomers.length} Customers created`);
   console.log(`  ✓ ${reviewsData.length} Reviews created`);
   console.log(`  ✓ ${coupons.length} Coupons created`);
