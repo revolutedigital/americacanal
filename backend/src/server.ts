@@ -80,7 +80,8 @@ app.get('/health', (req: Request, res: Response) => {
   res.json({
     status: 'OK',
     message: 'America Cannabis API is running',
-    timestamp: new Date().toISOString()
+    timestamp: new Date().toISOString(),
+    version: '2.0'
   });
 });
 
