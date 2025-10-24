@@ -217,12 +217,12 @@ a {
 
 /* Force higher contrast for all gray-500 text on dark backgrounds */
 .admin-panel .text-gray-500 {
-  @apply text-gray-300 !important;
+  color: #d1d5db !important; /* gray-300 */
 }
 
 /* Force higher contrast for all gray-400 text on dark backgrounds */
 .admin-panel .text-gray-400 {
-  @apply text-gray-200 !important;
+  color: #e5e7eb !important; /* gray-200 */
 }
 
 /* Improve placeholder visibility */
@@ -236,12 +236,12 @@ a {
 /* Better hint/helper text visibility */
 .admin-panel .text-sm.text-gray-500,
 .admin-panel .text-xs.text-gray-500 {
-  @apply text-gray-300 !important;
+  color: #d1d5db !important; /* gray-300 */
 }
 
 /* Ensure table header text is visible */
 .admin-panel thead th {
-  @apply text-gray-600 !important; /* Dark text on light background */
+  color: #4b5563 !important; /* gray-600 - Dark text on light background */
 }
 
 /* Better disabled state visibility */
@@ -257,56 +257,81 @@ a {
 .admin-panel input:focus,
 .admin-panel textarea:focus,
 .admin-panel select:focus {
-  @apply ring-2 ring-accent ring-offset-2 ring-offset-gray-900 !important;
+  outline: none !important;
+  box-shadow: 0 0 0 2px #5FAD56, 0 0 0 4px rgba(95, 173, 86, 0.1) !important;
 }
 
 /* Better button contrast */
 .admin-panel .btn-primary {
-  @apply bg-accent hover:bg-accent-dark text-white !important;
+  background-color: #5FAD56 !important;
+  color: white !important;
   box-shadow: 0 4px 14px 0 rgba(95, 173, 86, 0.35) !important;
 }
 
+.admin-panel .btn-primary:hover {
+  background-color: #4A8C43 !important;
+}
+
 .admin-panel .btn-secondary {
-  @apply bg-gray-600 hover:bg-gray-500 text-white !important;
+  background-color: #4b5563 !important;
+  color: white !important;
+}
+
+.admin-panel .btn-secondary:hover {
+  background-color: #6b7280 !important;
 }
 
 /* Improve cancel/secondary button visibility */
 .admin-panel button[type="button"]:not(.btn-primary):not(.btn-accent):not(.btn-danger) {
-  @apply bg-gray-600 hover:bg-gray-500 text-white !important;
+  background-color: #4b5563 !important;
+  color: white !important;
+}
+
+.admin-panel button[type="button"]:not(.btn-primary):not(.btn-accent):not(.btn-danger):hover {
+  background-color: #6b7280 !important;
 }
 
 /* Better link visibility */
 .admin-panel a:not(.btn-primary):not(.btn-accent):not(.btn-secondary) {
-  @apply text-accent hover:text-accent-light !important;
+  color: #5FAD56 !important;
+}
+
+.admin-panel a:not(.btn-primary):not(.btn-accent):not(.btn-secondary):hover {
+  color: #7BC674 !important;
 }
 
 /* Fix text-primary (purple) on dark backgrounds - convert to accent (green) */
 .admin-panel .text-primary {
-  @apply text-accent !important;
+  color: #5FAD56 !important;
 }
 
 .admin-panel .text-primary:hover,
 .admin-panel .hover\:text-primary-dark:hover {
-  @apply text-accent-light !important;
+  color: #7BC674 !important;
 }
 
 /* Fix button text-primary class usage */
 .admin-panel button.text-primary,
 .admin-panel a.text-primary {
-  @apply text-accent hover:text-accent-light !important;
+  color: #5FAD56 !important;
   font-weight: 600 !important;
+}
+
+.admin-panel button.text-primary:hover,
+.admin-panel a.text-primary:hover {
+  color: #7BC674 !important;
 }
 
 /* Improve red delete/danger button visibility */
 .admin-panel .text-red-600 {
-  @apply text-red-400 !important; /* Lighter red for better contrast */
+  color: #f87171 !important; /* red-400 - Lighter red for better contrast */
 }
 
 .admin-panel .text-red-600:hover,
 .admin-panel .hover\:text-red-900:hover,
 .admin-panel .hover\:text-red-700:hover,
 .admin-panel .hover\:text-red-800:hover {
-  @apply text-red-300 !important; /* Even lighter on hover */
+  color: #fca5a5 !important; /* red-300 - Even lighter on hover */
 }
 
 /* Better visibility for action buttons in tables */
@@ -321,42 +346,39 @@ a {
   transform: scale(1.05) !important;
 }
 
-/* Improve description/subtitle text */
-.admin-panel p.text-gray-300,
-.admin-panel span.text-gray-300 {
-  color: #d1d5db !important; /* Slightly lighter for better readability */
-}
+/* Improve description/subtitle text - removed circular dependency */
 
 /* Better border visibility */
 .admin-panel .border-gray-700 {
-  @apply border-gray-600 !important;
+  border-color: #4b5563 !important; /* gray-600 */
 }
 
 /* Improve divider visibility */
 .admin-panel .divide-gray-200 > * {
-  @apply border-gray-700 !important;
+  border-color: #374151 !important; /* gray-700 */
 }
 
 /* Fix border-primary on dark backgrounds */
 .admin-panel .border-primary {
-  @apply border-accent !important;
+  border-color: #5FAD56 !important; /* accent */
 }
 
 .admin-panel .hover\:border-primary:hover {
-  @apply border-accent-light !important;
+  border-color: #7BC674 !important; /* accent-light */
 }
 
 /* Fix bg-primary buttons/badges on dark backgrounds */
 .admin-panel .bg-primary:not(.gradient-premium) {
-  @apply bg-accent !important;
+  background-color: #5FAD56 !important; /* accent */
 }
 
 /* Improve loading spinner visibility */
 .admin-panel .border-b-2.border-primary {
-  @apply border-accent !important;
+  border-color: #5FAD56 !important; /* accent */
 }
 
 /* Better badge/pill visibility */
 .admin-panel .bg-gray-700.text-gray-800 {
-  @apply bg-gray-600 text-gray-200 !important;
+  background-color: #4b5563 !important; /* gray-600 */
+  color: #e5e7eb !important; /* gray-200 */
 }

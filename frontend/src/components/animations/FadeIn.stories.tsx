@@ -40,6 +40,7 @@ export const Default: Story = {
     delay: 0,
     duration: 0.5,
     direction: 'none',
+    children: null as any,
   },
   render: (args) => (
     <FadeIn {...args}>
@@ -53,6 +54,7 @@ export const FadeUp: Story = {
     delay: 0,
     duration: 0.5,
     direction: 'up',
+    children: null as any,
   },
   render: (args) => (
     <FadeIn {...args}>
@@ -66,6 +68,7 @@ export const FadeDown: Story = {
     delay: 0,
     duration: 0.5,
     direction: 'down',
+    children: null as any,
   },
   render: (args) => (
     <FadeIn {...args}>
@@ -79,6 +82,7 @@ export const FadeLeft: Story = {
     delay: 0,
     duration: 0.5,
     direction: 'left',
+    children: null as any,
   },
   render: (args) => (
     <FadeIn {...args}>
@@ -92,6 +96,7 @@ export const FadeRight: Story = {
     delay: 0,
     duration: 0.5,
     direction: 'right',
+    children: null as any,
   },
   render: (args) => (
     <FadeIn {...args}>
@@ -105,6 +110,7 @@ export const WithDelay: Story = {
     delay: 1,
     duration: 0.5,
     direction: 'up',
+    children: null as any,
   },
   render: (args) => (
     <FadeIn {...args}>
@@ -114,6 +120,9 @@ export const WithDelay: Story = {
 }
 
 export const Multiple: Story = {
+  args: {
+    children: null as any,
+  },
   render: () => (
     <div className="space-y-6">
       <FadeIn direction="up" delay={0}>

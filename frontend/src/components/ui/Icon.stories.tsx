@@ -71,6 +71,9 @@ export const WithColor: Story = {
 }
 
 export const IconShowcase: Story = {
+  args: {
+    icon: Star,
+  },
   render: () => (
     <div className="grid grid-cols-4 gap-8">
       <div className="flex flex-col items-center gap-2">
