@@ -548,8 +548,15 @@ export async function runSeed() {
 
   if (oil1 && oil2 && gummies && cream) {
     // Upsell: Oil 30ml -> Oil 50ml
-    await prisma.productRelation.create({
-      data: {
+    await prisma.productRelation.upsert({
+      where: {
+        fromId_toId: {
+          fromId: oil1.id,
+          toId: oil2.id,
+        },
+      },
+      update: {},
+      create: {
         fromId: oil1.id,
         toId: oil2.id,
         type: 'upsell',
@@ -557,8 +564,15 @@ export async function runSeed() {
     });
 
     // Related: Oil -> Gummies
-    await prisma.productRelation.create({
-      data: {
+    await prisma.productRelation.upsert({
+      where: {
+        fromId_toId: {
+          fromId: oil1.id,
+          toId: gummies.id,
+        },
+      },
+      update: {},
+      create: {
         fromId: oil1.id,
         toId: gummies.id,
         type: 'related',
@@ -566,8 +580,15 @@ export async function runSeed() {
     });
 
     // Cross-sell: Gummies -> Cream
-    await prisma.productRelation.create({
-      data: {
+    await prisma.productRelation.upsert({
+      where: {
+        fromId_toId: {
+          fromId: gummies.id,
+          toId: cream.id,
+        },
+      },
+      update: {},
+      create: {
         fromId: gummies.id,
         toId: cream.id,
         type: 'cross-sell',
