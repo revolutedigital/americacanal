@@ -7,7 +7,7 @@ import Footer from '@/components/Footer';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import ProductGallery from '@/components/ProductGallery';
 import QuantitySelector from '@/components/QuantitySelector';
-import ProductReviews from '@/components/ProductReviews';
+// import ProductReviews from '@/components/ProductReviews'; // COMENTADO - Usando apenas depoimentos
 import ProductCardSSR from '@/components/ProductCardSSR';
 import ProductBenefits from '@/components/ProductBenefits';
 import ProductTestimonials from '@/components/ProductTestimonials';
@@ -206,8 +206,8 @@ export default function ProductPage() {
                 {product.name}
               </h1>
 
-              {/* Avaliações */}
-              <div className="flex items-center gap-3">
+              {/* Avaliações - COMENTADO */}
+              {/* <div className="flex items-center gap-3">
                 <div className="flex text-yellow-400 text-lg">
                   {[1, 2, 3, 4, 5].map((star) => (
                     <span key={star} className={star <= Math.round(averageRating) ? '' : 'text-gray-300'}>
@@ -223,7 +223,7 @@ export default function ProductPage() {
                     ({reviews.length} {reviews.length === 1 ? 'avaliação' : 'avaliações'})
                   </a>
                 )}
-              </div>
+              </div> */}
 
               {/* Preço */}
               <div className="space-y-2">
@@ -320,14 +320,14 @@ export default function ProductPage() {
             <ProductBenefits productId={product.id} />
           </div>
 
-          {/* Reviews */}
-          <div id="reviews" className="mt-16">
+          {/* Reviews - COMENTADO - Usando apenas depoimentos abaixo */}
+          {/* <div id="reviews" className="mt-16">
             <ProductReviews
               reviews={reviews}
               averageRating={averageRating}
               totalReviews={reviews.length}
             />
-          </div>
+          </div> */}
 
           {/* Produtos Relacionados */}
           {relatedProducts.length > 0 && (
