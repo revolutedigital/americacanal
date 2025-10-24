@@ -320,7 +320,7 @@ export default function MarcasPage() {
             </thead>
             <tbody className="bg-gray-800 divide-y divide-gray-200">
               {brands.map((brand) => (
-                <tr key={brand.id} className="hover:bg-gray-50">
+                <tr key={brand.id} className="hover:bg-gray-700">
                   <td className="px-6 py-4 whitespace-nowrap">
                     <div className="flex items-center gap-3">
                       {brand.imageUrl && (

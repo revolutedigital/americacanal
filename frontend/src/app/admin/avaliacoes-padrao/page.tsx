@@ -327,7 +327,7 @@ export default function AvaliacoesPadraoPage() {
         ) : (
           <div className="divide-y divide-gray-200">
             {reviews.map((review) => (
-              <div key={review.id} className="p-6 hover:bg-gray-50">
+              <div key={review.id} className="p-6 hover:bg-gray-700">
                 <div className="flex items-start gap-4">
                   {/* Avatar */}
                   <div className="flex-shrink-0">
