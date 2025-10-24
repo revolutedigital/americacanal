@@ -210,3 +210,83 @@ svg {
 a {
   transition: all 0.2s ease;
 }
+
+/* ==================================================
+   HIGH CONTRAST IMPROVEMENTS - Admin Panel
+   ================================================== */
+
+/* Force higher contrast for all gray-500 text on dark backgrounds */
+.admin-panel .text-gray-500 {
+  @apply text-gray-300 !important;
+}
+
+/* Force higher contrast for all gray-400 text on dark backgrounds */
+.admin-panel .text-gray-400 {
+  @apply text-gray-200 !important;
+}
+
+/* Improve placeholder visibility */
+.admin-panel input::placeholder,
+.admin-panel textarea::placeholder,
+.admin-panel select::placeholder {
+  color: #9ca3af !important; /* gray-400 */
+  opacity: 1 !important;
+}
+
+/* Better hint/helper text visibility */
+.admin-panel .text-sm.text-gray-500,
+.admin-panel .text-xs.text-gray-500 {
+  @apply text-gray-300 !important;
+}
+
+/* Ensure table header text is visible */
+.admin-panel thead th {
+  @apply text-gray-600 !important; /* Dark text on light background */
+}
+
+/* Better disabled state visibility */
+.admin-panel button:disabled,
+.admin-panel input:disabled,
+.admin-panel select:disabled,
+.admin-panel textarea:disabled {
+  opacity: 0.5 !important;
+  cursor: not-allowed !important;
+}
+
+/* Improve focus states for better accessibility */
+.admin-panel input:focus,
+.admin-panel textarea:focus,
+.admin-panel select:focus {
+  @apply ring-2 ring-accent ring-offset-2 ring-offset-gray-900 !important;
+}
+
+/* Better button contrast */
+.admin-panel .btn-secondary {
+  @apply bg-gray-600 hover:bg-gray-500 text-white !important;
+}
+
+/* Improve cancel/secondary button visibility */
+.admin-panel button[type="button"]:not(.btn-primary):not(.btn-accent):not(.btn-danger) {
+  @apply bg-gray-600 hover:bg-gray-500 text-white !important;
+}
+
+/* Better link visibility */
+.admin-panel a:not(.btn-primary):not(.btn-accent):not(.btn-secondary) {
+  @apply text-accent hover:text-accent-light !important;
+}
+
+/* Improve description/subtitle text */
+.admin-panel p.text-gray-300,
+.admin-panel span.text-gray-300 {
+  color: #d1d5db !important; /* Slightly lighter for better readability */
+}
+
+/* Better border visibility */
+.admin-panel .border-gray-700 {
+  @apply border-gray-600 !important;
+}
+
+/* Improve divider visibility */
+.admin-panel .divide-gray-200 > * {
+  @apply border-gray-700 !important;
+}

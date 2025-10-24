@@ -1,9 +1,14 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { usePathname } from 'next/navigation';
 
 export default function StickyWhatsAppButton() {
   const [visible, setVisible] = useState(false);
+  const pathname = usePathname();
+
+  // Don't show button in admin panel
+  const isAdminPanel = pathname?.startsWith('/admin');
 
   useEffect(() => {
     const handleScroll = () => {
@@ -15,7 +20,7 @@ export default function StickyWhatsAppButton() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  if (!visible) return null;
+  if (!visible || isAdminPanel) return null;
 
   return (
     <a
