@@ -40,6 +40,39 @@
     }
   }
 
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes glow {
+    0%, 100% {
+      box-shadow: 0 0 15px rgba(0, 217, 255, 0.3);
+    }
+    50% {
+      box-shadow: 0 0 25px rgba(0, 217, 255, 0.6);
+    }
+  }
+
+  /* Animações de Micro-interação */
+  .animate-fadeIn {
+    animation: fadeIn 0.2s ease-out;
+  }
+
+  .animate-slideUp {
+    animation: slideUp 0.3s ease-out;
+  }
+
+  .animate-glow {
+    animation: glow 2s ease-in-out infinite;
+  }
+
   /* Mobile Menu Animations */
   .mobile-menu-panel {
     animation: slideInRight 0.3s ease-out;
@@ -145,5 +178,86 @@
 
   .gradient-premium {
     @apply bg-gradient-to-r from-primary via-secondary to-primary-dark;
+  }
+
+  /* ========================================
+     NOVOS GRADIENTES - CONVERSÃO & ATENÇÃO
+     ======================================== */
+
+  /* Gradiente Roxo Vibrante - CTAs de Destaque */
+  .gradient-vibrant {
+    @apply bg-gradient-to-r from-primary-vibrant via-purple-600 to-primary;
+    box-shadow: 0 8px 20px rgba(157, 78, 221, 0.4);
+    transition: all 0.3s ease;
+  }
+
+  .gradient-vibrant:hover {
+    box-shadow: 0 12px 30px rgba(157, 78, 221, 0.5);
+    transform: translateY(-2px);
+  }
+
+  /* Gradiente Verde Accent - CTAs Principais (Comprar) */
+  .gradient-accent {
+    @apply bg-gradient-to-r from-accent to-accent-dark;
+    box-shadow: 0 8px 20px rgba(95, 173, 86, 0.4);
+    transition: all 0.3s ease;
+  }
+
+  .gradient-accent:hover {
+    box-shadow: 0 12px 30px rgba(95, 173, 86, 0.5);
+    transform: translateY(-2px);
+  }
+
+  /* Gradiente Info (Cyan) - Links e Ações Secundárias */
+  .gradient-info {
+    @apply bg-gradient-to-r from-info to-info-dark;
+    box-shadow: 0 6px 16px rgba(0, 217, 255, 0.3);
+    transition: all 0.3s ease;
+  }
+
+  .gradient-info:hover {
+    box-shadow: 0 8px 20px rgba(0, 217, 255, 0.4);
+    transform: translateY(-1px);
+  }
+
+  /* Gradiente Urgente (Amarelo) - Escassez */
+  .gradient-urgent {
+    @apply bg-gradient-to-r from-urgent to-urgent-dark;
+    box-shadow: 0 8px 20px rgba(255, 184, 0, 0.4);
+    transition: all 0.3s ease;
+  }
+
+  .gradient-urgent:hover {
+    box-shadow: 0 12px 30px rgba(255, 184, 0, 0.5);
+    transform: translateY(-2px);
+  }
+
+  /* Gradiente Premium (Dourado) - Produtos Exclusivos */
+  .gradient-gold {
+    @apply bg-gradient-to-r from-gold-400 via-gold-500 to-gold-600;
+    box-shadow: 0 8px 20px rgba(201, 184, 148, 0.4);
+    transition: all 0.3s ease;
+  }
+
+  .gradient-gold:hover {
+    box-shadow: 0 12px 30px rgba(201, 184, 148, 0.5);
+    transform: translateY(-2px);
+  }
+
+  /* Botões com Gradiente - Classes Utilitárias */
+  .btn-gradient-vibrant {
+    @apply gradient-vibrant text-white font-bold py-3 px-8 rounded-lg;
+  }
+
+  .btn-gradient-accent {
+    @apply gradient-accent text-white font-bold py-3 px-8 rounded-lg;
+  }
+
+  .btn-gradient-info {
+    @apply gradient-info text-white font-semibold py-2.5 px-6 rounded-lg;
+  }
+
+  .btn-gradient-gold {
+    @apply gradient-gold text-gray-900 font-extrabold py-3 px-8 rounded-lg;
   }
 }

@@ -9,21 +9,43 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Paleta Cannabis Premium Enterprise
+        // ========================================
+        // PALETA ESTRATÉGICA - E-COMMERCE CANNABIS
+        // ========================================
+
+        // CORES PRINCIPAIS - Identidade & Confiança (60% uso)
         primary: {
-          DEFAULT: '#2D1B4E', // Roxo profundo escuro
-          dark: '#1A0F2E',    // Roxo muito escuro
-          light: '#4A2D6B',   // Roxo médio
+          DEFAULT: '#2D1B4E', // Roxo profundo - Headers, textos principais
+          dark: '#1A0F2E',    // Roxo muito escuro - Backgrounds premium
+          light: '#4A2D6B',   // Roxo médio - Hover states
+          vibrant: '#9D4EDD', // 🆕 Roxo vibrante - Badges, destaques, conversão
         },
         secondary: {
-          DEFAULT: '#6B5435', // Dourado muito escuro (WCAG AAA - 7.5:1)
-          dark: '#4A3822',    // Dourado extremamente escuro
-          light: '#8B6F47',   // Dourado escuro (antigo DEFAULT - usar apenas para bg)
+          DEFAULT: '#6B5435', // Dourado escuro - Detalhes premium
+          dark: '#4A3822',    // Dourado muito escuro - Sombras
+          light: '#8B6F47',   // Dourado médio - Backgrounds sutis
         },
         accent: {
-          DEFAULT: '#5FAD56', // Verde cannabis profissional
-          dark: '#4A8C43',    // Verde escuro harmonioso
-          light: '#7BC674',   // Verde claro suave
+          DEFAULT: '#5FAD56', // Verde cannabis - CTAs principais
+          dark: '#4A8C43',    // Verde escuro - Hover em CTAs
+          light: '#7BC674',   // Verde claro - Sucesso, disponível
+        },
+
+        // CORES DE CONVERSÃO - Atenção & Urgência (25% uso)
+        info: {
+          DEFAULT: '#00D9FF', // 🆕 Cyan - Links, tooltips, informações
+          dark: '#00B8D4',    // Cyan escuro - Hover
+          light: '#66E5FF',   // Cyan claro - Backgrounds informativos
+        },
+        urgent: {
+          DEFAULT: '#FFB800', // 🆕 Amarelo-ouro - Escassez, últimas unidades
+          dark: '#E6A500',    // Amarelo escuro - Hover
+          light: '#FFD666',   // Amarelo claro - Backgrounds de alerta
+        },
+        new: {
+          DEFAULT: '#FF006E', // 🆕 Pink - "Novo!", promoções flash
+          dark: '#D4004E',    // Pink escuro - Hover
+          light: '#FF3389',   // Pink claro - Backgrounds de novidade
         },
 
         // Sistema de Verde Cannabis (expandido para uso granular)
@@ -54,22 +76,6 @@ const config: Config = {
           900: '#1A1409',
         },
 
-        // Cores de suporte (para casos específicos)
-        purple: {
-          DEFAULT: '#9D4EDD',
-          dark: '#7B2CBF',
-          light: '#C77DFF',
-        },
-        pink: {
-          DEFAULT: '#FF006E',
-          dark: '#D4004E',
-          light: '#FF3389',
-        },
-        cyan: {
-          DEFAULT: '#00D9FF',
-          dark: '#00B8D4',
-          light: '#66E5FF',
-        },
       },
     },
   },

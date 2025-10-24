@@ -5,6 +5,8 @@ import Link from 'next/link';
 import { Product } from '@/lib/types';
 import { formatPrice, getWhatsAppUrl } from '@/lib/utils';
 import { useEffect, useState } from 'react';
+import { BestSellerBadge, NewBadge, LowStockBadge, DiscountBadge } from './Badge';
+import Badge from './Badge';
 
 interface ProductCardSSRProps {
   product: Product;
@@ -52,41 +54,36 @@ export default function ProductCardSSR({ product }: ProductCardSSRProps) {
           {/* Overlay no hover */}
           <div className="absolute inset-0 bg-gradient-to-t from-primary/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
 
-          {/* Top Badges */}
-          <div className="absolute top-3 right-3 flex flex-col gap-2">
-            {/* Badge Sob Encomenda */}
-            {!hasStock && (
-              <div className="bg-yellow-500 text-white px-3 py-1.5 rounded-lg text-xs font-semibold shadow-md">
-                Sob Encomenda
-              </div>
+          {/* Top Badges - NOVOS COM GRADIENTES */}
+          <div className="absolute top-3 right-3 flex flex-col gap-2 items-end">
+            {/* Badge Mais Vendido */}
+            {isBestSeller && <BestSellerBadge />}
+
+            {/* Badge Novo */}
+            {isNew && <NewBadge />}
+
+            {/* Badge Desconto (se houver comparePrice) */}
+            {product.comparePrice && product.comparePrice > product.price && (
+              <DiscountBadge
+                percentage={Math.round(((product.comparePrice - product.price) / product.comparePrice) * 100)}
+              />
             )}
 
             {/* Badge Últimas Unidades */}
-            {lowStock && (
-              <div className="bg-red-500 text-white px-3 py-1.5 rounded-lg text-xs font-semibold shadow-md animate-pulse">
-                🔥 Últimas {product.stock} un.
-              </div>
+            {lowStock && <LowStockBadge quantity={product.stock} />}
+
+            {/* Badge Sob Encomenda */}
+            {!hasStock && (
+              <Badge variant="preorder" size="sm">
+                Sob Encomenda
+              </Badge>
             )}
 
             {/* Badge Disponível */}
             {hasStock && !lowStock && (
-              <div className="bg-green-500 text-white px-3 py-1.5 rounded-lg text-xs font-semibold shadow-md">
+              <Badge variant="available" size="sm">
                 ✓ Em Estoque
-              </div>
-            )}
-
-            {/* Badge Novo */}
-            {isNew && (
-              <div className="bg-purple-500 text-white px-3 py-1.5 rounded-lg text-xs font-semibold shadow-md">
-                ✨ Novo
-              </div>
-            )}
-
-            {/* Badge Mais Vendido */}
-            {isBestSeller && (
-              <div className="bg-gradient-to-r from-yellow-400 to-orange-500 text-white px-3 py-1.5 rounded-lg text-xs font-semibold shadow-md">
-                ⭐ Mais Vendido
-              </div>
+              </Badge>
             )}
           </div>
         </div>
@@ -154,13 +151,13 @@ export default function ProductCardSSR({ product }: ProductCardSSRProps) {
         </div>
       </Link>
 
-      {/* Botão WhatsApp */}
+      {/* Botão WhatsApp - COM GRADIENTE VERDE */}
       <div className="px-5 pb-5">
         <a
           href={whatsappUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="block w-full text-center bg-secondary hover:bg-secondary-dark text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 shadow-md hover:shadow-lg hover:scale-105"
+          className="block w-full text-center btn-gradient-accent focus:ring-2 focus:ring-accent focus:ring-offset-2"
           onClick={(e) => e.stopPropagation()}
         >
           {buttonText}
