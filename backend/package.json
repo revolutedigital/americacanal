@@ -8,6 +8,7 @@
     "build": "tsc",
     "start": "node dist/server.js",
     "fix-images": "ts-node fix-images-direct.ts",
+    "add-testimonial-images": "ts-node add-images-to-testimonials.ts",
     "prisma:generate": "prisma generate",
     "prisma:migrate": "prisma migrate dev",
     "prisma:seed": "ts-node prisma/seed.ts",
