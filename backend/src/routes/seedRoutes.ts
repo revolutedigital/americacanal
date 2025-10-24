@@ -11,19 +11,29 @@ router.post('/api/seed', async (req: Request, res: Response) => {
     const action = req.query.action as string;
 
     if (action === 'add-testimonial-images') {
-      console.log('🖼️  Adding images to testimonials...');
+      console.log('🖼️  Adding PRODUCT images to testimonials...');
 
+      // Usar imagens de PRODUTOS (não banners!)
       const availableImages = [
-        'https://backend-production1.up.railway.app/uploads/images/banners/0cbc4bef-7b6d-4c4f-b3fb-afffa8f77600.jpg',
-        'https://backend-production1.up.railway.app/uploads/images/banners/12d34f35-c7fa-4477-935b-dcaf05709092.jpg',
-        'https://backend-production1.up.railway.app/uploads/images/banners/1940d3cc-5e12-4f14-86b8-50b89ec1405d.jpg',
-        'https://backend-production1.up.railway.app/uploads/images/banners/360d0152-f865-4ecc-82a0-f64a81044d18.jpg',
-        'https://backend-production1.up.railway.app/uploads/images/banners/83dd452f-de23-4340-8c31-217953593481.jpg',
-        'https://backend-production1.up.railway.app/uploads/images/banners/b05a4c02-4b7e-42c8-b3e0-0b07eb2b05c2.jpg',
-        'https://backend-production1.up.railway.app/uploads/images/banners/ba8dec1d-bafd-475e-8d16-9866d40221a0.jpg',
-        'https://backend-production1.up.railway.app/uploads/images/banners/dbe83c55-d8ed-4c50-806f-94f6c9a384be.jpg',
-        'https://backend-production1.up.railway.app/uploads/images/banners/f7f2ca5f-028f-4d56-b8f9-a15ba49fedc7.jpg',
+        'https://backend-production1.up.railway.app/uploads/images/products/fc0c9641-97d2-4501-8c1a-506fe0b9c1e5.jpg',
+        'https://backend-production1.up.railway.app/uploads/images/products/5da654fa-7761-450b-b916-e4b3b8f8d597.jpg',
+        'https://backend-production1.up.railway.app/uploads/images/products/6bd3b385-3de1-4842-b9d3-df282f6bc227.jpg',
+        'https://backend-production1.up.railway.app/uploads/images/products/1a516e81-7a29-4908-9d01-3808ee9540c8.jpg',
+        'https://backend-production1.up.railway.app/uploads/images/products/4435f829-7955-402d-abac-fee182475ed2.jpg',
+        'https://backend-production1.up.railway.app/uploads/images/products/d7a15ebf-6457-4144-bef2-a4f0a7c67efb.jpg',
+        'https://backend-production1.up.railway.app/uploads/images/products/fe00e1df-0cd4-4d45-a081-04b6beebcc3c.jpg',
+        'https://backend-production1.up.railway.app/uploads/images/products/070f73b4-85c6-4c77-a822-5edc052151e0.jpg',
+        'https://backend-production1.up.railway.app/uploads/images/products/0bc8a731-b2e4-401b-b29f-0ab0ead8e7a2.jpg',
+        'https://backend-production1.up.railway.app/uploads/images/products/72bb5edf-5075-4606-a1a8-044ebf53675e.jpg',
+        'https://backend-production1.up.railway.app/uploads/images/products/fc411061-172b-4cb8-ba42-40e12e0535a4.jpg',
       ];
+
+      // Primeiro, limpar imagens de banner que foram adicionadas incorretamente
+      await prisma.$executeRaw`
+        UPDATE "DefaultReview"
+        SET "mediaUrl" = NULL, "mediaType" = NULL
+        WHERE "mediaUrl" LIKE '%/banners/%'
+      `;
 
       const reviewsWithoutMedia = await prisma.defaultReview.findMany({
         where: {
