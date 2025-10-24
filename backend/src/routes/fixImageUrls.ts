@@ -49,7 +49,7 @@ router.post('/api/fix-image-urls', async (req: Request, res: Response) => {
       where: {
         OR: [
           { imageUrl: { contains: 'localhost' } },
-          { mobileImageUrl: { contains: 'localhost' } }
+          { imageMobile: { contains: 'localhost' } }
         ]
       }
     });
@@ -59,7 +59,7 @@ router.post('/api/fix-image-urls', async (req: Request, res: Response) => {
         where: { id: banner.id },
         data: {
           imageUrl: banner.imageUrl?.replace(OLD_URL, NEW_URL),
-          mobileImageUrl: banner.mobileImageUrl?.replace(OLD_URL, NEW_URL),
+          imageMobile: banner.imageMobile?.replace(OLD_URL, NEW_URL),
         }
       });
       updated.banners++;
@@ -85,7 +85,7 @@ router.post('/api/fix-image-urls', async (req: Request, res: Response) => {
     // 4. Update Brands
     const brands = await prisma.brand.findMany({
       where: {
-        logoUrl: { contains: 'localhost' }
+        imageUrl: { contains: 'localhost' }
       }
     });
 
@@ -93,7 +93,7 @@ router.post('/api/fix-image-urls', async (req: Request, res: Response) => {
       await prisma.brand.update({
         where: { id: brand.id },
         data: {
-          logoUrl: brand.logoUrl?.replace(OLD_URL, NEW_URL),
+          imageUrl: brand.imageUrl?.replace(OLD_URL, NEW_URL),
         }
       });
       updated.brands++;
