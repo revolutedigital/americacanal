@@ -106,8 +106,8 @@ export default function Sidebar() {
                         href={item.href}
                         className={`flex items-center space-x-3 px-4 py-3 rounded-lg transition-all duration-200 ${
                           isActive
-                            ? 'bg-gradient-to-r from-accent to-accent-dark text-gray-900 font-semibold shadow-lg'
-                            : 'text-gray-300 hover:bg-gray-700 hover:text-white'
+                            ? 'bg-gradient-to-r from-accent to-accent-dark text-white font-semibold shadow-lg'
+                            : 'text-gray-300 hover:bg-primary-light hover:text-white'
                         }`}
                       >
                         <ItemIcon size={20} className="flex-shrink-0" />
