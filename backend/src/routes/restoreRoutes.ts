@@ -9,6 +9,32 @@ const prisma = new PrismaClient();
 // Rota TEMPORÁRIA para restaurar banco (REMOVER após uso!)
 router.post('/api/restore-db', async (req: Request, res: Response) => {
   try {
+    const clean = req.query.clean === 'true';
+
+    if (clean) {
+      console.log('🗑️  CLEANING ALL EXISTING DATA...');
+
+      const tenantId = '0fb61585-3cb3-48b3-ae76-0a5358084a8c';
+
+      // Deletar TODOS os dados do tenant (respeitando ordem de foreign keys)
+      await prisma.orderItem.deleteMany({ where: { order: { tenantId } } });
+      await prisma.order.deleteMany({ where: { tenantId } });
+      await prisma.review.deleteMany({ where: { product: { tenantId } } });
+      await prisma.wishlist.deleteMany({ where: { customer: { tenantId } } });
+      await prisma.customer.deleteMany({ where: { tenantId } });
+      await prisma.coupon.deleteMany({ where: { tenantId } });
+      await prisma.defaultReview.deleteMany({ where: { tenantId } });
+      await prisma.benefit.deleteMany({ where: { tenantId } });
+      await prisma.manualSale.deleteMany({ where: { tenantId } });
+      await prisma.banner.deleteMany({ where: { tenantId } });
+      await prisma.product.deleteMany({ where: { tenantId } });
+      await prisma.category.deleteMany({ where: { tenantId } });
+      await prisma.brand.deleteMany({ where: { tenantId } });
+      await prisma.tenantConfig.deleteMany({ where: { tenantId } });
+
+      console.log('✅ All existing data deleted!');
+    }
+
     console.log('🔄 Starting database restore from Docker dump...');
 
     // Ler o arquivo SQL
@@ -63,13 +89,30 @@ router.post('/api/restore-db', async (req: Request, res: Response) => {
 
     console.log(`✅ Database restored! Executed ${executed}/${statements.length} statements successfully`);
 
+    // Fix image URLs from localhost to Railway
+    console.log('🔧 Fixing image URLs from localhost to Railway...');
+    const OLD_URL = 'http://localhost:4000';
+    const NEW_URL = 'https://backend-production1.up.railway.app';
+
+    await prisma.$executeRaw`UPDATE "Product" SET "imageUrl" = REPLACE("imageUrl", ${OLD_URL}, ${NEW_URL}) WHERE "imageUrl" LIKE '%localhost%'`;
+    await prisma.$executeRaw`UPDATE "Product" SET images = ARRAY(SELECT REPLACE(unnest(images)::text, ${OLD_URL}, ${NEW_URL})) WHERE images::text LIKE '%localhost%'`;
+    await prisma.$executeRaw`UPDATE "Banner" SET "imageUrl" = REPLACE("imageUrl", ${OLD_URL}, ${NEW_URL}) WHERE "imageUrl" LIKE '%localhost%'`;
+    await prisma.$executeRaw`UPDATE "Banner" SET "imageMobile" = REPLACE("imageMobile", ${OLD_URL}, ${NEW_URL}) WHERE "imageMobile" LIKE '%localhost%'`;
+    await prisma.$executeRaw`UPDATE "DefaultReview" SET "mediaUrl" = REPLACE("mediaUrl", ${OLD_URL}, ${NEW_URL}) WHERE "mediaUrl" LIKE '%localhost%'`;
+    await prisma.$executeRaw`UPDATE "Brand" SET "imageUrl" = REPLACE("imageUrl", ${OLD_URL}, ${NEW_URL}) WHERE "imageUrl" LIKE '%localhost%'`;
+    await prisma.$executeRaw`UPDATE "Category" SET "imageUrl" = REPLACE("imageUrl", ${OLD_URL}, ${NEW_URL}) WHERE "imageUrl" LIKE '%localhost%'`;
+
+    console.log('✅ Image URLs fixed!');
+
     res.json({
       success: true,
-      message: 'Database restored from local Docker dump',
+      message: clean ? 'Database cleaned and fully restored from Docker' : 'Database restored from Docker dump',
       originalSize: `${(sqlContent.length / 1024).toFixed(2)} KB`,
       cleanedSize: `${(cleanSql.length / 1024).toFixed(2)} KB`,
       statementsTotal: statements.length,
-      statementsExecuted: executed
+      statementsExecuted: executed,
+      cleaned: clean,
+      imageUrlsFixed: true
     });
   } catch (error: any) {
     console.error('❌ Restore failed:', error);
