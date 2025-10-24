@@ -176,10 +176,10 @@ export default function ProdutosPage() {
         <div className="container mx-auto px-4 py-12">
           {/* Título */}
           <div className="text-center mb-8">
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-              Nossos Produtos
+            <h1 className="text-5xl md:text-6xl font-extrabold bg-gradient-to-r from-primary via-primary-vibrant to-primary bg-clip-text text-transparent mb-4">
+              🌿 Nossos Produtos
             </h1>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            <p className="text-xl text-gray-700 max-w-2xl mx-auto font-medium">
               Descubra nossa seleção premium de produtos de cannabis de alta qualidade
             </p>
           </div>
@@ -192,12 +192,12 @@ export default function ProdutosPage() {
             <div className="lg:grid lg:grid-cols-4 lg:gap-8">
               {/* Sidebar de Filtros */}
               <aside className={`lg:col-span-1 ${showFilters ? 'block' : 'hidden lg:block'}`}>
-                <div className="bg-white rounded-xl shadow-lg p-6 sticky top-4 border border-gray-100">
+                <div className="bg-gradient-to-br from-white to-gray-50 rounded-2xl shadow-xl p-6 sticky top-4 border-2 border-accent/20">
                   <div className="flex items-center justify-between mb-6">
-                    <h2 className="text-xl font-bold text-gray-900">Filtros</h2>
+                    <h2 className="text-2xl font-extrabold bg-gradient-to-r from-primary to-primary-vibrant bg-clip-text text-transparent">🎛️ Filtros</h2>
                     <button
                       onClick={clearFilters}
-                      className="text-sm text-primary hover:underline"
+                      className="text-sm font-semibold text-info hover:text-info-dark hover:scale-110 transition-all"
                     >
                       Limpar
                     </button>
@@ -205,7 +205,7 @@ export default function ProdutosPage() {
 
                   {/* Filtro por Categoria */}
                   <div className="mb-6">
-                    <h3 className="font-semibold text-gray-900 mb-3">📁 Categorias</h3>
+                    <h3 className="font-bold text-primary-vibrant mb-3 text-lg">📁 Categorias</h3>
                     <div className="space-y-2">
                       <label className="flex items-center">
                         <input
@@ -235,7 +235,7 @@ export default function ProdutosPage() {
                   {/* Filtro por Marca */}
                   {brands.length > 0 && (
                     <div className="mb-6">
-                      <h3 className="font-semibold text-gray-900 mb-3">🏷️ Marcas</h3>
+                      <h3 className="font-bold text-accent mb-3 text-lg">🏷️ Marcas</h3>
                       <div className="space-y-2">
                         <label className="flex items-center">
                           <input
@@ -265,7 +265,7 @@ export default function ProdutosPage() {
 
                   {/* Filtro por Tipo */}
                   <div className="mb-6">
-                    <h3 className="font-semibold text-gray-900 mb-3">🌿 Tipo</h3>
+                    <h3 className="font-bold text-info mb-3 text-lg">🌿 Tipo</h3>
                     <div className="space-y-2">
                       <label className="flex items-center">
                         <input
@@ -312,7 +312,7 @@ export default function ProdutosPage() {
 
                   {/* Filtro por Preço */}
                   <div className="mb-6">
-                    <h3 className="font-semibold text-gray-900 mb-3">💰 Faixa de Preço</h3>
+                    <h3 className="font-bold text-urgent mb-3 text-lg">💰 Faixa de Preço</h3>
                     <div className="space-y-3">
                       <div>
                         <label className="text-sm text-gray-600">Mínimo: R$ {priceRange.min}</label>
@@ -342,17 +342,17 @@ export default function ProdutosPage() {
                   </div>
 
                   {/* Trust Signals */}
-                  <div className="border-t pt-6 space-y-3 text-sm text-gray-600">
-                    <div className="flex items-center gap-2">
-                      <span>✅</span>
+                  <div className="border-t-2 border-accent/20 pt-6 space-y-3 text-sm font-semibold">
+                    <div className="flex items-center gap-2 text-accent">
+                      <span className="text-lg">✅</span>
                       <span>Produtos Certificados</span>
                     </div>
-                    <div className="flex items-center gap-2">
-                      <span>🚚</span>
+                    <div className="flex items-center gap-2 text-info">
+                      <span className="text-lg">🚚</span>
                       <span>Entrega Rápida</span>
                     </div>
-                    <div className="flex items-center gap-2">
-                      <span>🔒</span>
+                    <div className="flex items-center gap-2 text-primary-vibrant">
+                      <span className="text-lg">🔒</span>
                       <span>Compra Segura</span>
                     </div>
                   </div>
@@ -371,7 +371,7 @@ export default function ProdutosPage() {
                     {/* Botão Filtros Mobile */}
                     <button
                       onClick={() => setShowFilters(!showFilters)}
-                      className="lg:hidden bg-primary text-white px-4 py-2 rounded-lg flex items-center gap-2"
+                      className="lg:hidden bg-gradient-to-r from-primary-vibrant to-primary text-white px-5 py-3 rounded-xl flex items-center gap-2 font-bold shadow-lg hover:scale-105 transition-transform"
                     >
                       🎛️ Filtros
                     </button>
@@ -380,32 +380,32 @@ export default function ProdutosPage() {
                     <select
                       value={sortBy}
                       onChange={(e) => setSortBy(e.target.value as SortOption)}
-                      className="border border-gray-300 rounded-lg px-4 py-2 bg-white"
+                      className="border-2 border-accent/30 rounded-xl px-4 py-3 bg-white font-semibold text-gray-700 focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all"
                     >
-                      <option value="relevance">Relevância</option>
-                      <option value="price-asc">Menor Preço</option>
-                      <option value="price-desc">Maior Preço</option>
-                      <option value="name-asc">Nome A-Z</option>
-                      <option value="newest">Mais Recentes</option>
+                      <option value="relevance">📊 Relevância</option>
+                      <option value="price-asc">💰 Menor Preço</option>
+                      <option value="price-desc">💎 Maior Preço</option>
+                      <option value="name-asc">🔤 Nome A-Z</option>
+                      <option value="newest">🆕 Mais Recentes</option>
                     </select>
                   </div>
                 </div>
 
                 {/* Grid de Produtos */}
                 {filteredProducts.length === 0 ? (
-                  <div className="text-center py-12 bg-gray-50 rounded-lg">
-                    <div className="text-6xl mb-4">😔</div>
-                    <p className="text-gray-600 text-lg font-semibold mb-2">
+                  <div className="text-center py-16 bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl border-2 border-gray-200">
+                    <div className="text-7xl mb-4">😔</div>
+                    <p className="text-gray-800 text-2xl font-bold mb-2">
                       Nenhum produto encontrado
                     </p>
-                    <p className="text-gray-500">
+                    <p className="text-gray-600 text-lg mb-6">
                       Tente ajustar os filtros ou limpar a busca
                     </p>
                     <button
                       onClick={clearFilters}
-                      className="mt-4 bg-primary text-white px-6 py-2 rounded-lg hover:bg-primary/90"
+                      className="btn-gradient-accent hover:scale-105 transition-transform"
                     >
-                      Limpar Filtros
+                      🔄 Limpar Filtros
                     </button>
                   </div>
                 ) : (
