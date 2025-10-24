@@ -19,6 +19,7 @@ import bannerRoutes from './routes/bannerRoutes';
 import manualSaleRoutes from './routes/manualSaleRoutes';
 import seedRoutes from './routes/seedRoutes';
 import restoreRoutes from './routes/restoreRoutes';
+import fixImageUrlsRoutes from './routes/fixImageUrls';
 
 // Carregar variáveis de ambiente
 dotenv.config();
@@ -72,6 +73,7 @@ app.use('/api/banners', bannerRoutes);
 app.use('/api/sales', manualSaleRoutes);
 app.use(seedRoutes); // Rota temporária para seed
 app.use(restoreRoutes); // Rota temporária para restore DB
+app.use(fixImageUrlsRoutes); // Rota temporária para fix image URLs
 
 // Rota de health check
 app.get('/health', (req: Request, res: Response) => {
