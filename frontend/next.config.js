@@ -36,6 +36,10 @@ const nextConfig = {
       },
       {
         protocol: 'https',
+        hostname: 'backend-production1.up.railway.app',
+      },
+      {
+        protocol: 'https',
         hostname: 'images.unsplash.com',
       },
       {
