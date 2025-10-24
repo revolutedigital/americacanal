@@ -42,6 +42,6 @@ Thumbs.db
 # Prisma
 prisma/migrations/*_migration/
 
-# Uploads
-uploads/
-public/uploads/
+# Uploads (temporarily allowing uploads for Railway deployment)
+# uploads/
+# public/uploads/
