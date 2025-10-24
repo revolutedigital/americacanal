@@ -261,6 +261,11 @@ a {
 }
 
 /* Better button contrast */
+.admin-panel .btn-primary {
+  @apply bg-accent hover:bg-accent-dark text-white !important;
+  box-shadow: 0 4px 14px 0 rgba(95, 173, 86, 0.35) !important;
+}
+
 .admin-panel .btn-secondary {
   @apply bg-gray-600 hover:bg-gray-500 text-white !important;
 }
@@ -273,6 +278,47 @@ a {
 /* Better link visibility */
 .admin-panel a:not(.btn-primary):not(.btn-accent):not(.btn-secondary) {
   @apply text-accent hover:text-accent-light !important;
+}
+
+/* Fix text-primary (purple) on dark backgrounds - convert to accent (green) */
+.admin-panel .text-primary {
+  @apply text-accent !important;
+}
+
+.admin-panel .text-primary:hover,
+.admin-panel .hover\:text-primary-dark:hover {
+  @apply text-accent-light !important;
+}
+
+/* Fix button text-primary class usage */
+.admin-panel button.text-primary,
+.admin-panel a.text-primary {
+  @apply text-accent hover:text-accent-light !important;
+  font-weight: 600 !important;
+}
+
+/* Improve red delete/danger button visibility */
+.admin-panel .text-red-600 {
+  @apply text-red-400 !important; /* Lighter red for better contrast */
+}
+
+.admin-panel .text-red-600:hover,
+.admin-panel .hover\:text-red-900:hover,
+.admin-panel .hover\:text-red-700:hover,
+.admin-panel .hover\:text-red-800:hover {
+  @apply text-red-300 !important; /* Even lighter on hover */
+}
+
+/* Better visibility for action buttons in tables */
+.admin-panel table button,
+.admin-panel table a {
+  font-weight: 600 !important;
+  transition: all 0.2s ease !important;
+}
+
+.admin-panel table button:hover,
+.admin-panel table a:hover {
+  transform: scale(1.05) !important;
 }
 
 /* Improve description/subtitle text */
@@ -289,4 +335,28 @@ a {
 /* Improve divider visibility */
 .admin-panel .divide-gray-200 > * {
   @apply border-gray-700 !important;
+}
+
+/* Fix border-primary on dark backgrounds */
+.admin-panel .border-primary {
+  @apply border-accent !important;
+}
+
+.admin-panel .hover\:border-primary:hover {
+  @apply border-accent-light !important;
+}
+
+/* Fix bg-primary buttons/badges on dark backgrounds */
+.admin-panel .bg-primary:not(.gradient-premium) {
+  @apply bg-accent !important;
+}
+
+/* Improve loading spinner visibility */
+.admin-panel .border-b-2.border-primary {
+  @apply border-accent !important;
+}
+
+/* Better badge/pill visibility */
+.admin-panel .bg-gray-700.text-gray-800 {
+  @apply bg-gray-600 text-gray-200 !important;
 }
