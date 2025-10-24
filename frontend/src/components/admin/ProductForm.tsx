@@ -62,7 +62,7 @@ export default function ProductForm({
 
   const fetchCategories = async () => {
     try {
-      const response = await api.get('/api/categories?tenantId=0fb61585-3cb3-48b3-ae76-0a5358084a8c');
+      const response = await api.get('/api/categories?tenantId=df192cfd-fb87-470a-8ea8-81784633409c');
       setCategories(response.data.filter((cat: Category) => cat.isActive));
     } catch (error) {
       console.error('Error fetching categories:', error);
@@ -71,7 +71,7 @@ export default function ProductForm({
 
   const fetchBrands = async () => {
     try {
-      const response = await api.get('/api/brands?tenantId=0fb61585-3cb3-48b3-ae76-0a5358084a8c');
+      const response = await api.get('/api/brands?tenantId=df192cfd-fb87-470a-8ea8-81784633409c');
       setBrands(response.data.filter((brand: Brand) => brand.isActive));
     } catch (error) {
       console.error('Error fetching brands:', error);

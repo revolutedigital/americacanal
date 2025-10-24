@@ -8,7 +8,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   try {
     const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5177';
     // Adicionar tenantId do America Cannabis
-    const response = await fetch(`${apiUrl}/api/products?tenantId=0fb61585-3cb3-48b3-ae76-0a5358084a8c`, {
+    const response = await fetch(`${apiUrl}/api/products?tenantId=df192cfd-fb87-470a-8ea8-81784633409c`, {
       next: { revalidate: 3600 } // Revalidar a cada hora
     });
     if (response.ok) {

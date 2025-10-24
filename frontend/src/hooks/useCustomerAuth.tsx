@@ -34,7 +34,7 @@ interface RegisterData {
 
 const CustomerAuthContext = createContext<CustomerAuthContextType | undefined>(undefined);
 
-const TENANT_ID = '0fb61585-3cb3-48b3-ae76-0a5358084a8c'; // TODO: Get from environment or tenant resolution
+const TENANT_ID = 'df192cfd-fb87-470a-8ea8-81784633409c'; // TODO: Get from environment or tenant resolution
 
 export function CustomerAuthProvider({ children }: { children: ReactNode }) {
   const [customer, setCustomer] = useState<Customer | null>(null);

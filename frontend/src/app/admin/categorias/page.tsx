@@ -34,7 +34,7 @@ export default function CategoriasPage() {
   const fetchCategories = async () => {
     try {
       setLoading(true);
-      const response = await api.get('/api/categories?tenantId=0fb61585-3cb3-48b3-ae76-0a5358084a8c');
+      const response = await api.get('/api/categories?tenantId=df192cfd-fb87-470a-8ea8-81784633409c');
       setCategories(response.data);
     } catch (error: any) {
       console.error('Error fetching categories:', error);
@@ -63,7 +63,7 @@ export default function CategoriasPage() {
         // Create
         await api.post('/api/categories', {
           ...formData,
-          tenantId: '0fb61585-3cb3-48b3-ae76-0a5358084a8c',
+          tenantId: 'df192cfd-fb87-470a-8ea8-81784633409c',
         });
         alert('Categoria criada com sucesso!');
       }

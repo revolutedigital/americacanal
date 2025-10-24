@@ -38,7 +38,7 @@ export default function AvaliacoesPadraoPage() {
   const fetchReviews = async () => {
     try {
       setLoading(true);
-      const response = await api.get('/api/default-reviews?tenantId=0fb61585-3cb3-48b3-ae76-0a5358084a8c');
+      const response = await api.get('/api/default-reviews?tenantId=df192cfd-fb87-470a-8ea8-81784633409c');
       setReviews(response.data);
     } catch (error: any) {
       console.error('Error fetching reviews:', error);
@@ -65,7 +65,7 @@ export default function AvaliacoesPadraoPage() {
       } else {
         await api.post('/api/default-reviews', {
           ...formData,
-          tenantId: '0fb61585-3cb3-48b3-ae76-0a5358084a8c',
+          tenantId: 'df192cfd-fb87-470a-8ea8-81784633409c',
         });
         alert('Avaliação criada com sucesso!');
       }

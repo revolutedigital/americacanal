@@ -33,7 +33,7 @@ export default function BeneficiosPage() {
   const fetchBenefits = async () => {
     try {
       setLoading(true);
-      const response = await api.get('/api/benefits/global?tenantId=0fb61585-3cb3-48b3-ae76-0a5358084a8c');
+      const response = await api.get('/api/benefits/global?tenantId=df192cfd-fb87-470a-8ea8-81784633409c');
       setBenefits(response.data);
     } catch (error: any) {
       console.error('Error fetching benefits:', error);
@@ -65,7 +65,7 @@ export default function BeneficiosPage() {
       } else {
         await api.post('/api/benefits/global', {
           ...formData,
-          tenantId: '0fb61585-3cb3-48b3-ae76-0a5358084a8c',
+          tenantId: 'df192cfd-fb87-470a-8ea8-81784633409c',
         });
         alert('Benefício criado com sucesso!');
       }

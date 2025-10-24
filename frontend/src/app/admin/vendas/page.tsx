@@ -44,7 +44,7 @@ export default function ManualSalesPage() {
   const fetchProducts = async () => {
     try {
       setLoading(true);
-      const response = await api.get('/api/products/admin/all?tenantId=0fb61585-3cb3-48b3-ae76-0a5358084a8c');
+      const response = await api.get('/api/products/admin/all?tenantId=df192cfd-fb87-470a-8ea8-81784633409c');
       const activeProducts = response.data.filter((p: Product) => p.isActive && p.stock > 0);
       setProducts(activeProducts);
     } catch (error) {

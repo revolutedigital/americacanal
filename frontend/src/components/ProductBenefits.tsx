@@ -32,7 +32,7 @@ export default function ProductBenefits({ productId }: ProductBenefitsProps) {
 
       if (enableGlobalBenefits) {
         // Busca benefícios globais
-        const response = await api.get('/api/benefits/global/active?tenantId=0fb61585-3cb3-48b3-ae76-0a5358084a8c');
+        const response = await api.get('/api/benefits/global/active?tenantId=df192cfd-fb87-470a-8ea8-81784633409c');
         setBenefits(response.data);
       } else if (productId) {
         // Busca benefícios específicos do produto

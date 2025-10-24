@@ -33,7 +33,7 @@ export default function DepoimentosPage() {
     try {
       setLoading(true);
       const response = await api.get(
-        '/api/default-reviews?tenantId=0fb61585-3cb3-48b3-ae76-0a5358084a8c&isActive=true'
+        '/api/default-reviews?tenantId=df192cfd-fb87-470a-8ea8-81784633409c&isActive=true'
       );
       setTestimonials(response.data);
     } catch (error) {
