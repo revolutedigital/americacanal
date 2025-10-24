@@ -100,7 +100,7 @@ export default function MultipleImageUpload({
           Galeria de Imagens ({images.length}/{maxImages})
         </label>
         <label
-          className={`btn-primary cursor-pointer ${
+          className={`btn-accent cursor-pointer ${
             uploading || images.length >= maxImages ? 'opacity-50 cursor-not-allowed' : ''
           }`}
         >
