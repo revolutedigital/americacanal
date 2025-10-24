@@ -11,7 +11,7 @@ import { LabIcon, DeliveryIcon, SupportIcon } from '@/components/icons/Icons';
 async function getProducts(): Promise<Product[]> {
   try {
     const response = await fetch(
-      'http://localhost:4000/api/products?tenantId=df192cfd-fb87-470a-8ea8-81784633409c',
+      'http://localhost:4000/api/products?tenantId=0fb61585-3cb3-48b3-ae76-0a5358084a8c',
       {
         cache: 'no-store', // Revalidate on every request for fresh data
         next: { revalidate: 60 } // Or use ISR with 60 second revalidation

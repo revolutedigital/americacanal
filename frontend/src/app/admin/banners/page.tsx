@@ -58,7 +58,7 @@ export default function BannersPage() {
   const fetchBanners = async () => {
     try {
       setLoading(true);
-      const response = await api.get(`/api/banners?tenantId=df192cfd-fb87-470a-8ea8-81784633409c&type=${selectedType}`);
+      const response = await api.get(`/api/banners?tenantId=0fb61585-3cb3-48b3-ae76-0a5358084a8c&type=${selectedType}`);
       setBanners(response.data);
     } catch (error: any) {
       console.error('Error fetching banners:', error);
@@ -72,7 +72,7 @@ export default function BannersPage() {
 
   const fetchCategories = async () => {
     try {
-      const response = await api.get('/api/categories?tenantId=df192cfd-fb87-470a-8ea8-81784633409c');
+      const response = await api.get('/api/categories?tenantId=0fb61585-3cb3-48b3-ae76-0a5358084a8c');
       setCategories(response.data.filter((cat: Category) => cat));
     } catch (error) {
       console.error('Error fetching categories:', error);
@@ -127,7 +127,7 @@ export default function BannersPage() {
       } else {
         await api.post('/api/banners', {
           ...payload,
-          tenantId: 'df192cfd-fb87-470a-8ea8-81784633409c',
+          tenantId: '0fb61585-3cb3-48b3-ae76-0a5358084a8c',
         });
         alert('Banner criado com sucesso!');
       }

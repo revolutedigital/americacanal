@@ -32,7 +32,7 @@ export default function ProductTestimonials() {
 
   const fetchTestimonials = async () => {
     try {
-      const response = await api.get('/api/default-reviews/featured?tenantId=df192cfd-fb87-470a-8ea8-81784633409c');
+      const response = await api.get('/api/default-reviews/featured?tenantId=0fb61585-3cb3-48b3-ae76-0a5358084a8c');
       // Filtrar apenas os que devem aparecer em produtos
       const productTestimonials = response.data.filter((t: Testimonial) => t.showOnProducts);
       // Ordenar por destaque primeiro, depois por data

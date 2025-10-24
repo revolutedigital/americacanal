@@ -19,7 +19,7 @@ export default function ProductsPage() {
   const fetchProducts = async () => {
     try {
       // Adicionar tenantId do America Cannabis
-      const response = await api.get('/api/products/admin/all?tenantId=df192cfd-fb87-470a-8ea8-81784633409c');
+      const response = await api.get('/api/products/admin/all?tenantId=0fb61585-3cb3-48b3-ae76-0a5358084a8c');
       setProducts(response.data);
     } catch (error) {
       console.error('Error fetching products:', error);

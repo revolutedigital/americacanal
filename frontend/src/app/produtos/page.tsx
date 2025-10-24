@@ -78,7 +78,7 @@ export default function ProdutosPage() {
 
   const fetchProducts = async () => {
     try {
-      const response = await api.get('/api/products?tenantId=df192cfd-fb87-470a-8ea8-81784633409c');
+      const response = await api.get('/api/products?tenantId=0fb61585-3cb3-48b3-ae76-0a5358084a8c');
       setProducts(response.data);
     } catch (error) {
       console.error('Error fetching products:', error);
@@ -89,7 +89,7 @@ export default function ProdutosPage() {
 
   const fetchCategories = async () => {
     try {
-      const response = await api.get('/api/categories?tenantId=df192cfd-fb87-470a-8ea8-81784633409c');
+      const response = await api.get('/api/categories?tenantId=0fb61585-3cb3-48b3-ae76-0a5358084a8c');
       setCategories(response.data);
     } catch (error) {
       console.error('Error fetching categories:', error);
@@ -98,7 +98,7 @@ export default function ProdutosPage() {
 
   const fetchBrands = async () => {
     try {
-      const response = await api.get('/api/brands/active?tenantId=df192cfd-fb87-470a-8ea8-81784633409c');
+      const response = await api.get('/api/brands/active?tenantId=0fb61585-3cb3-48b3-ae76-0a5358084a8c');
       setBrands(response.data);
     } catch (error) {
       console.error('Error fetching brands:', error);
