@@ -10,7 +10,70 @@ router.post('/api/seed', async (req: Request, res: Response) => {
   try {
     const action = req.query.action as string;
 
-    if (action === 'add-testimonial-images') {
+    if (action === 'restore-original-testimonials') {
+      console.log('🔄 Restoring ORIGINAL testimonials from Docker...');
+
+      // Deletar todos os depoimentos atuais
+      await prisma.defaultReview.deleteMany({
+        where: {
+          tenantId: '0fb61585-3cb3-48b3-ae76-0a5358084a8c'
+        }
+      });
+
+      // Restaurar APENAS os 5 depoimentos originais do Docker
+      const originalTestimonials = [
+        {
+          id: '0c048706-4acf-4b81-8bc0-835e849d5fb4',
+          mediaUrl: 'https://backend-production1.up.railway.app/uploads/images/banners/f995cf16-56fe-4a3d-9690-b0dbc4d8c7d8.jpg',
+          createdAt: new Date('2025-10-22T16:44:27.051Z'),
+        },
+        {
+          id: '219ac9c0-a057-46fb-8bec-b2e3c963367e',
+          mediaUrl: 'https://backend-production1.up.railway.app/uploads/images/banners/360d0152-f865-4ecc-82a0-f64a81044d18.jpg',
+          createdAt: new Date('2025-10-22T16:28:50.467Z'),
+        },
+        {
+          id: 'b9e0d691-0659-4696-94b1-e9073b1292c6',
+          mediaUrl: 'https://backend-production1.up.railway.app/uploads/images/banners/b05a4c02-4b7e-42c8-b3e0-0b07eb2b05c2.jpg',
+          createdAt: new Date('2025-10-22T16:28:39.302Z'),
+        },
+        {
+          id: '570fe3fd-bfa1-4a3e-845a-9abe70649b21',
+          mediaUrl: 'https://backend-production1.up.railway.app/uploads/images/banners/12d34f35-c7fa-4477-935b-dcaf05709092.jpg',
+          createdAt: new Date('2025-10-22T16:28:28.614Z'),
+        },
+        {
+          id: '5e5bae87-eb3e-4ef6-842b-193c9a7cfbe5',
+          mediaUrl: 'https://backend-production1.up.railway.app/uploads/images/banners/ecef7e0e-7ea7-4883-8e64-e7492eef3f2c.jpg',
+          createdAt: new Date('2025-10-21T16:56:17.727Z'),
+        },
+      ];
+
+      for (const testimonial of originalTestimonials) {
+        await prisma.defaultReview.create({
+          data: {
+            id: testimonial.id,
+            tenantId: '0fb61585-3cb3-48b3-ae76-0a5358084a8c',
+            rating: 5,
+            mediaUrl: testimonial.mediaUrl,
+            mediaType: 'image',
+            isActive: true,
+            isFeatured: true,
+            showOnHome: true,
+            showOnProducts: true,
+            order: 0,
+            createdAt: testimonial.createdAt,
+            updatedAt: new Date(),
+          }
+        });
+      }
+
+      res.json({
+        success: true,
+        message: 'Restored 5 original testimonials from Docker',
+        count: 5,
+      });
+    } else if (action === 'add-testimonial-images') {
       console.log('🖼️  Adding PRODUCT images to testimonials...');
 
       // Usar imagens de PRODUTOS (não banners!)
