@@ -141,7 +141,7 @@ export default function Header() {
                 aria-label="Realizar busca"
                 className="absolute right-2 top-1/2 -translate-y-1/2 bg-secondary hover:bg-secondary-dark text-white px-6 py-2 rounded-full font-semibold transition-all shadow-md hover:shadow-lg focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
               >
-                🔍 Buscar
+                Buscar
               </button>
             </div>
           </form>
@@ -153,7 +153,6 @@ export default function Header() {
               aria-label="Acessar área administrativa"
               className="hover:text-accent hover:scale-110 transition-all duration-200 flex items-center gap-2 bg-white/10 px-5 py-3 rounded-full focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
             >
-              <span aria-hidden="true">⚙️</span>
               <span className="hidden lg:inline">Admin</span>
             </Link>
           </nav>
@@ -167,7 +166,7 @@ export default function Header() {
               aria-label="Ir para página inicial"
               className="text-white/90 hover:text-white font-semibold transition-colors px-5 py-3 hover:bg-white/10 rounded-full focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
             >
-              <span aria-hidden="true">🏠</span> Início
+              Início
             </Link>
 
             {/* Categories Dropdown */}
@@ -179,7 +178,7 @@ export default function Header() {
                 aria-label="Menu de categorias"
                 className="text-white/90 hover:text-white font-semibold transition-colors px-5 py-3 hover:bg-white/10 rounded-full flex items-center gap-2 focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
               >
-                <span aria-hidden="true">📁</span> Categorias
+                Categorias
                 <span className="text-xs" aria-hidden="true">▼</span>
               </button>
 
@@ -195,7 +194,7 @@ export default function Header() {
                     onClick={() => setShowCategoriesMenu(false)}
                     className="block px-6 py-3 hover:bg-purple-50 transition-colors font-medium focus-visible:bg-purple-50 focus-visible:outline-none"
                   >
-                    <span aria-hidden="true">📦</span> Todos os Produtos
+                    Todos os Produtos
                   </Link>
                   {categories.map((category) => (
                     <Link
@@ -221,7 +220,7 @@ export default function Header() {
                 aria-label="Menu de marcas"
                 className="text-white/90 hover:text-white font-semibold transition-colors px-5 py-3 hover:bg-white/10 rounded-full flex items-center gap-2 focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
               >
-                <span aria-hidden="true">🏷️</span> Marcas
+                Marcas
                 <span className="text-xs" aria-hidden="true">▼</span>
               </button>
 
@@ -237,7 +236,7 @@ export default function Header() {
                     onClick={() => setShowBrandsMenu(false)}
                     className="block px-6 py-3 hover:bg-purple-50 transition-colors font-medium focus-visible:bg-purple-50 focus-visible:outline-none"
                   >
-                    <span aria-hidden="true">📦</span> Todas as Marcas
+                    Todas as Marcas
                   </Link>
                   {brands.map((brand) => (
                     <Link
@@ -263,7 +262,7 @@ export default function Header() {
                 aria-label="Menu de tipos de produto"
                 className="text-white/90 hover:text-white font-semibold transition-colors px-5 py-3 hover:bg-white/10 rounded-full flex items-center gap-2 focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
               >
-                <span aria-hidden="true">🌿</span> Tipo
+                Tipo
                 <span className="text-xs" aria-hidden="true">▼</span>
               </button>
 
@@ -279,7 +278,7 @@ export default function Header() {
                     onClick={() => setShowTypesMenu(false)}
                     className="block px-6 py-3 hover:bg-purple-50 transition-colors focus-visible:bg-purple-50 focus-visible:outline-none"
                   >
-                    <span aria-hidden="true">🌙</span> Indica
+                    Indica
                   </Link>
                   <Link
                     href="/produtos?tipo=SATIVA"
@@ -287,7 +286,7 @@ export default function Header() {
                     onClick={() => setShowTypesMenu(false)}
                     className="block px-6 py-3 hover:bg-purple-50 transition-colors focus-visible:bg-purple-50 focus-visible:outline-none"
                   >
-                    <span aria-hidden="true">☀️</span> Sativa
+                    Sativa
                   </Link>
                   <Link
                     href="/produtos?tipo=HIBRIDA"
@@ -295,7 +294,7 @@ export default function Header() {
                     onClick={() => setShowTypesMenu(false)}
                     className="block px-6 py-3 hover:bg-purple-50 transition-colors focus-visible:bg-purple-50 focus-visible:outline-none"
                   >
-                    <span aria-hidden="true">🌓</span> Híbrida
+                    Híbrida
                   </Link>
                 </div>
               )}
@@ -306,7 +305,7 @@ export default function Header() {
               aria-label="Ver todos os produtos"
               className="text-white/90 hover:text-white font-semibold transition-colors px-5 py-3 hover:bg-white/10 rounded-full focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
             >
-              <span aria-hidden="true">🛍️</span> Produtos
+              Produtos
             </Link>
           </div>
         </nav>
