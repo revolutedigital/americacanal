@@ -74,7 +74,7 @@ export default function Header() {
 
   const fetchBrands = async () => {
     try {
-      const response = await api.get('/api/brands?tenantId=df192cfd-fb87-470a-8ea8-81784633409c');
+      const response = await api.get('/api/brands/active?tenantId=df192cfd-fb87-470a-8ea8-81784633409c');
       setBrands(response.data);
     } catch (error) {
       console.error('Error fetching brands:', error);

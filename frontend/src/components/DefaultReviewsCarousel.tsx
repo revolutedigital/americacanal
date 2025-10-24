@@ -32,7 +32,7 @@ export default function DefaultReviewsCarousel() {
 
   const fetchTestimonials = async () => {
     try {
-      const response = await api.get('/api/default-reviews?tenantId=df192cfd-fb87-470a-8ea8-81784633409c&isActive=true');
+      const response = await api.get('/api/default-reviews/featured?tenantId=df192cfd-fb87-470a-8ea8-81784633409c');
       // Filtrar apenas os que devem aparecer na home
       const homeTestimonials = response.data.filter((t: Testimonial) => t.showOnHome);
       // Ordenar por destaque primeiro
