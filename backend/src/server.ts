@@ -77,7 +77,11 @@ app.use(fixImageUrlsRoutes); // Rota temporária para fix image URLs
 
 // Rota de health check
 app.get('/health', (req: Request, res: Response) => {
-  res.json({ status: 'OK', message: 'America Cannabis API is running' });
+  res.json({
+    status: 'OK',
+    message: 'America Cannabis API is running',
+    timestamp: new Date().toISOString()
+  });
 });
 
 // Rota raiz
