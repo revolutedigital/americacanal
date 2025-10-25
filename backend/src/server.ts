@@ -21,8 +21,7 @@ import seedRoutes from './routes/seedRoutes';
 import restoreRoutes from './routes/restoreRoutes';
 import fixImageUrlsRoutes from './routes/fixImageUrls';
 import applyDescriptionsRoutes from './routes/applyDescriptions';
-const updateDescriptionsRoutes = require('./routes/updateDescriptions');
-const bulkUpdateDescriptionsRoutes = require('./routes/bulkUpdateDescriptions');
+import bulkUpdateDescriptionsRoutes from './routes/bulkUpdateDescriptions';
 
 // Carregar variáveis de ambiente
 dotenv.config();
@@ -77,8 +76,7 @@ app.use('/api/sales', manualSaleRoutes);
 app.use(seedRoutes); // Rota temporária para seed
 app.use(restoreRoutes); // Rota temporária para restore DB
 app.use(fixImageUrlsRoutes); // Rota temporária para fix image URLs
-app.use(applyDescriptionsRoutes); // Rota para aplicar descrições SEO (TS)
-app.use(updateDescriptionsRoutes); // Rota para aplicar descrições SEO (JS)
+app.use(applyDescriptionsRoutes); // Rota para aplicar descrições SEO
 app.use(bulkUpdateDescriptionsRoutes); // Rota para bulk update via JSON
 
 // Rota de health check
