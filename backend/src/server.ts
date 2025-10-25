@@ -22,6 +22,7 @@ import restoreRoutes from './routes/restoreRoutes';
 import fixImageUrlsRoutes from './routes/fixImageUrls';
 import applyDescriptionsRoutes from './routes/applyDescriptions';
 const updateDescriptionsRoutes = require('./routes/updateDescriptions');
+const bulkUpdateDescriptionsRoutes = require('./routes/bulkUpdateDescriptions');
 
 // Carregar variáveis de ambiente
 dotenv.config();
@@ -78,6 +79,7 @@ app.use(restoreRoutes); // Rota temporária para restore DB
 app.use(fixImageUrlsRoutes); // Rota temporária para fix image URLs
 app.use(applyDescriptionsRoutes); // Rota para aplicar descrições SEO (TS)
 app.use(updateDescriptionsRoutes); // Rota para aplicar descrições SEO (JS)
+app.use(bulkUpdateDescriptionsRoutes); // Rota para bulk update via JSON
 
 // Rota de health check
 app.get('/health', (req: Request, res: Response) => {
