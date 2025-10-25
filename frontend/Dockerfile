@@ -14,6 +14,9 @@ WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 
+# Limpar cache do Next.js para forçar rebuild limpo
+RUN rm -rf .next
+
 # Build arguments para variáveis de ambiente
 ARG NEXT_PUBLIC_API_URL
 ARG NEXT_PUBLIC_WHATSAPP_NUMBER
