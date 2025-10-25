@@ -7,23 +7,7 @@ import ProductCardSSR from '@/components/ProductCardSSR';
 import ProductBenefits from '@/components/ProductBenefits';
 import ProductTestimonials from '@/components/ProductTestimonials';
 import { formatPrice, getWhatsAppUrl } from '@/lib/utils';
-
-interface Product {
-  id: string;
-  name: string;
-  description: string;
-  price: number;
-  comparePrice?: number;
-  imageUrl: string;
-  images: string[];
-  stock: number;
-  lowStockAlert?: number;
-  isActive: boolean;
-  slug: string;
-  category?: {
-    name: string;
-  };
-}
+import { Product } from '@/lib/types';
 
 interface ProductPageClientProps {
   product: Product;

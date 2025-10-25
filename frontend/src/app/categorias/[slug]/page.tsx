@@ -331,7 +331,7 @@ export default async function CategoryPage({ params }: { params: { slug: string 
         {/* Hero Section */}
         <div className="bg-gradient-to-r from-primary via-primary-vibrant to-primary text-white py-16">
           <div className="container mx-auto px-4">
-            <Breadcrumbs items={breadcrumbs} className="mb-6 text-white/80" />
+            <Breadcrumbs items={breadcrumbs} />
 
             <h1 className="text-4xl md:text-5xl font-extrabold mb-4">
               {content?.title || category.name}

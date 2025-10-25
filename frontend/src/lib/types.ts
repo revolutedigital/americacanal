@@ -7,6 +7,7 @@ export interface User {
 export interface Product {
   id: string;
   name: string;
+  slug?: string;
   description: string;
   price: number;
   comparePrice?: number;
@@ -16,6 +17,9 @@ export interface Product {
   lowStockAlert?: number;
   isActive: boolean;
   categoryId?: string;
+  category?: {
+    name: string;
+  };
   brandId?: string;
   brand?: {
     id: string;
@@ -27,6 +31,9 @@ export interface Product {
   relatedTo?: { relatedProductId: string }[];
   createdAt: string;
   updatedAt: string;
+  metaTitle?: string;
+  metaDescription?: string;
+  metaKeywords?: string;
 }
 
 export interface LoginCredentials {

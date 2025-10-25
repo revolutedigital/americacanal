@@ -265,7 +265,6 @@ export default async function ProductPage({ params }: { params: { slug: string }
             reviews={reviews}
             averageRating={averageRating}
             totalReviews={reviews.length}
-            productId={product.id}
           />
         </div>
       </main>
