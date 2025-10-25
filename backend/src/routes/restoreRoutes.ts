@@ -20,12 +20,12 @@ router.post('/api/restore-db', async (req: Request, res: Response) => {
       await prisma.orderItem.deleteMany({ where: { order: { tenantId } } });
       await prisma.order.deleteMany({ where: { tenantId } });
       await prisma.review.deleteMany({ where: { product: { tenantId } } });
-      await prisma.wishlist.deleteMany({ where: { customer: { tenantId } } });
+      // await prisma.wishlist.deleteMany({ where: { customer: { tenantId } } }); // Modelo não existe no schema
       await prisma.customer.deleteMany({ where: { tenantId } });
       await prisma.coupon.deleteMany({ where: { tenantId } });
       await prisma.defaultReview.deleteMany({ where: { tenantId } });
-      await prisma.benefit.deleteMany({ where: { tenantId } });
-      await prisma.manualSale.deleteMany({ where: { tenantId } });
+      // await prisma.benefit.deleteMany({ where: { tenantId } }); // Modelo não existe no schema
+      // await prisma.manualSale.deleteMany({ where: { tenantId } }); // Modelo não existe no schema
       await prisma.banner.deleteMany({ where: { tenantId } });
       await prisma.product.deleteMany({ where: { tenantId } });
       await prisma.category.deleteMany({ where: { tenantId } });
