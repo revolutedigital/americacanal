@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev -p 5178",
-    "build": "next build",
+    "build": "rm -rf .next && next build",
     "start": "next start -p 5178",
     "lint": "next lint",
     "test": "vitest",
