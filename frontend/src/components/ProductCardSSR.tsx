@@ -40,15 +40,16 @@ export default function ProductCardSSR({ product }: ProductCardSSRProps) {
 
   return (
     <article className="group relative bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 hover:border-primary/30">
-      <Link href={`/produtos/${product.id}`} className="block">
+      <Link href={`/produtos/${product.slug || product.id}`} className="block">
         {/* Container da Imagem */}
         <div className="relative w-full h-72 overflow-hidden bg-gray-50">
           <Image
             src={product.imageUrl}
-            alt={product.name}
+            alt={`${product.name} - ${product.category?.name || 'Cannabis Premium'} | America Cannabis`}
             fill
             className="object-cover group-hover:scale-110 transition-all duration-500"
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            loading="lazy"
           />
 
           {/* Overlay no hover */}
