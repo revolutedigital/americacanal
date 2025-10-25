@@ -5,6 +5,9 @@ import Footer from '@/components/Footer';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import ProductTestimonials from '@/components/ProductTestimonials';
 import { generateProductSchema, generateBreadcrumbSchema } from '@/lib/schema';
+import { generateProductFAQs, generateFAQSchema } from '@/lib/faqs';
+import ProductFAQ from '@/components/ProductFAQ';
+import ProductReviews from '@/components/ProductReviews';
 import Script from 'next/script';
 import ProductPageClient from './ProductPageClient';
 
@@ -151,6 +154,32 @@ async function getRelatedProducts(id: string): Promise<Product[]> {
   }
 }
 
+interface Review {
+  id: string;
+  rating: number;
+  title?: string;
+  comment: string;
+  customer: {
+    name: string;
+  };
+  isVerified: boolean;
+  createdAt: string;
+}
+
+async function getReviews(productId: string): Promise<Review[]> {
+  try {
+    const response = await fetch(`${API_URL}/api/products/${productId}/reviews`, {
+      next: { revalidate: 3600 }
+    });
+
+    if (!response.ok) return [];
+    return response.json();
+  } catch (error) {
+    console.error('Error fetching reviews:', error);
+    return [];
+  }
+}
+
 export default async function ProductPage({ params }: { params: { slug: string } }) {
   const product = await getProduct(params.slug);
 
@@ -165,6 +194,12 @@ export default async function ProductPage({ params }: { params: { slug: string }
 
   const relatedProducts = await getRelatedProducts(product.id);
 
+  // Buscar reviews do produto
+  const reviews = await getReviews(product.id);
+  const averageRating = reviews.length > 0
+    ? reviews.reduce((acc, r) => acc + r.rating, 0) / reviews.length
+    : 0;
+
   const breadcrumbs = [
     { label: 'Home', href: '/' },
     { label: 'Produtos', href: '/produtos' },
@@ -174,11 +209,15 @@ export default async function ProductPage({ params }: { params: { slug: string }
 
   const productSchema = generateProductSchema({
     product,
-    averageRating: 0,
-    reviewCount: 0,
+    averageRating,
+    reviewCount: reviews.length,
   });
 
   const breadcrumbSchema = generateBreadcrumbSchema(breadcrumbs);
+
+  // Gerar FAQs baseados no produto
+  const productFAQs = generateProductFAQs(product);
+  const faqSchema = generateFAQSchema(productFAQs);
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -200,6 +239,16 @@ export default async function ProductPage({ params }: { params: { slug: string }
         }}
       />
 
+      {/* FAQ Schema.org */}
+      <Script
+        id="faq-schema"
+        type="application/ld+json"
+        strategy="beforeInteractive"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(faqSchema),
+        }}
+      />
+
       <Header />
 
       <main className="flex-grow" id="main-content">
@@ -207,6 +256,17 @@ export default async function ProductPage({ params }: { params: { slug: string }
           <Breadcrumbs items={breadcrumbs} />
 
           <ProductPageClient product={product} relatedProducts={relatedProducts} />
+
+          {/* FAQs do Produto */}
+          <ProductFAQ faqs={productFAQs} />
+
+          {/* Reviews do Produto */}
+          <ProductReviews
+            reviews={reviews}
+            averageRating={averageRating}
+            totalReviews={reviews.length}
+            productId={product.id}
+          />
         </div>
       </main>
 

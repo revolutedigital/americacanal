@@ -2,20 +2,33 @@ import { MetadataRoute } from 'next';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.americacannabis.com';
+  const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5177';
+  const tenantId = '0fb61585-3cb3-48b3-ae76-0a5358084a8c';
 
   // Fetch products from API
   let products: any[] = [];
   try {
-    const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5177';
-    // Adicionar tenantId do America Cannabis
-    const response = await fetch(`${apiUrl}/api/products?tenantId=0fb61585-3cb3-48b3-ae76-0a5358084a8c`, {
-      next: { revalidate: 3600 } // Revalidar a cada hora
+    const response = await fetch(`${apiUrl}/api/products?tenantId=${tenantId}`, {
+      next: { revalidate: 3600 }
     });
     if (response.ok) {
       products = await response.json();
     }
   } catch (error) {
     console.error('Error fetching products for sitemap:', error);
+  }
+
+  // Fetch categories from API
+  let categories: any[] = [];
+  try {
+    const response = await fetch(`${apiUrl}/api/categories?tenantId=${tenantId}`, {
+      next: { revalidate: 3600 }
+    });
+    if (response.ok) {
+      categories = await response.json();
+    }
+  } catch (error) {
+    console.error('Error fetching categories for sitemap:', error);
   }
 
   // Páginas estáticas
@@ -44,5 +57,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.8,
     }));
 
-  return [...staticPages, ...productPages];
+  // Páginas de categorias
+  const categoryPages: MetadataRoute.Sitemap = categories
+    .map((category) => ({
+      url: `${baseUrl}/categorias/${category.slug}`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly' as const,
+      priority: 0.85,
+    }));
+
+  return [...staticPages, ...categoryPages, ...productPages];
 }
