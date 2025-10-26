@@ -66,10 +66,10 @@ export default function Sidebar() {
   ];
 
   return (
-    <aside className="w-64 bg-gradient-to-b from-primary via-primary-dark to-primary-vibrant shadow-2xl h-screen sticky top-0 flex flex-col border-r-2 border-accent/30">
+    <aside className="w-64 bg-gray-900 shadow-2xl h-screen sticky top-0 flex flex-col border-r border-gray-700">
       {/* Header */}
-      <div className="p-4 border-b-2 border-accent/20">
-        <div className="bg-gradient-to-br from-accent/30 to-primary-vibrant/30 rounded-xl p-3 mb-3 border-2 border-accent/40 shadow-lg">
+      <div className="p-4 border-b border-gray-700">
+        <div className="bg-gray-800 rounded-lg p-3 mb-3 border border-gray-700">
           <div className="bg-white rounded-lg px-3 py-2 flex items-center justify-center">
             <img
               src="/brand.webp"
@@ -79,7 +79,7 @@ export default function Sidebar() {
           </div>
         </div>
         {user && (
-          <div className="flex items-center gap-2 text-xs text-accent-light font-semibold truncate">
+          <div className="flex items-center gap-2 text-xs text-gray-300 font-medium truncate">
             <UserIcon size={14} className="flex-shrink-0" />
             <span className="truncate">{user.email}</span>
           </div>
@@ -92,7 +92,7 @@ export default function Sidebar() {
           {navSections.map((section, sectionIdx) => (
             <div key={sectionIdx}>
               {section.title && (
-                <h3 className="text-xs font-bold text-accent-light uppercase tracking-wider mb-2 px-4">
+                <h3 className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-2 px-4">
                   {section.title}
                 </h3>
               )}
@@ -104,14 +104,14 @@ export default function Sidebar() {
                     <li key={item.href}>
                       <Link
                         href={item.href}
-                        className={`flex items-center space-x-3 px-4 py-3 rounded-xl transition-all duration-200 ${
+                        className={`flex items-center space-x-3 px-4 py-3 rounded-lg transition-all duration-200 ${
                           isActive
-                            ? 'bg-gradient-to-r from-accent to-accent-dark text-white font-bold shadow-lg scale-105'
-                            : 'text-white/80 hover:bg-white/10 hover:text-white hover:scale-105'
+                            ? 'bg-blue-600 text-white font-semibold shadow-md'
+                            : 'text-gray-300 hover:bg-gray-800 hover:text-white'
                         }`}
                       >
                         <ItemIcon size={20} className="flex-shrink-0" />
-                        <span className="text-sm font-semibold">{item.label}</span>
+                        <span className="text-sm">{item.label}</span>
                       </Link>
                     </li>
                   );
@@ -123,18 +123,18 @@ export default function Sidebar() {
       </nav>
 
       {/* Footer */}
-      <div className="p-4 border-t-2 border-accent/20 space-y-2">
+      <div className="p-4 border-t border-gray-700 space-y-2">
         <Link
           href="/"
           target="_blank"
-          className="flex items-center justify-center gap-2 w-full px-4 py-3 text-sm font-bold text-white bg-gradient-to-r from-info to-info-dark hover:scale-105 rounded-xl transition-all duration-200 shadow-lg hover:shadow-xl"
+          className="flex items-center justify-center gap-2 w-full px-4 py-2.5 text-sm font-semibold text-white bg-blue-600 hover:bg-blue-700 rounded-lg transition-all duration-200 shadow-md hover:shadow-lg"
         >
           <GlobeIcon size={18} />
           <span>Ver Site</span>
         </Link>
         <button
           onClick={logout}
-          className="flex items-center justify-center gap-2 w-full px-4 py-3 text-sm font-bold text-white bg-gradient-to-r from-red-500 to-red-600 hover:scale-105 rounded-xl transition-all duration-200 shadow-lg hover:shadow-xl"
+          className="flex items-center justify-center gap-2 w-full px-4 py-2.5 text-sm font-semibold text-white bg-gray-700 hover:bg-gray-600 rounded-lg transition-all duration-200 shadow-md hover:shadow-lg"
         >
           <LogoutIcon size={18} />
           <span>Sair</span>
