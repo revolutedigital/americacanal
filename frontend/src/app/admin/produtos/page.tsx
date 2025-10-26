@@ -43,6 +43,45 @@ export default function ProductsPage() {
     }
   };
 
+  const handleDuplicate = async (productId: string) => {
+    if (!confirm('Deseja duplicar este produto? Uma cópia será criada.')) {
+      return;
+    }
+
+    try {
+      // Buscar dados completos do produto
+      const response = await api.get(`/api/products/${productId}`);
+      const product = response.data;
+
+      // Criar cópia do produto (removendo campos que devem ser únicos)
+      const duplicatedProduct = {
+        ...product,
+        name: `${product.name} (Cópia)`,
+        // Remover campos únicos/automáticos
+        id: undefined,
+        slug: undefined,
+        createdAt: undefined,
+        updatedAt: undefined,
+        viewCount: 0,
+        orderCount: 0,
+        // Manter demais dados
+        tenantId: '0fb61585-3cb3-48b3-ae76-0a5358084a8c',
+      };
+
+      // Criar novo produto
+      const createResponse = await api.post('/api/products', duplicatedProduct);
+      const newProduct = createResponse.data;
+
+      alert(`✅ Produto duplicado com sucesso! Redirecionando para edição...`);
+
+      // Redirecionar para editar o novo produto
+      router.push(`/admin/produtos/editar/${newProduct.id}`);
+    } catch (error: any) {
+      console.error('Error duplicating product:', error);
+      alert('Erro ao duplicar produto: ' + (error.response?.data?.error || error.message));
+    }
+  };
+
   if (loading) {
     return (
       <div className="flex items-center justify-center h-64">
@@ -142,13 +181,22 @@ export default function ProductsPage() {
                       onClick={() =>
                         router.push(`/admin/produtos/editar/${product.id}`)
                       }
-                      className="text-primary hover:text-primary-dark mr-4"
+                      className="text-primary hover:text-primary-dark mr-3"
+                      title="Editar produto"
                     >
                       ✏️ Editar
                     </button>
                     <button
+                      onClick={() => handleDuplicate(product.id)}
+                      className="text-blue-600 hover:text-blue-800 mr-3"
+                      title="Duplicar produto"
+                    >
+                      📋 Duplicar
+                    </button>
+                    <button
                       onClick={() => handleDelete(product.id, product.name)}
                       className="text-red-600 hover:text-red-900"
+                      title="Excluir produto"
                     >
                       🗑️ Excluir
                     </button>

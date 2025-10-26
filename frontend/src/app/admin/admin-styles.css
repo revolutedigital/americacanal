@@ -213,6 +213,7 @@ a {
 
 /* ==================================================
    HIGH CONTRAST IMPROVEMENTS - Admin Panel
+   Tema Profissional Azul
    ================================================== */
 
 /* Force higher contrast for all gray-500 text on dark backgrounds */
@@ -253,23 +254,23 @@ a {
   cursor: not-allowed !important;
 }
 
-/* Improve focus states for better accessibility */
+/* Improve focus states for better accessibility - Azul profissional */
 .admin-panel input:focus,
 .admin-panel textarea:focus,
 .admin-panel select:focus {
   outline: none !important;
-  box-shadow: 0 0 0 2px #5FAD56, 0 0 0 4px rgba(95, 173, 86, 0.1) !important;
+  box-shadow: 0 0 0 2px #3B82F6, 0 0 0 4px rgba(59, 130, 246, 0.1) !important;
 }
 
-/* Better button contrast */
+/* Better button contrast - Azul profissional */
 .admin-panel .btn-primary {
-  background-color: #5FAD56 !important;
+  background-color: #3B82F6 !important; /* blue-500 */
   color: white !important;
-  box-shadow: 0 4px 14px 0 rgba(95, 173, 86, 0.35) !important;
+  box-shadow: 0 4px 14px 0 rgba(59, 130, 246, 0.35) !important;
 }
 
 .admin-panel .btn-primary:hover {
-  background-color: #4A8C43 !important;
+  background-color: #2563EB !important; /* blue-600 */
 }
 
 .admin-panel .btn-secondary {
@@ -291,35 +292,35 @@ a {
   background-color: #6b7280 !important;
 }
 
-/* Better link visibility */
+/* Better link visibility - Azul profissional */
 .admin-panel a:not(.btn-primary):not(.btn-accent):not(.btn-secondary) {
-  color: #5FAD56 !important;
+  color: #60A5FA !important; /* blue-400 */
 }
 
 .admin-panel a:not(.btn-primary):not(.btn-accent):not(.btn-secondary):hover {
-  color: #7BC674 !important;
+  color: #93C5FD !important; /* blue-300 */
 }
 
-/* Fix text-primary (purple) on dark backgrounds - convert to accent (green) */
+/* Fix text-primary (purple) on dark backgrounds - convert to blue */
 .admin-panel .text-primary {
-  color: #5FAD56 !important;
+  color: #60A5FA !important; /* blue-400 */
 }
 
 .admin-panel .text-primary:hover,
 .admin-panel .hover\:text-primary-dark:hover {
-  color: #7BC674 !important;
+  color: #93C5FD !important; /* blue-300 */
 }
 
 /* Fix button text-primary class usage */
 .admin-panel button.text-primary,
 .admin-panel a.text-primary {
-  color: #5FAD56 !important;
+  color: #60A5FA !important; /* blue-400 */
   font-weight: 600 !important;
 }
 
 .admin-panel button.text-primary:hover,
 .admin-panel a.text-primary:hover {
-  color: #7BC674 !important;
+  color: #93C5FD !important; /* blue-300 */
 }
 
 /* Improve red delete/danger button visibility */
@@ -334,6 +335,16 @@ a {
   color: #fca5a5 !important; /* red-300 - Even lighter on hover */
 }
 
+/* Improve blue link button visibility */
+.admin-panel .text-blue-600 {
+  color: #60A5FA !important; /* blue-400 */
+}
+
+.admin-panel .text-blue-600:hover,
+.admin-panel .hover\:text-blue-800:hover {
+  color: #93C5FD !important; /* blue-300 */
+}
+
 /* Better visibility for action buttons in tables */
 .admin-panel table button,
 .admin-panel table a {
@@ -346,8 +357,6 @@ a {
   transform: scale(1.05) !important;
 }
 
-/* Improve description/subtitle text - removed circular dependency */
-
 /* Better border visibility */
 .admin-panel .border-gray-700 {
   border-color: #4b5563 !important; /* gray-600 */
@@ -358,27 +367,41 @@ a {
   border-color: #374151 !important; /* gray-700 */
 }
 
-/* Fix border-primary on dark backgrounds */
+/* Fix border-primary on dark backgrounds - Azul profissional */
 .admin-panel .border-primary {
-  border-color: #5FAD56 !important; /* accent */
+  border-color: #3B82F6 !important; /* blue-500 */
 }
 
 .admin-panel .hover\:border-primary:hover {
-  border-color: #7BC674 !important; /* accent-light */
+  border-color: #60A5FA !important; /* blue-400 */
 }
 
-/* Fix bg-primary buttons/badges on dark backgrounds */
+/* Fix bg-primary buttons/badges on dark backgrounds - Azul profissional */
 .admin-panel .bg-primary:not(.gradient-premium) {
-  background-color: #5FAD56 !important; /* accent */
+  background-color: #3B82F6 !important; /* blue-500 */
 }
 
-/* Improve loading spinner visibility */
-.admin-panel .border-b-2.border-primary {
-  border-color: #5FAD56 !important; /* accent */
+/* Improve loading spinner visibility - Azul profissional */
+.admin-panel .border-b-2.border-primary,
+.admin-panel .border-b-2.border-accent {
+  border-color: #3B82F6 !important; /* blue-500 */
 }
 
 /* Better badge/pill visibility */
 .admin-panel .bg-gray-700.text-gray-800 {
   background-color: #4b5563 !important; /* gray-600 */
   color: #e5e7eb !important; /* gray-200 */
+}
+
+/* Remove excessive animations for professional look */
+.admin-panel .admin-card:hover {
+  transform: none !important;
+}
+
+.admin-panel .admin-input:focus {
+  transform: none !important;
+}
+
+.admin-panel .admin-table-row:hover {
+  transform: none !important;
 }

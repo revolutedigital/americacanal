@@ -10,6 +10,7 @@ import ProductFAQ from '@/components/ProductFAQ';
 import ProductReviews from '@/components/ProductReviews';
 import Script from 'next/script';
 import ProductPageClient from './ProductPageClient';
+import { FAQ } from '@/lib/types';
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5177';
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.americacannabis.com';
@@ -35,6 +36,7 @@ interface Product {
   category?: {
     name: string;
   };
+  faqs?: FAQ[];
   _count?: {
     reviews: number;
   };
@@ -215,8 +217,10 @@ export default async function ProductPage({ params }: { params: { slug: string }
 
   const breadcrumbSchema = generateBreadcrumbSchema(breadcrumbs);
 
-  // Gerar FAQs baseados no produto
-  const productFAQs = generateProductFAQs(product);
+  // Usar FAQs do banco se existirem, senão usar FAQs hardcoded baseadas no tipo do produto
+  const productFAQs = (product.faqs && product.faqs.length > 0)
+    ? product.faqs
+    : generateProductFAQs(product);
   const faqSchema = generateFAQSchema(productFAQs);
 
   return (

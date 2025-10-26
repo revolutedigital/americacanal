@@ -61,6 +61,9 @@ export interface ProductFormData {
   type?: string;
   faqs?: FAQ[];
   relatedProductIds?: string[];
+  metaTitle?: string;
+  metaDescription?: string;
+  metaKeywords?: string;
 }
 
 export interface FAQ {

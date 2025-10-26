@@ -49,6 +49,9 @@ export default function ProductForm({
       type: undefined,
       faqs: [],
       relatedProductIds: [],
+      metaTitle: undefined,
+      metaDescription: undefined,
+      metaKeywords: undefined,
     }
   );
   const [loading, setLoading] = useState(false);
@@ -133,6 +136,52 @@ export default function ProductForm({
       images: images,
       imageUrl: mainImage,
     });
+  };
+
+  const generateMetaTags = () => {
+    if (!formData.name || !formData.description) {
+      alert('Preencha o nome e descrição primeiro');
+      return;
+    }
+
+    const categoryName = categories.find(c => c.id === formData.categoryId)?.name || '';
+    const brandName = brands.find(b => b.id === formData.brandId)?.name || '';
+
+    // Gerar meta title
+    const metaTitle = `${formData.name} | America Cannabis`;
+
+    // Gerar meta description (primeiros 150 caracteres da descrição + call to action)
+    const shortDesc = formData.description.substring(0, 140).trim();
+    const metaDescription = `${shortDesc}... Compre agora com entrega rápida! 🚀`;
+
+    // Gerar keywords
+    const keywords: string[] = [
+      formData.name.toLowerCase(),
+      'cannabis',
+      'cbd',
+      'thc',
+      'america cannabis',
+    ];
+
+    if (categoryName) keywords.push(categoryName.toLowerCase());
+    if (brandName) keywords.push(brandName.toLowerCase());
+    if (formData.type) keywords.push(formData.type.toLowerCase());
+
+    // Adicionar termos comuns baseados no nome
+    if (formData.name.toLowerCase().includes('vape')) keywords.push('vape', 'vaporizador');
+    if (formData.name.toLowerCase().includes('goma')) keywords.push('goma', 'edible', 'comestível');
+    if (formData.name.toLowerCase().includes('óleo')) keywords.push('óleo', 'tinturas');
+
+    const metaKeywords = [...new Set(keywords)].join(', ');
+
+    setFormData({
+      ...formData,
+      metaTitle,
+      metaDescription,
+      metaKeywords,
+    });
+
+    alert('✅ Meta tags geradas automaticamente!');
   };
 
   const tabs = [
@@ -403,6 +452,84 @@ export default function ProductForm({
                         </span>
                       </div>
                     </label>
+                  </div>
+                </div>
+              </div>
+
+              {/* SEO Section */}
+              <div className="pt-6 border-t border-gray-700">
+                <div className="flex items-center justify-between mb-4">
+                  <div>
+                    <h3 className="text-lg font-bold text-white">SEO & Meta Tags</h3>
+                    <p className="text-sm text-gray-300">
+                      Otimize para mecanismos de busca (Google, Bing)
+                    </p>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={generateMetaTags}
+                    className="btn-secondary text-sm"
+                    disabled={!formData.name || !formData.description}
+                  >
+                    ✨ Gerar Automaticamente
+                  </button>
+                </div>
+
+                <div className="grid grid-cols-1 gap-6">
+                  <div>
+                    <label className="block text-sm font-medium text-gray-200 mb-2">
+                      Meta Title
+                    </label>
+                    <input
+                      type="text"
+                      value={formData.metaTitle || ''}
+                      onChange={(e) =>
+                        setFormData({ ...formData, metaTitle: e.target.value })
+                      }
+                      className="input-field"
+                      placeholder="Ex: Vape Delta 8 Premium 2ml | America Cannabis"
+                      maxLength={60}
+                    />
+                    <p className="text-sm text-gray-500 mt-1">
+                      {formData.metaTitle?.length || 0}/60 caracteres - Aparece nos resultados do Google
+                    </p>
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-medium text-gray-200 mb-2">
+                      Meta Description
+                    </label>
+                    <textarea
+                      value={formData.metaDescription || ''}
+                      onChange={(e) =>
+                        setFormData({ ...formData, metaDescription: e.target.value })
+                      }
+                      className="input-field"
+                      rows={3}
+                      placeholder="Descrição curta que aparece no Google (140-160 caracteres)"
+                      maxLength={160}
+                    />
+                    <p className="text-sm text-gray-500 mt-1">
+                      {formData.metaDescription?.length || 0}/160 caracteres - Descrição nos resultados de busca
+                    </p>
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-medium text-gray-200 mb-2">
+                      Meta Keywords
+                    </label>
+                    <input
+                      type="text"
+                      value={formData.metaKeywords || ''}
+                      onChange={(e) =>
+                        setFormData({ ...formData, metaKeywords: e.target.value })
+                      }
+                      className="input-field"
+                      placeholder="vape, cannabis, cbd, delta 8, thc (separados por vírgula)"
+                    />
+                    <p className="text-sm text-gray-500 mt-1">
+                      Palavras-chave separadas por vírgula para SEO
+                    </p>
                   </div>
                 </div>
               </div>
