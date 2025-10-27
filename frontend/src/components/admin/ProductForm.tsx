@@ -172,7 +172,7 @@ export default function ProductForm({
     if (formData.name.toLowerCase().includes('goma')) keywords.push('goma', 'edible', 'comestível');
     if (formData.name.toLowerCase().includes('óleo')) keywords.push('óleo', 'tinturas');
 
-    const metaKeywords = [...new Set(keywords)].join(', ');
+    const metaKeywords = Array.from(new Set(keywords)).join(', ');
 
     setFormData({
       ...formData,
