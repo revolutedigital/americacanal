@@ -112,21 +112,21 @@ export default function ProductsPage() {
       ) : (
         <div className="bg-gray-800 rounded-lg shadow overflow-hidden border border-gray-700">
           <table className="min-w-full divide-y divide-gray-700">
-            <thead className="bg-gray-700">
+            <thead className="bg-gray-800 border-b-2 border-gray-600">
               <tr>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-200 uppercase tracking-wider">
+                <th className="px-6 py-3 text-left text-xs font-semibold text-white uppercase tracking-wider">
                   Produto
                 </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-200 uppercase tracking-wider">
+                <th className="px-6 py-3 text-left text-xs font-semibold text-white uppercase tracking-wider">
                   Preço
                 </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-200 uppercase tracking-wider">
+                <th className="px-6 py-3 text-left text-xs font-semibold text-white uppercase tracking-wider">
                   Estoque
                 </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-200 uppercase tracking-wider">
+                <th className="px-6 py-3 text-left text-xs font-semibold text-white uppercase tracking-wider">
                   Status
                 </th>
-                <th className="px-6 py-3 text-right text-xs font-medium text-gray-200 uppercase tracking-wider">
+                <th className="px-6 py-3 text-right text-xs font-semibold text-white uppercase tracking-wider">
                   Ações
                 </th>
               </tr>

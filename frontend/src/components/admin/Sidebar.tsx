@@ -69,14 +69,12 @@ export default function Sidebar() {
     <aside className="w-64 bg-gray-900 shadow-2xl h-screen sticky top-0 flex flex-col border-r border-gray-700">
       {/* Header */}
       <div className="p-4 border-b border-gray-700">
-        <div className="bg-gray-800 rounded-lg p-3 mb-3 border border-gray-700">
-          <div className="bg-white rounded-lg px-3 py-2 flex items-center justify-center">
-            <img
-              src="/brand.webp"
-              alt="America Cannabis Logo"
-              className="h-12 w-auto object-contain"
-            />
-          </div>
+        <div className="bg-gray-800 rounded-lg p-4 mb-3 border border-gray-600">
+          <img
+            src="/brand.webp"
+            alt="America Cannabis Logo"
+            className="h-10 w-auto object-contain mx-auto"
+          />
         </div>
         {user && (
           <div className="flex items-center gap-2 text-xs text-gray-300 font-medium truncate">
