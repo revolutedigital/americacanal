@@ -63,6 +63,13 @@ export default function ProductForm({
     fetchBrands();
   }, []);
 
+  // Atualizar formData quando initialData mudar
+  useEffect(() => {
+    if (initialData) {
+      setFormData(initialData);
+    }
+  }, [initialData]);
+
   const fetchCategories = async () => {
     try {
       const response = await api.get('/api/categories?tenantId=0fb61585-3cb3-48b3-ae76-0a5358084a8c');
@@ -109,8 +116,8 @@ export default function ProductForm({
       return;
     }
 
-    if (!formData.stock || formData.stock < 0) {
-      alert('Por favor, informe o estoque');
+    if (formData.stock == null || formData.stock < 0) {
+      alert('Por favor, informe o estoque (pode ser 0 para produtos esgotados)');
       setActiveTab('basic');
       return;
     }
