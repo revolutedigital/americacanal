@@ -5,6 +5,7 @@ import { useSearchParams } from 'next/navigation';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import ProductCardSSR from '@/components/ProductCardSSR';
+import CanonicalUrl from '@/components/CanonicalUrl';
 import { Product } from '@/lib/types';
 import api from '@/lib/api';
 
@@ -170,6 +171,7 @@ export default function ProdutosPage() {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <CanonicalUrl />
       <Header />
 
       <main className="flex-grow">

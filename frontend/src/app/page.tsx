@@ -8,13 +8,15 @@ import { Product } from '@/lib/types';
 import Link from 'next/link';
 import { LabIcon, DeliveryIcon, SupportIcon } from '@/components/icons/Icons';
 
+// ISR: Revalidar a cada 5 minutos para melhor performance
+export const revalidate = 300;
+
 async function getProducts(): Promise<Product[]> {
   try {
     const response = await fetch(
       'https://backend-production1.up.railway.app/api/products?tenantId=0fb61585-3cb3-48b3-ae76-0a5358084a8c',
       {
-        cache: 'no-store', // Revalidate on every request for fresh data
-        next: { revalidate: 60 } // Or use ISR with 60 second revalidation
+        next: { revalidate: 300 } // ISR com revalidação a cada 5 minutos
       }
     );
 
