@@ -87,11 +87,7 @@ export default function HeroBanners() {
   }, [currentIndex, banners]);
 
   if (loading || banners.length === 0) {
-    return (
-      <div className="bg-gradient-to-r from-primary to-primary-dark h-96 flex items-center justify-center">
-        {/* Banner será gerenciado no painel admin */}
-      </div>
-    );
+    return null; // Não mostra nada se não houver banners
   }
 
   const currentBanner = banners[currentIndex];
@@ -104,14 +100,15 @@ export default function HeroBanners() {
   return (
     <section className="relative w-full overflow-hidden">
       {/* Banner Image */}
-      <div className="relative w-full h-[350px] md:h-[600px]">
+      <div className="relative w-full h-[400px] md:h-[500px] lg:h-[600px]">
         <Image
           src={imageToShow}
           alt={currentBanner.title || 'Banner'}
           fill
-          className="object-cover"
+          className="object-cover object-center"
           priority
           sizes="100vw"
+          quality={90}
         />
 
         {/* Overlay Gradient - Só aparece se houver conteúdo de texto */}
@@ -151,28 +148,28 @@ export default function HeroBanners() {
         )}
 
         {/* Value Proposition Badges - Always visible */}
-        <div className="absolute bottom-8 md:bottom-12 left-1/2 -translate-x-1/2 w-full max-w-4xl px-4">
-          <div className="bg-white/95 backdrop-blur-sm rounded-2xl shadow-2xl p-4 md:p-6">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-6">
-              <div className="text-center">
-                <div className="text-2xl md:text-3xl mb-1">🔬</div>
-                <div className="text-xs md:text-sm font-bold text-gray-900">Laboratório</div>
-                <div className="text-xs text-gray-600 hidden md:block">GMP Certificado</div>
+        <div className="absolute bottom-6 md:bottom-10 left-1/2 -translate-x-1/2 w-full max-w-5xl px-4">
+          <div className="bg-white/98 backdrop-blur-md rounded-xl md:rounded-2xl shadow-xl border border-gray-100 p-3 md:p-5">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-4">
+              <div className="flex flex-col items-center text-center p-2 rounded-lg hover:bg-gray-50 transition-colors">
+                <div className="text-2xl md:text-3xl mb-1.5">🔬</div>
+                <div className="text-xs md:text-sm font-bold text-gray-900 leading-tight">Laboratório</div>
+                <div className="text-[10px] md:text-xs text-gray-600 mt-0.5">GMP Certificado</div>
               </div>
-              <div className="text-center">
-                <div className="text-2xl md:text-3xl mb-1">📋</div>
-                <div className="text-xs md:text-sm font-bold text-gray-900">COA Garantido</div>
-                <div className="text-xs text-gray-600 hidden md:block">Análise Completa</div>
+              <div className="flex flex-col items-center text-center p-2 rounded-lg hover:bg-gray-50 transition-colors">
+                <div className="text-2xl md:text-3xl mb-1.5">📋</div>
+                <div className="text-xs md:text-sm font-bold text-gray-900 leading-tight">COA Garantido</div>
+                <div className="text-[10px] md:text-xs text-gray-600 mt-0.5">Análise Completa</div>
               </div>
-              <div className="text-center">
-                <div className="text-2xl md:text-3xl mb-1">⚡</div>
-                <div className="text-xs md:text-sm font-bold text-gray-900">Entrega Rápida</div>
-                <div className="text-xs text-gray-600 hidden md:block">3-7 dias úteis</div>
+              <div className="flex flex-col items-center text-center p-2 rounded-lg hover:bg-gray-50 transition-colors">
+                <div className="text-2xl md:text-3xl mb-1.5">⚡</div>
+                <div className="text-xs md:text-sm font-bold text-gray-900 leading-tight">Entrega Rápida</div>
+                <div className="text-[10px] md:text-xs text-gray-600 mt-0.5">3-7 dias úteis</div>
               </div>
-              <div className="text-center">
-                <div className="text-2xl md:text-3xl mb-1">🛡️</div>
-                <div className="text-xs md:text-sm font-bold text-gray-900">Seguro 100%</div>
-                <div className="text-xs text-gray-600 hidden md:block">SSL & Discreto</div>
+              <div className="flex flex-col items-center text-center p-2 rounded-lg hover:bg-gray-50 transition-colors">
+                <div className="text-2xl md:text-3xl mb-1.5">🛡️</div>
+                <div className="text-xs md:text-sm font-bold text-gray-900 leading-tight">Seguro 100%</div>
+                <div className="text-[10px] md:text-xs text-gray-600 mt-0.5">SSL & Discreto</div>
               </div>
             </div>
           </div>
@@ -206,15 +203,15 @@ export default function HeroBanners() {
 
       {/* Navigation Dots */}
       {banners.length > 1 && (
-        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2 z-10">
+        <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-2 z-20 bg-black/30 backdrop-blur-sm rounded-full px-3 py-2">
           {banners.map((_, index) => (
             <button
               key={index}
               onClick={() => setCurrentIndex(index)}
-              className={`w-3 h-3 rounded-full transition-all ${
+              className={`h-2 rounded-full transition-all duration-300 ${
                 index === currentIndex
-                  ? 'bg-white w-8'
-                  : 'bg-white/50 hover:bg-white/75'
+                  ? 'bg-white w-6'
+                  : 'bg-white/60 hover:bg-white/80 w-2'
               }`}
               aria-label={`Ver banner ${index + 1}`}
             />
