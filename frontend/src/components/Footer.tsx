@@ -9,7 +9,7 @@ export default function Footer() {
   return (
     <footer className="bg-gradient-to-br from-primary via-primary-dark to-primary-vibrant text-white mt-16">
       <div className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
           {/* Logo e Descrição */}
           <div>
             <div className="mb-4 inline-block">
@@ -55,6 +55,11 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/blog" className="hover:text-accent-light hover:translate-x-1 inline-block transition-all duration-200">
+                  → Blog
+                </Link>
+              </li>
+              <li>
                 <Link href="/sobre" className="hover:text-info hover:translate-x-1 inline-block transition-all duration-200">
                   → Sobre Nós
                 </Link>
@@ -62,6 +67,38 @@ export default function Footer() {
               <li>
                 <Link href="/contato" className="hover:text-info hover:translate-x-1 inline-block transition-all duration-200">
                   → Contato
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Blog & Educação */}
+          <div>
+            <h3 className="text-lg font-bold mb-4 text-accent-light">📚 Conteúdo</h3>
+            <ul className="space-y-2 text-white/80">
+              <li>
+                <Link href="/blog?categoria=guia-iniciante" className="hover:text-accent-light hover:translate-x-1 inline-block transition-all duration-200">
+                  → Guia do Iniciante
+                </Link>
+              </li>
+              <li>
+                <Link href="/blog?categoria=saude-bem-estar" className="hover:text-accent-light hover:translate-x-1 inline-block transition-all duration-200">
+                  → Saúde & Bem-Estar
+                </Link>
+              </li>
+              <li>
+                <Link href="/blog?categoria=legislacao" className="hover:text-accent-light hover:translate-x-1 inline-block transition-all duration-200">
+                  → Legislação
+                </Link>
+              </li>
+              <li>
+                <Link href="/blog?categoria=ciencia" className="hover:text-accent-light hover:translate-x-1 inline-block transition-all duration-200">
+                  → Ciência & Pesquisa
+                </Link>
+              </li>
+              <li>
+                <Link href="/blog?categoria=produtos" className="hover:text-accent-light hover:translate-x-1 inline-block transition-all duration-200">
+                  → Reviews de Produtos
                 </Link>
               </li>
             </ul>

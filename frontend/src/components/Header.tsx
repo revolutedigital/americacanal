@@ -310,6 +310,14 @@ export default function Header() {
             </div>
 
             <Link
+              href="/blog"
+              aria-label="Blog sobre cannabis e CBD"
+              className="text-white/90 hover:text-accent-light font-semibold transition-all duration-200 px-5 py-3 hover:bg-white/10 rounded-full focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 hover:scale-105"
+            >
+              📚 Blog
+            </Link>
+
+            <Link
               href="/produtos"
               aria-label="Ver todos os produtos"
               className="text-white/90 hover:text-accent-light font-semibold transition-all duration-200 px-5 py-3 hover:bg-white/10 rounded-full focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 hover:scale-105"

@@ -108,6 +108,16 @@ export default function MobileMenu({ isOpen, onClose, categories, brands }: Mobi
             <span>Todos os Produtos</span>
           </Link>
 
+          {/* Blog */}
+          <Link
+            href="/blog"
+            onClick={onClose}
+            className="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-700 hover:bg-purple-50 hover:text-primary transition-colors font-medium focus-visible:bg-purple-50 focus-visible:outline-none"
+          >
+            <span className="text-xl" aria-hidden="true">📚</span>
+            <span>Blog</span>
+          </Link>
+
           {/* Categorias Section */}
           {categories.length > 0 && (
             <div className="pt-4">
