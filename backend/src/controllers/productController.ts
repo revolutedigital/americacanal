@@ -298,6 +298,8 @@ export const createProduct = async (req: Request, res: Response): Promise<void> 
     const {
       tenantId,
       categoryId,
+      brandId,
+      type,
       name,
       description,
       shortDesc,
@@ -346,6 +348,8 @@ export const createProduct = async (req: Request, res: Response): Promise<void> 
       data: {
         tenantId,
         categoryId: categoryId || null,
+        brandId: brandId || null,
+        type: type || null,
         name,
         slug,
         description,
@@ -417,6 +421,8 @@ export const updateProduct = async (req: Request, res: Response): Promise<void> 
     const { id } = req.params;
     const {
       categoryId,
+      brandId,
+      type,
       name,
       description,
       shortDesc,
@@ -449,6 +455,8 @@ export const updateProduct = async (req: Request, res: Response): Promise<void> 
 
     const updateData: any = {
       ...(categoryId !== undefined && { categoryId: categoryId || null }),
+      ...(brandId !== undefined && { brandId: brandId || null }),
+      ...(type !== undefined && { type: type || null }),
       ...(description && { description }),
       ...(shortDesc !== undefined && { shortDesc }),
       ...(price !== undefined && { price }),
@@ -580,6 +588,41 @@ export const deleteProduct = async (req: Request, res: Response): Promise<void> 
         error: 'Não é possível deletar produto com pedidos associados. Desative-o em vez disso.',
       });
       return;
+    }
+
+    // Delete physical image files before deleting the product
+    const fs = require('fs');
+    const path = require('path');
+    const uploadsDir = path.join(__dirname, '../../uploads');
+
+    // Delete main image
+    if (existingProduct.imageUrl) {
+      const imagePath = existingProduct.imageUrl.replace('/uploads/', '');
+      const filepath = path.join(uploadsDir, imagePath);
+      if (fs.existsSync(filepath)) {
+        try {
+          fs.unlinkSync(filepath);
+          console.log(`Deleted image: ${filepath}`);
+        } catch (err) {
+          console.error(`Error deleting image ${filepath}:`, err);
+        }
+      }
+    }
+
+    // Delete additional images
+    if (existingProduct.images && Array.isArray(existingProduct.images)) {
+      for (const imageUrl of existingProduct.images) {
+        const imagePath = imageUrl.replace('/uploads/', '');
+        const filepath = path.join(uploadsDir, imagePath);
+        if (fs.existsSync(filepath)) {
+          try {
+            fs.unlinkSync(filepath);
+            console.log(`Deleted image: ${filepath}`);
+          } catch (err) {
+            console.error(`Error deleting image ${filepath}:`, err);
+          }
+        }
+      }
     }
 
     await prisma.product.delete({

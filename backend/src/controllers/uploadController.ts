@@ -200,7 +200,7 @@ export const uploadBannerImage = async (req: Request, res: Response): Promise<vo
       .jpeg({ quality: 90 })
       .toFile(filepath);
 
-    const imageUrl = `http://localhost:4000/uploads/images/banners/${filename}`;
+    const imageUrl = `/uploads/images/banners/${filename}`;
 
     res.status(200).json({
       success: true,
