@@ -42,7 +42,7 @@ export default async function Home() {
         <div className="container mx-auto px-4">
           <p className="text-xs md:text-sm text-center font-semibold text-gray-800 flex flex-wrap items-center justify-center gap-3 md:gap-6">
             <span className="flex items-center gap-1">
-              ✅ <span className="text-primary">Mais de 5.000</span> clientes satisfeitos
+              ✅ <span className="text-primary">Mais de 1.000</span> clientes satisfeitos
             </span>
             <span className="hidden md:inline text-gray-300">|</span>
             <span className="flex items-center gap-1">

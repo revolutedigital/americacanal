@@ -315,29 +315,45 @@ export default function ProdutosPage() {
                     <h3 className="font-bold text-urgent mb-3 text-lg">💰 Faixa de Preço</h3>
                     <div className="space-y-3">
                       <div>
-                        <label className="text-sm text-gray-600">Mínimo: R$ {priceRange.min}</label>
+                        <label className="text-sm text-gray-600 block mb-1">Mínimo</label>
                         <input
-                          type="range"
+                          type="number"
                           min="0"
                           max="10000"
                           step="50"
                           value={priceRange.min}
-                          onChange={(e) => setPriceRange({ ...priceRange, min: Number(e.target.value) })}
-                          className="w-full"
+                          onChange={(e) => {
+                            const val = Number(e.target.value);
+                            setPriceRange({ ...priceRange, min: Math.max(0, Math.min(val, priceRange.max)) });
+                          }}
+                          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-urgent"
+                          placeholder="R$ 0"
                         />
                       </div>
                       <div>
-                        <label className="text-sm text-gray-600">Máximo: R$ {priceRange.max}</label>
+                        <label className="text-sm text-gray-600 block mb-1">Máximo</label>
                         <input
-                          type="range"
+                          type="number"
                           min="0"
                           max="10000"
                           step="50"
                           value={priceRange.max}
-                          onChange={(e) => setPriceRange({ ...priceRange, max: Number(e.target.value) })}
-                          className="w-full"
+                          onChange={(e) => {
+                            const val = Number(e.target.value);
+                            setPriceRange({ ...priceRange, max: Math.max(priceRange.min, Math.min(10000, val)) });
+                          }}
+                          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-urgent"
+                          placeholder="R$ 10000"
                         />
                       </div>
+                      {(priceRange.min > 0 || priceRange.max < 10000) && (
+                        <button
+                          onClick={() => setPriceRange({ min: 0, max: 10000 })}
+                          className="text-xs text-urgent hover:underline w-full text-left"
+                        >
+                          ✕ Limpar filtro de preço
+                        </button>
+                      )}
                     </div>
                   </div>
 

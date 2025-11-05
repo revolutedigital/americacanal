@@ -31,7 +31,7 @@ export default function ManualSalesPage() {
 
   const [customerName, setCustomerName] = useState<string>('');
   const [customerPhone, setCustomerPhone] = useState<string>('');
-  const [paymentMethod, setPaymentMethod] = useState<string>('Dinheiro');
+  const [paymentMethod, setPaymentMethod] = useState<string>('Pix');
   const [notes, setNotes] = useState<string>('');
 
   const [loading, setLoading] = useState(false);
@@ -140,7 +140,7 @@ export default function ManualSalesPage() {
         setCustomerName('');
         setCustomerPhone('');
         setNotes('');
-        setPaymentMethod('Dinheiro');
+        setPaymentMethod('Pix');
         fetchProducts(); // Atualizar estoque
       }
     } catch (error: any) {
@@ -286,7 +286,6 @@ export default function ManualSalesPage() {
                   className="input-field"
                 >
                   <option value="Pix">Pix</option>
-                  <option value="Dinheiro">Dinheiro</option>
                 </select>
               </div>
 

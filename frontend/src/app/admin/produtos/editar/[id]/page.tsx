@@ -34,8 +34,13 @@ export default function EditProductPage() {
         lowStockAlert: product.lowStockAlert || 5,
         isActive: product.isActive,
         categoryId: product.categoryId || undefined,
+        brandId: product.brandId || undefined,
+        type: product.type || undefined,
         faqs: product.faqs || [],
         relatedProductIds: product.relatedTo?.map((rel: any) => rel.relatedProductId) || [],
+        metaTitle: product.metaTitle || undefined,
+        metaDescription: product.metaDescription || undefined,
+        metaKeywords: product.metaKeywords || undefined,
       });
     } catch (error) {
       console.error('Error fetching product:', error);

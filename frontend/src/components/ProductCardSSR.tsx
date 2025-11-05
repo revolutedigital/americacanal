@@ -20,9 +20,6 @@ export default function ProductCardSSR({ product }: ProductCardSSRProps) {
     ? getWhatsAppUrl(product.name, product.price)
     : getWhatsAppUrl(product.name);
 
-  // Simular "pessoas visualizando" (número aleatório mas consistente por produto)
-  const viewersCount = (parseInt(product.id.slice(-2), 16) % 8) + 2; // 2-9 pessoas
-
   // Determinar se é "Mais vendido" baseado em hash do ID
   const isBestSeller = parseInt(product.id.slice(0, 2), 16) % 3 === 0;
 
@@ -91,17 +88,6 @@ export default function ProductCardSSR({ product }: ProductCardSSRProps) {
 
         {/* Conteúdo do Card */}
         <div className="p-5">
-          {/* Indicador de Pessoas Visualizando */}
-          {hasStock && (
-            <div className="mb-3 flex items-center gap-1.5 text-xs text-gray-600">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-red-500"></span>
-              </span>
-              <span>{viewersCount} pessoas visualizando agora</span>
-            </div>
-          )}
-
           {/* Nome do Produto */}
           <h2 className="text-lg font-bold text-gray-900 mb-2 line-clamp-2 min-h-[3.5rem]">
             {product.name}

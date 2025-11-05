@@ -124,17 +124,14 @@ export default function Footer() {
 
         {/* Formas de Pagamento */}
         <div className="border-t border-white/20 mt-8 pt-8">
-          <h4 className="text-center font-bold mb-4 text-accent-light text-xl">Formas de Pagamento</h4>
+          <h4 className="text-center font-bold mb-4 text-accent-light text-xl">Forma de Pagamento</h4>
           <div className="flex flex-wrap justify-center items-center gap-4">
             <div className="bg-gradient-to-r from-accent to-accent-dark px-8 py-4 rounded-lg font-bold shadow-lg hover:scale-105 transition-transform duration-200">
               💳 Pix
             </div>
-            <div className="bg-gradient-to-r from-gold-400 to-gold-600 text-gray-900 px-8 py-4 rounded-lg font-bold shadow-lg hover:scale-105 transition-transform duration-200">
-              💵 Dinheiro
-            </div>
           </div>
           <p className="text-center text-white/90 text-sm mt-4 font-semibold">
-            ⚡ Pagamento rápido e seguro via Pix
+            ⚡ Pagamento rápido, seguro e instantâneo via Pix
           </p>
         </div>
 

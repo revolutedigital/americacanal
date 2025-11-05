@@ -85,7 +85,7 @@ const faqs = [
     questions: [
       {
         q: 'Quais formas de pagamento são aceitas?',
-        a: 'Aceitamos Pix e dinheiro. O pagamento via Pix é instantâneo, seguro e rastreável através do sistema do Banco Central do Brasil.',
+        a: 'Aceitamos pagamento via Pix. O pagamento via Pix é instantâneo, seguro e rastreável através do sistema do Banco Central do Brasil.',
       },
       {
         q: 'Como funciona o pagamento via Pix?',
