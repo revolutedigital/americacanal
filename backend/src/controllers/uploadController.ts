@@ -200,7 +200,12 @@ export const uploadBannerImage = async (req: Request, res: Response): Promise<vo
       .jpeg({ quality: 90 })
       .toFile(filepath);
 
-    const imageUrl = `/uploads/images/banners/${filename}`;
+    // Construir URL completa baseada no ambiente
+    const baseUrl = process.env.NODE_ENV === 'production'
+      ? 'https://backend-production1.up.railway.app'
+      : `http://localhost:${process.env.PORT || 4000}`;
+
+    const imageUrl = `${baseUrl}/uploads/images/banners/${filename}`;
 
     res.status(200).json({
       success: true,
