@@ -16,11 +16,12 @@ export default function BlogHeader() {
   };
 
   const categories = [
+    { name: 'Todos', slug: '' },
+    { name: '⭐ Reviews de Produtos', slug: 'produtos' },
     { name: 'Guia do Iniciante', slug: 'guia-iniciante' },
     { name: 'Saúde & Bem-Estar', slug: 'saude-bem-estar' },
-    { name: 'Produtos & Reviews', slug: 'produtos' },
-    { name: 'Pesquisa & Ciência', slug: 'pesquisa' },
-    { name: 'Legal & Regulamentação', slug: 'legal' },
+    { name: 'Ciência', slug: 'ciencia' },
+    { name: 'Legislação', slug: 'legislacao' },
   ];
 
   return (
@@ -61,16 +62,10 @@ export default function BlogHeader() {
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center gap-1">
-            <Link
-              href="/blog"
-              className="px-4 py-2 text-gray-700 hover:text-primary hover:bg-primary/5 rounded-lg font-medium transition-all"
-            >
-              Início
-            </Link>
             {categories.map((cat) => (
               <Link
-                key={cat.slug}
-                href={`/blog/categoria/${cat.slug}`}
+                key={cat.slug || 'todos'}
+                href={cat.slug ? `/blog/categoria/${cat.slug}` : '/blog'}
                 className="px-4 py-2 text-gray-700 hover:text-primary hover:bg-primary/5 rounded-lg font-medium transition-all"
               >
                 {cat.name}
@@ -133,17 +128,10 @@ export default function BlogHeader() {
       {isMenuOpen && (
         <div className="lg:hidden border-t border-gray-200 bg-white">
           <nav className="container mx-auto px-4 py-4 space-y-2">
-            <Link
-              href="/blog"
-              className="block px-4 py-3 text-gray-700 hover:bg-primary/5 hover:text-primary rounded-lg font-medium transition-all"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Início
-            </Link>
             {categories.map((cat) => (
               <Link
-                key={cat.slug}
-                href={`/blog/categoria/${cat.slug}`}
+                key={cat.slug || 'todos'}
+                href={cat.slug ? `/blog/categoria/${cat.slug}` : '/blog'}
                 className="block px-4 py-3 text-gray-700 hover:bg-primary/5 hover:text-primary rounded-lg font-medium transition-all"
                 onClick={() => setIsMenuOpen(false)}
               >
