@@ -1,8 +1,8 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
+import BlogHeader from '@/components/BlogHeader';
+import BlogFooter from '@/components/BlogFooter';
 import BlogCard from '@/components/BlogCard';
 import { BlogPost, blogCategories } from '@/lib/blog-types';
 import blogPostsData from '@/data/blog-posts.json';
@@ -45,7 +45,7 @@ export default function BlogPage() {
 
   return (
     <>
-      <Header />
+      <BlogHeader />
 
       <main className="min-h-screen bg-gradient-to-b from-green-50 to-white">
         {/* Hero Section */}
@@ -164,7 +164,7 @@ export default function BlogPage() {
         </div>
       </main>
 
-      <Footer />
+      <BlogFooter />
     </>
   );
 }

@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
+import BlogHeader from '@/components/BlogHeader';
+import BlogFooter from '@/components/BlogFooter';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import BlogCard from '@/components/BlogCard';
 import { BlogPost, blogCategories } from '@/lib/blog-types';
@@ -72,7 +72,7 @@ export default function CategoryPage({ params }: PageProps) {
 
   return (
     <>
-      <Header />
+      <BlogHeader />
       <main className="min-h-screen bg-gray-50">
         <Breadcrumbs items={breadcrumbItems} />
 
@@ -130,7 +130,7 @@ export default function CategoryPage({ params }: PageProps) {
           </div>
         </div>
       </main>
-      <Footer />
+      <BlogFooter />
     </>
   );
 }

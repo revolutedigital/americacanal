@@ -1,8 +1,8 @@
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
+import BlogHeader from '@/components/BlogHeader';
+import BlogFooter from '@/components/BlogFooter';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import BlogCard from '@/components/BlogCard';
 import { BlogPost } from '@/lib/blog-types';
@@ -138,7 +138,7 @@ export default function BlogPostPage({ params }: PageProps) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
 
-      <Header />
+      <BlogHeader />
 
       <main className="min-h-screen bg-white">
         {/* Breadcrumbs */}
@@ -304,7 +304,7 @@ export default function BlogPostPage({ params }: PageProps) {
         </article>
       </main>
 
-      <Footer />
+      <BlogFooter />
     </>
   );
 }
