@@ -1,4 +1,5 @@
 import { MetadataRoute } from 'next';
+import blogPosts from '@/data/blog-posts.json';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.americacannabis.com';
@@ -45,6 +46,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: 'daily',
       priority: 0.9,
     },
+    {
+      url: `${baseUrl}/blog`,
+      lastModified: new Date(),
+      changeFrequency: 'daily',
+      priority: 0.9,
+    },
   ];
 
   // Páginas dinâmicas de produtos
@@ -66,5 +73,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.85,
     }));
 
-  return [...staticPages, ...categoryPages, ...productPages];
+  // Blog article pages (Enterprise SEO)
+  const blogPages: MetadataRoute.Sitemap = (blogPosts as any[]).map((post) => ({
+    url: `${baseUrl}/blog/${post.slug}`,
+    lastModified: post.updatedAt ? new Date(post.updatedAt) : new Date(post.publishedAt),
+    changeFrequency: 'weekly' as const,
+    priority: post.slug.startsWith('review-') ? 0.8 : 0.7, // Product reviews higher priority
+  }));
+
+  return [...staticPages, ...categoryPages, ...productPages, ...blogPages];
 }
