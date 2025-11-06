@@ -29,6 +29,21 @@ def convert_image_url(url: str) -> str:
 
     return url
 
+# Human variations for content (avoid repetition)
+INTRO_VARIATIONS = [
+    "O {product} da {brand} é um dos produtos mais procurados na categoria {category}. Este produto tipo {type} oferece uma experiência premium e resultados comprovados para usuários que buscam qualidade e eficácia.",
+    "Se você está em busca de um produto {type} de alta qualidade, o {product} da {brand} merece sua atenção. Reconhecido pela excelência na categoria {category}, este produto se destaca no mercado.",
+    "Entre os melhores produtos {type} disponíveis, o {product} da marca {brand} é uma escolha excepcional. Ideal para quem valoriza qualidade premium na categoria {category}.",
+    "Você já ouviu falar do {product}? Este produto {type} da renomada {brand} tem conquistado cada vez mais usuários na categoria {category} por sua qualidade e eficácia comprovadas."
+]
+
+PRICE_INTROS = [
+    "Com preço de",
+    "Disponível por",
+    "Pelo valor de",
+    "Investindo"
+]
+
 # Categorias de artigos de blog existentes
 BLOG_CATEGORIES = {
     "produtos": {
@@ -101,8 +116,13 @@ def generate_product_article(product: Dict, product_index: int) -> Dict:
     }
     type_pt = type_map.get(product_type, 'Híbrida')
 
-    # Título otimizado para SEO
-    title = f"{product_name}: Review Completo, Efeitos e Onde Comprar 2025"
+    # Título otimizado para SEO (com variação)
+    title_variations = [
+        f"{product_name}: Review Completo, Efeitos e Onde Comprar 2025",
+        f"{product_name}: Análise Detalhada, Benefícios e Preço 2025",
+        f"{product_name}: Guia Completo de Compra e Avaliação 2025",
+    ]
+    title = title_variations[product_index % len(title_variations)]
 
     # Excerpt otimizado
     # Convert price to float if it's a string
@@ -128,6 +148,18 @@ def generate_product_article(product: Dict, product_index: int) -> Dict:
         "cannabis premium"
     ]
 
+    # Select intro variation based on index
+    intro = INTRO_VARIATIONS[product_index % len(INTRO_VARIATIONS)]
+    intro = intro.format(
+        product=f"<strong>{product_name}</strong>",
+        brand=f"<strong>{brand_name}</strong>",
+        category=category_name,
+        type=f"<strong>{type_pt}</strong>"
+    )
+
+    # Select price intro variation
+    price_intro = PRICE_INTROS[product_index % len(PRICE_INTROS)]
+
     # Conteúdo HTML rico e otimizado
     content = f"""
 <h1>{product_name}: Review Completo e Guia de Compra 2025</h1>
@@ -142,7 +174,7 @@ def generate_product_article(product: Dict, product_index: int) -> Dict:
 
 <h2>Sobre o {product_name}</h2>
 
-<p>O <strong>{product_name}</strong> da renomada marca <strong>{brand_name}</strong> é um dos produtos mais procurados na categoria {category_name}. Este produto tipo <strong>{type_pt}</strong> oferece uma experiência premium e resultados comprovados para usuários que buscam qualidade e eficácia.</p>
+<p>{intro}</p>
 
 <h3>Características Principais</h3>
 
@@ -185,7 +217,7 @@ def generate_product_article(product: Dict, product_index: int) -> Dict:
 
 <h2>Preço e Custo-Benefício</h2>
 
-<p>Com preço de <strong>{price_text}</strong>, o {product_name} oferece excelente custo-benefício considerando:</p>
+<p>{price_intro} <strong>{price_text}</strong>, o {product_name} oferece excelente custo-benefício considerando:</p>
 
 <ul>
 <li>Qualidade premium da marca {brand_name}</li>
