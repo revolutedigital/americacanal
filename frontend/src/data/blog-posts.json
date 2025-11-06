@@ -1009,7 +1009,7 @@
       "híbrida",
       "cannabis premium"
     ],
-    "imageUrl": "http://localhost:4000/uploads/images/products/fc0c9641-97d2-4501-8c1a-506fe0b9c1e5.jpg",
+    "imageUrl": "https://www.americacannabis.com/uploads/images/products/fc0c9641-97d2-4501-8c1a-506fe0b9c1e5.jpg",
     "readTime": 12,
     "featured": false,
     "relatedPosts": [],
@@ -1048,7 +1048,13 @@
       }
     },
     "metaTitle": "Tree House 2ml Delta 8 / 9 / 10 Thc A - Sativa: Review Completo, Efeitos e Onde Comprar 2025",
-    "metaDescription": "Análise completa do Tree House 2ml Delta 8 / 9 / 10 Thc A - Sativa da Premium: características, efeitos, dosagem, preço (R$ 400.00) e avaliação de especialistas. Guia definitivo para comprar com segurança."
+    "metaDescription": "Análise completa do Tree House 2ml Delta 8 / 9 / 10 Thc A - Sativa da Premium: características, efeitos, dosagem, preço (R$ 400.00) e avaliação de especialistas. Guia definitivo para comprar com segurança.",
+    "productData": {
+      "productId": "ac421e35-37b2-4ef5-badc-af4e0c96abf1",
+      "price": 400.0,
+      "brand": "Premium",
+      "availability": "https://schema.org/InStock"
+    }
   },
   {
     "id": "product-422ff88f-c13a-40c8-a0d1-ef347493ecc6",
@@ -1111,7 +1117,13 @@
       }
     },
     "metaTitle": "Tree House 2ml Delta 8 / 9 / 10 Thc A - Hibrida: Review Completo, Efeitos e Onde Comprar 2025",
-    "metaDescription": "Análise completa do Tree House 2ml Delta 8 / 9 / 10 Thc A - Hibrida da Premium: características, efeitos, dosagem, preço (R$ 400.00) e avaliação de especialistas. Guia definitivo para comprar com segurança."
+    "metaDescription": "Análise completa do Tree House 2ml Delta 8 / 9 / 10 Thc A - Hibrida da Premium: características, efeitos, dosagem, preço (R$ 400.00) e avaliação de especialistas. Guia definitivo para comprar com segurança.",
+    "productData": {
+      "productId": "422ff88f-c13a-40c8-a0d1-ef347493ecc6",
+      "price": 400.0,
+      "brand": "Premium",
+      "availability": "https://schema.org/InStock"
+    }
   },
   {
     "id": "product-771e7ac7-f761-4640-866e-1f4bc1533f3d",
@@ -1174,7 +1186,13 @@
       }
     },
     "metaTitle": "Torch Dimound 5g Delta 9 Thc A/P Sativa: Review Completo, Efeitos e Onde Comprar 2025",
-    "metaDescription": "Análise completa do Torch Dimound 5g Delta 9 Thc A/P Sativa da Premium: características, efeitos, dosagem, preço (R$ 600.00) e avaliação de especialistas. Guia definitivo para comprar com segurança."
+    "metaDescription": "Análise completa do Torch Dimound 5g Delta 9 Thc A/P Sativa da Premium: características, efeitos, dosagem, preço (R$ 600.00) e avaliação de especialistas. Guia definitivo para comprar com segurança.",
+    "productData": {
+      "productId": "771e7ac7-f761-4640-866e-1f4bc1533f3d",
+      "price": 600.0,
+      "brand": "Premium",
+      "availability": "https://schema.org/InStock"
+    }
   },
   {
     "id": "product-5a4e153e-32fe-442d-bdec-62981fbe23ef",
@@ -1237,7 +1255,13 @@
       }
     },
     "metaTitle": "Torch Dimound 5g Delta 9 Thc A/P Indica: Review Completo, Efeitos e Onde Comprar 2025",
-    "metaDescription": "Análise completa do Torch Dimound 5g Delta 9 Thc A/P Indica da Premium: características, efeitos, dosagem, preço (R$ 600.00) e avaliação de especialistas. Guia definitivo para comprar com segurança."
+    "metaDescription": "Análise completa do Torch Dimound 5g Delta 9 Thc A/P Indica da Premium: características, efeitos, dosagem, preço (R$ 600.00) e avaliação de especialistas. Guia definitivo para comprar com segurança.",
+    "productData": {
+      "productId": "5a4e153e-32fe-442d-bdec-62981fbe23ef",
+      "price": 600.0,
+      "brand": "Premium",
+      "availability": "https://schema.org/InStock"
+    }
   },
   {
     "id": "product-e8110ae0-2dee-48f4-a29d-2bf4d7daf805",
@@ -1300,7 +1324,13 @@
       }
     },
     "metaTitle": "Torch Dimound 5g Delta 9 Thc A/P Hibrida: Review Completo, Efeitos e Onde Comprar 2025",
-    "metaDescription": "Análise completa do Torch Dimound 5g Delta 9 Thc A/P Hibrida da Premium: características, efeitos, dosagem, preço (R$ 600.00) e avaliação de especialistas. Guia definitivo para comprar com segurança."
+    "metaDescription": "Análise completa do Torch Dimound 5g Delta 9 Thc A/P Hibrida da Premium: características, efeitos, dosagem, preço (R$ 600.00) e avaliação de especialistas. Guia definitivo para comprar com segurança.",
+    "productData": {
+      "productId": "e8110ae0-2dee-48f4-a29d-2bf4d7daf805",
+      "price": 600.0,
+      "brand": "Premium",
+      "availability": "https://schema.org/InStock"
+    }
   },
   {
     "id": "product-5541c2e8-2a9b-426a-9fe8-8d3388864077",
@@ -1363,7 +1393,13 @@
       }
     },
     "metaTitle": "Snoop Dogg 3.5ml Delta 9 / 10 Thc - Sativa: Review Completo, Efeitos e Onde Comprar 2025",
-    "metaDescription": "Análise completa do Snoop Dogg 3.5ml Delta 9 / 10 Thc - Sativa da Premium: características, efeitos, dosagem, preço (R$ 450.00) e avaliação de especialistas. Guia definitivo para comprar com segurança."
+    "metaDescription": "Análise completa do Snoop Dogg 3.5ml Delta 9 / 10 Thc - Sativa da Premium: características, efeitos, dosagem, preço (R$ 450.00) e avaliação de especialistas. Guia definitivo para comprar com segurança.",
+    "productData": {
+      "productId": "5541c2e8-2a9b-426a-9fe8-8d3388864077",
+      "price": 450.0,
+      "brand": "Premium",
+      "availability": "https://schema.org/InStock"
+    }
   },
   {
     "id": "product-034e340b-51fa-4809-9cf7-abc7b882e9ff",
@@ -1426,7 +1462,13 @@
       }
     },
     "metaTitle": "Snoop Dogg 3.5ml Delta 9 / 10 Thc - Indica: Review Completo, Efeitos e Onde Comprar 2025",
-    "metaDescription": "Análise completa do Snoop Dogg 3.5ml Delta 9 / 10 Thc - Indica da Premium: características, efeitos, dosagem, preço (R$ 450.00) e avaliação de especialistas. Guia definitivo para comprar com segurança."
+    "metaDescription": "Análise completa do Snoop Dogg 3.5ml Delta 9 / 10 Thc - Indica da Premium: características, efeitos, dosagem, preço (R$ 450.00) e avaliação de especialistas. Guia definitivo para comprar com segurança.",
+    "productData": {
+      "productId": "034e340b-51fa-4809-9cf7-abc7b882e9ff",
+      "price": 450.0,
+      "brand": "Premium",
+      "availability": "https://schema.org/InStock"
+    }
   },
   {
     "id": "product-07f2ce48-eb74-4564-bd06-fce5bc7df1c5",
@@ -1489,7 +1531,13 @@
       }
     },
     "metaTitle": "Snoop Dogg 3.5ml Delta 9 / 10 Thc - Hibrida: Review Completo, Efeitos e Onde Comprar 2025",
-    "metaDescription": "Análise completa do Snoop Dogg 3.5ml Delta 9 / 10 Thc - Hibrida da Premium: características, efeitos, dosagem, preço (R$ 450.00) e avaliação de especialistas. Guia definitivo para comprar com segurança."
+    "metaDescription": "Análise completa do Snoop Dogg 3.5ml Delta 9 / 10 Thc - Hibrida da Premium: características, efeitos, dosagem, preço (R$ 450.00) e avaliação de especialistas. Guia definitivo para comprar com segurança.",
+    "productData": {
+      "productId": "07f2ce48-eb74-4564-bd06-fce5bc7df1c5",
+      "price": 450.0,
+      "brand": "Premium",
+      "availability": "https://schema.org/InStock"
+    }
   },
   {
     "id": "product-926e90b4-c4b0-4d27-a56a-92abb303bdaa",
@@ -1552,7 +1600,13 @@
       }
     },
     "metaTitle": "Pulse 5ml Digital Display Delta 9 Thc P Hhc P - Indica: Review Completo, Efeitos e Onde Comprar 2025",
-    "metaDescription": "Análise completa do Pulse 5ml Digital Display Delta 9 Thc P Hhc P - Indica da Premium: características, efeitos, dosagem, preço (R$ 600.00) e avaliação de especialistas. Guia definitivo para comprar com segurança."
+    "metaDescription": "Análise completa do Pulse 5ml Digital Display Delta 9 Thc P Hhc P - Indica da Premium: características, efeitos, dosagem, preço (R$ 600.00) e avaliação de especialistas. Guia definitivo para comprar com segurança.",
+    "productData": {
+      "productId": "926e90b4-c4b0-4d27-a56a-92abb303bdaa",
+      "price": 600.0,
+      "brand": "Premium",
+      "availability": "https://schema.org/InStock"
+    }
   },
   {
     "id": "product-fd6fae4b-d0c9-441a-a098-4247efa4489c",
@@ -1615,7 +1669,13 @@
       }
     },
     "metaTitle": "Pulse 5ml Digital Display Delta 9 Thc P Hhc P - Hibrida: Review Completo, Efeitos e Onde Comprar 2025",
-    "metaDescription": "Análise completa do Pulse 5ml Digital Display Delta 9 Thc P Hhc P - Hibrida da Premium: características, efeitos, dosagem, preço (R$ 600.00) e avaliação de especialistas. Guia definitivo para comprar com segurança."
+    "metaDescription": "Análise completa do Pulse 5ml Digital Display Delta 9 Thc P Hhc P - Hibrida da Premium: características, efeitos, dosagem, preço (R$ 600.00) e avaliação de especialistas. Guia definitivo para comprar com segurança.",
+    "productData": {
+      "productId": "fd6fae4b-d0c9-441a-a098-4247efa4489c",
+      "price": 600.0,
+      "brand": "Premium",
+      "availability": "https://schema.org/InStock"
+    }
   },
   {
     "id": "product-94a3bf1a-b208-46ef-bcd1-2af21843019d",
@@ -1678,7 +1738,13 @@
       }
     },
     "metaTitle": "Pressure L.A 6ml Delta 9 Thc A / P - Sativa: Review Completo, Efeitos e Onde Comprar 2025",
-    "metaDescription": "Análise completa do Pressure L.A 6ml Delta 9 Thc A / P - Sativa da Premium: características, efeitos, dosagem, preço (R$ 600.00) e avaliação de especialistas. Guia definitivo para comprar com segurança."
+    "metaDescription": "Análise completa do Pressure L.A 6ml Delta 9 Thc A / P - Sativa da Premium: características, efeitos, dosagem, preço (R$ 600.00) e avaliação de especialistas. Guia definitivo para comprar com segurança.",
+    "productData": {
+      "productId": "94a3bf1a-b208-46ef-bcd1-2af21843019d",
+      "price": 600.0,
+      "brand": "Premium",
+      "availability": "https://schema.org/InStock"
+    }
   },
   {
     "id": "product-4ac5f8b2-67c8-4d14-877b-9270912ca239",
@@ -1741,7 +1807,13 @@
       }
     },
     "metaTitle": "Pressure L.A 6ml Delta 9 Thc A / P - Indica: Review Completo, Efeitos e Onde Comprar 2025",
-    "metaDescription": "Análise completa do Pressure L.A 6ml Delta 9 Thc A / P - Indica da Premium: características, efeitos, dosagem, preço (R$ 600.00) e avaliação de especialistas. Guia definitivo para comprar com segurança."
+    "metaDescription": "Análise completa do Pressure L.A 6ml Delta 9 Thc A / P - Indica da Premium: características, efeitos, dosagem, preço (R$ 600.00) e avaliação de especialistas. Guia definitivo para comprar com segurança.",
+    "productData": {
+      "productId": "4ac5f8b2-67c8-4d14-877b-9270912ca239",
+      "price": 600.0,
+      "brand": "Premium",
+      "availability": "https://schema.org/InStock"
+    }
   },
   {
     "id": "product-3f0852ca-4aa4-4270-9179-b0422960e9fc",
@@ -1804,7 +1876,13 @@
       }
     },
     "metaTitle": "Pressure L.A 6ml Delta 9 Thc A / P - Hibrida: Review Completo, Efeitos e Onde Comprar 2025",
-    "metaDescription": "Análise completa do Pressure L.A 6ml Delta 9 Thc A / P - Hibrida da Premium: características, efeitos, dosagem, preço (R$ 600.00) e avaliação de especialistas. Guia definitivo para comprar com segurança."
+    "metaDescription": "Análise completa do Pressure L.A 6ml Delta 9 Thc A / P - Hibrida da Premium: características, efeitos, dosagem, preço (R$ 600.00) e avaliação de especialistas. Guia definitivo para comprar com segurança.",
+    "productData": {
+      "productId": "3f0852ca-4aa4-4270-9179-b0422960e9fc",
+      "price": 600.0,
+      "brand": "Premium",
+      "availability": "https://schema.org/InStock"
+    }
   },
   {
     "id": "product-6a7ec56d-a0d4-4d94-b4d3-d906dbe6c18e",
@@ -1867,7 +1945,13 @@
       }
     },
     "metaTitle": "Ignite 7ml 7000mg Diamont Thc A/P Delta 9 - Sativa: Review Completo, Efeitos e Onde Comprar 2025",
-    "metaDescription": "Análise completa do Ignite 7ml 7000mg Diamont Thc A/P Delta 9 - Sativa da Premium: características, efeitos, dosagem, preço (R$ 700.00) e avaliação de especialistas. Guia definitivo para comprar com segurança."
+    "metaDescription": "Análise completa do Ignite 7ml 7000mg Diamont Thc A/P Delta 9 - Sativa da Premium: características, efeitos, dosagem, preço (R$ 700.00) e avaliação de especialistas. Guia definitivo para comprar com segurança.",
+    "productData": {
+      "productId": "6a7ec56d-a0d4-4d94-b4d3-d906dbe6c18e",
+      "price": 700.0,
+      "brand": "Premium",
+      "availability": "https://schema.org/InStock"
+    }
   },
   {
     "id": "product-bb6e0e0e-d04e-4741-a2d4-ee6907b8ec40",
@@ -1930,7 +2014,13 @@
       }
     },
     "metaTitle": "Ignite 7ml 7000mg Diamont Thc A/P Delta 9 - Indica: Review Completo, Efeitos e Onde Comprar 2025",
-    "metaDescription": "Análise completa do Ignite 7ml 7000mg Diamont Thc A/P Delta 9 - Indica da Premium: características, efeitos, dosagem, preço (R$ 700.00) e avaliação de especialistas. Guia definitivo para comprar com segurança."
+    "metaDescription": "Análise completa do Ignite 7ml 7000mg Diamont Thc A/P Delta 9 - Indica da Premium: características, efeitos, dosagem, preço (R$ 700.00) e avaliação de especialistas. Guia definitivo para comprar com segurança.",
+    "productData": {
+      "productId": "bb6e0e0e-d04e-4741-a2d4-ee6907b8ec40",
+      "price": 700.0,
+      "brand": "Premium",
+      "availability": "https://schema.org/InStock"
+    }
   },
   {
     "id": "product-dd18d0da-d26c-4357-b634-a6b9f4f5dbf1",
@@ -1993,7 +2083,13 @@
       }
     },
     "metaTitle": "Ignite 7ml 7000mg Diamont Thc A/P Delta 9 - Hibrida: Review Completo, Efeitos e Onde Comprar 2025",
-    "metaDescription": "Análise completa do Ignite 7ml 7000mg Diamont Thc A/P Delta 9 - Hibrida da Premium: características, efeitos, dosagem, preço (R$ 700.00) e avaliação de especialistas. Guia definitivo para comprar com segurança."
+    "metaDescription": "Análise completa do Ignite 7ml 7000mg Diamont Thc A/P Delta 9 - Hibrida da Premium: características, efeitos, dosagem, preço (R$ 700.00) e avaliação de especialistas. Guia definitivo para comprar com segurança.",
+    "productData": {
+      "productId": "dd18d0da-d26c-4357-b634-a6b9f4f5dbf1",
+      "price": 700.0,
+      "brand": "Premium",
+      "availability": "https://schema.org/InStock"
+    }
   },
   {
     "id": "product-6e1506ff-25ea-4f76-b11a-950390ef8bc4",
@@ -2056,7 +2152,13 @@
       }
     },
     "metaTitle": "Hidden Hills 2ml Refil Delta 9 Thc A / B / H /P / X - Sativa: Review Completo, Efeitos e Onde Comprar 2025",
-    "metaDescription": "Análise completa do Hidden Hills 2ml Refil Delta 9 Thc A / B / H /P / X - Sativa da Premium: características, efeitos, dosagem, preço (R$ 420.00) e avaliação de especialistas. Guia definitivo para comprar com segurança."
+    "metaDescription": "Análise completa do Hidden Hills 2ml Refil Delta 9 Thc A / B / H /P / X - Sativa da Premium: características, efeitos, dosagem, preço (R$ 420.00) e avaliação de especialistas. Guia definitivo para comprar com segurança.",
+    "productData": {
+      "productId": "6e1506ff-25ea-4f76-b11a-950390ef8bc4",
+      "price": 420.0,
+      "brand": "Premium",
+      "availability": "https://schema.org/InStock"
+    }
   },
   {
     "id": "product-80350fce-7c8e-4197-a1b5-30cd4c5837dc",
@@ -2119,7 +2221,13 @@
       }
     },
     "metaTitle": "Hidden Hills 2ml Refil Delta 9 Thc A / B / H /P / X - Indica: Review Completo, Efeitos e Onde Comprar 2025",
-    "metaDescription": "Análise completa do Hidden Hills 2ml Refil Delta 9 Thc A / B / H /P / X - Indica da Premium: características, efeitos, dosagem, preço (R$ 420.00) e avaliação de especialistas. Guia definitivo para comprar com segurança."
+    "metaDescription": "Análise completa do Hidden Hills 2ml Refil Delta 9 Thc A / B / H /P / X - Indica da Premium: características, efeitos, dosagem, preço (R$ 420.00) e avaliação de especialistas. Guia definitivo para comprar com segurança.",
+    "productData": {
+      "productId": "80350fce-7c8e-4197-a1b5-30cd4c5837dc",
+      "price": 420.0,
+      "brand": "Premium",
+      "availability": "https://schema.org/InStock"
+    }
   },
   {
     "id": "product-bdc1c005-41ca-42b1-9410-97f7d22f023a",
@@ -2182,7 +2290,13 @@
       }
     },
     "metaTitle": "Hidden Hills 2ml Refil Delta 9 Thc A / B / H /P / X - Hibrida: Review Completo, Efeitos e Onde Comprar 2025",
-    "metaDescription": "Análise completa do Hidden Hills 2ml Refil Delta 9 Thc A / B / H /P / X - Hibrida da Premium: características, efeitos, dosagem, preço (R$ 420.00) e avaliação de especialistas. Guia definitivo para comprar com segurança."
+    "metaDescription": "Análise completa do Hidden Hills 2ml Refil Delta 9 Thc A / B / H /P / X - Hibrida da Premium: características, efeitos, dosagem, preço (R$ 420.00) e avaliação de especialistas. Guia definitivo para comprar com segurança.",
+    "productData": {
+      "productId": "bdc1c005-41ca-42b1-9410-97f7d22f023a",
+      "price": 420.0,
+      "brand": "Premium",
+      "availability": "https://schema.org/InStock"
+    }
   },
   {
     "id": "product-3eeace7a-dac1-4d77-9136-82728533f2d8",
@@ -2245,7 +2359,13 @@
       }
     },
     "metaTitle": "Hidden Hills 2ml PlugPlay Delta 9 Thc A / P / M - Sativa: Review Completo, Efeitos e Onde Comprar 2025",
-    "metaDescription": "Análise completa do Hidden Hills 2ml PlugPlay Delta 9 Thc A / P / M - Sativa da Premium: características, efeitos, dosagem, preço (R$ 420.00) e avaliação de especialistas. Guia definitivo para comprar com segurança."
+    "metaDescription": "Análise completa do Hidden Hills 2ml PlugPlay Delta 9 Thc A / P / M - Sativa da Premium: características, efeitos, dosagem, preço (R$ 420.00) e avaliação de especialistas. Guia definitivo para comprar com segurança.",
+    "productData": {
+      "productId": "3eeace7a-dac1-4d77-9136-82728533f2d8",
+      "price": 420.0,
+      "brand": "Premium",
+      "availability": "https://schema.org/InStock"
+    }
   },
   {
     "id": "product-a91b77a8-b364-44c1-8a9d-11c4682cefeb",
@@ -2308,7 +2428,13 @@
       }
     },
     "metaTitle": "Hidden Hills 2ml PlugPlay Delta 9 Thc A / P / M - Indica: Review Completo, Efeitos e Onde Comprar 2025",
-    "metaDescription": "Análise completa do Hidden Hills 2ml PlugPlay Delta 9 Thc A / P / M - Indica da Premium: características, efeitos, dosagem, preço (R$ 420.00) e avaliação de especialistas. Guia definitivo para comprar com segurança."
+    "metaDescription": "Análise completa do Hidden Hills 2ml PlugPlay Delta 9 Thc A / P / M - Indica da Premium: características, efeitos, dosagem, preço (R$ 420.00) e avaliação de especialistas. Guia definitivo para comprar com segurança.",
+    "productData": {
+      "productId": "a91b77a8-b364-44c1-8a9d-11c4682cefeb",
+      "price": 420.0,
+      "brand": "Premium",
+      "availability": "https://schema.org/InStock"
+    }
   },
   {
     "id": "product-5c422e4f-64e0-4c90-b813-43e08b552ab9",
@@ -2371,7 +2497,13 @@
       }
     },
     "metaTitle": "Hidden Hills 2ml PlugPlay Delta 9 Thc A / P / M - Hibrida: Review Completo, Efeitos e Onde Comprar 2025",
-    "metaDescription": "Análise completa do Hidden Hills 2ml PlugPlay Delta 9 Thc A / P / M - Hibrida da Premium: características, efeitos, dosagem, preço (R$ 420.00) e avaliação de especialistas. Guia definitivo para comprar com segurança."
+    "metaDescription": "Análise completa do Hidden Hills 2ml PlugPlay Delta 9 Thc A / P / M - Hibrida da Premium: características, efeitos, dosagem, preço (R$ 420.00) e avaliação de especialistas. Guia definitivo para comprar com segurança.",
+    "productData": {
+      "productId": "5c422e4f-64e0-4c90-b813-43e08b552ab9",
+      "price": 420.0,
+      "brand": "Premium",
+      "availability": "https://schema.org/InStock"
+    }
   },
   {
     "id": "product-4dd941b3-a85c-4f42-a473-753d79104c1f",
@@ -2434,7 +2566,13 @@
       }
     },
     "metaTitle": "Hidden Hills 2ml Delta 9 /11 Thc-A Ultra - Sativa: Review Completo, Efeitos e Onde Comprar 2025",
-    "metaDescription": "Análise completa do Hidden Hills 2ml Delta 9 /11 Thc-A Ultra - Sativa da Premium: características, efeitos, dosagem, preço (R$ 420.00) e avaliação de especialistas. Guia definitivo para comprar com segurança."
+    "metaDescription": "Análise completa do Hidden Hills 2ml Delta 9 /11 Thc-A Ultra - Sativa da Premium: características, efeitos, dosagem, preço (R$ 420.00) e avaliação de especialistas. Guia definitivo para comprar com segurança.",
+    "productData": {
+      "productId": "4dd941b3-a85c-4f42-a473-753d79104c1f",
+      "price": 420.0,
+      "brand": "Premium",
+      "availability": "https://schema.org/InStock"
+    }
   },
   {
     "id": "product-92843d42-1ced-4818-81aa-1a7364a71e0b",
@@ -2497,7 +2635,13 @@
       }
     },
     "metaTitle": "Hidden Hills 2ml Delta 9 /11 Thc-A Ultra - Indica: Review Completo, Efeitos e Onde Comprar 2025",
-    "metaDescription": "Análise completa do Hidden Hills 2ml Delta 9 /11 Thc-A Ultra - Indica da Premium: características, efeitos, dosagem, preço (R$ 420.00) e avaliação de especialistas. Guia definitivo para comprar com segurança."
+    "metaDescription": "Análise completa do Hidden Hills 2ml Delta 9 /11 Thc-A Ultra - Indica da Premium: características, efeitos, dosagem, preço (R$ 420.00) e avaliação de especialistas. Guia definitivo para comprar com segurança.",
+    "productData": {
+      "productId": "92843d42-1ced-4818-81aa-1a7364a71e0b",
+      "price": 420.0,
+      "brand": "Premium",
+      "availability": "https://schema.org/InStock"
+    }
   },
   {
     "id": "product-cf5a6e9e-503c-4bb3-b686-79a58fe40833",
@@ -2560,7 +2704,13 @@
       }
     },
     "metaTitle": "Hidden Hills 2ml Delta 9 /11 Thc-A Ultra - Hibrida: Review Completo, Efeitos e Onde Comprar 2025",
-    "metaDescription": "Análise completa do Hidden Hills 2ml Delta 9 /11 Thc-A Ultra - Hibrida da Premium: características, efeitos, dosagem, preço (R$ 420.00) e avaliação de especialistas. Guia definitivo para comprar com segurança."
+    "metaDescription": "Análise completa do Hidden Hills 2ml Delta 9 /11 Thc-A Ultra - Hibrida da Premium: características, efeitos, dosagem, preço (R$ 420.00) e avaliação de especialistas. Guia definitivo para comprar com segurança.",
+    "productData": {
+      "productId": "cf5a6e9e-503c-4bb3-b686-79a58fe40833",
+      "price": 420.0,
+      "brand": "Premium",
+      "availability": "https://schema.org/InStock"
+    }
   },
   {
     "id": "product-c75aeaf9-45a2-47f1-82ce-014e8c33669a",
@@ -2623,7 +2773,13 @@
       }
     },
     "metaTitle": "Hallu Monkey 5ml Thc Delta 8 / 10 / 11 - Sativa: Review Completo, Efeitos e Onde Comprar 2025",
-    "metaDescription": "Análise completa do Hallu Monkey 5ml Thc Delta 8 / 10 / 11 - Sativa da Premium: características, efeitos, dosagem, preço (R$ 350.00) e avaliação de especialistas. Guia definitivo para comprar com segurança."
+    "metaDescription": "Análise completa do Hallu Monkey 5ml Thc Delta 8 / 10 / 11 - Sativa da Premium: características, efeitos, dosagem, preço (R$ 350.00) e avaliação de especialistas. Guia definitivo para comprar com segurança.",
+    "productData": {
+      "productId": "c75aeaf9-45a2-47f1-82ce-014e8c33669a",
+      "price": 350.0,
+      "brand": "Premium",
+      "availability": "https://schema.org/InStock"
+    }
   },
   {
     "id": "product-8d37c603-ed68-4b0d-a0a0-38f2f4552008",
@@ -2686,7 +2842,13 @@
       }
     },
     "metaTitle": "Hallu Monkey 5ml Thc Delta 8 / 10 / 11 - Indica: Review Completo, Efeitos e Onde Comprar 2025",
-    "metaDescription": "Análise completa do Hallu Monkey 5ml Thc Delta 8 / 10 / 11 - Indica da Premium: características, efeitos, dosagem, preço (R$ 350.00) e avaliação de especialistas. Guia definitivo para comprar com segurança."
+    "metaDescription": "Análise completa do Hallu Monkey 5ml Thc Delta 8 / 10 / 11 - Indica da Premium: características, efeitos, dosagem, preço (R$ 350.00) e avaliação de especialistas. Guia definitivo para comprar com segurança.",
+    "productData": {
+      "productId": "8d37c603-ed68-4b0d-a0a0-38f2f4552008",
+      "price": 350.0,
+      "brand": "Premium",
+      "availability": "https://schema.org/InStock"
+    }
   },
   {
     "id": "product-2cdbe0d4-dc7e-439e-8b6f-98b4f9b5972d",
@@ -2749,7 +2911,13 @@
       }
     },
     "metaTitle": "Hallu Monkey 5ml Thc Delta 8 / 10 / 11 - Hibrida: Review Completo, Efeitos e Onde Comprar 2025",
-    "metaDescription": "Análise completa do Hallu Monkey 5ml Thc Delta 8 / 10 / 11 - Hibrida da Premium: características, efeitos, dosagem, preço (R$ 350.00) e avaliação de especialistas. Guia definitivo para comprar com segurança."
+    "metaDescription": "Análise completa do Hallu Monkey 5ml Thc Delta 8 / 10 / 11 - Hibrida da Premium: características, efeitos, dosagem, preço (R$ 350.00) e avaliação de especialistas. Guia definitivo para comprar com segurança.",
+    "productData": {
+      "productId": "2cdbe0d4-dc7e-439e-8b6f-98b4f9b5972d",
+      "price": 350.0,
+      "brand": "Premium",
+      "availability": "https://schema.org/InStock"
+    }
   },
   {
     "id": "product-c00f9e6d-1324-4e79-9625-58fa3b85782b",
@@ -2812,7 +2980,13 @@
       }
     },
     "metaTitle": "Hallu Monkey 2ml Thc Delta 8 Sativa: Review Completo, Efeitos e Onde Comprar 2025",
-    "metaDescription": "Análise completa do Hallu Monkey 2ml Thc Delta 8 Sativa da Premium: características, efeitos, dosagem, preço (R$ 350.00) e avaliação de especialistas. Guia definitivo para comprar com segurança."
+    "metaDescription": "Análise completa do Hallu Monkey 2ml Thc Delta 8 Sativa da Premium: características, efeitos, dosagem, preço (R$ 350.00) e avaliação de especialistas. Guia definitivo para comprar com segurança.",
+    "productData": {
+      "productId": "c00f9e6d-1324-4e79-9625-58fa3b85782b",
+      "price": 350.0,
+      "brand": "Premium",
+      "availability": "https://schema.org/InStock"
+    }
   },
   {
     "id": "product-bb0b1b1e-ba79-4a6c-8682-37abc882b696",
@@ -2875,7 +3049,13 @@
       }
     },
     "metaTitle": "Hallu Monkey 2ml Thc Delta 8 Indica: Review Completo, Efeitos e Onde Comprar 2025",
-    "metaDescription": "Análise completa do Hallu Monkey 2ml Thc Delta 8 Indica da Premium: características, efeitos, dosagem, preço (R$ 350.00) e avaliação de especialistas. Guia definitivo para comprar com segurança."
+    "metaDescription": "Análise completa do Hallu Monkey 2ml Thc Delta 8 Indica da Premium: características, efeitos, dosagem, preço (R$ 350.00) e avaliação de especialistas. Guia definitivo para comprar com segurança.",
+    "productData": {
+      "productId": "bb0b1b1e-ba79-4a6c-8682-37abc882b696",
+      "price": 350.0,
+      "brand": "Premium",
+      "availability": "https://schema.org/InStock"
+    }
   },
   {
     "id": "brand-fd7dfce0-f860-4116-a011-f966498002f6",

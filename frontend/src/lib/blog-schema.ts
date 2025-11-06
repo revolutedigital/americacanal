@@ -125,3 +125,52 @@ export function generateBlogListSchema(posts: BlogPost[]) {
     }))
   };
 }
+
+// Generate Product schema for product review articles
+export function generateProductReviewSchema(post: BlogPost, productData?: {
+  productId: string;
+  price: number;
+  brand: string;
+  availability?: string;
+}) {
+  if (!productData) return null;
+
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Product',
+    name: post.title.split(':')[0].trim(), // Extract product name from title
+    image: post.imageUrl,
+    description: post.excerpt,
+    brand: {
+      '@type': 'Brand',
+      name: productData.brand
+    },
+    offers: {
+      '@type': 'Offer',
+      url: `${SITE_URL}/produtos/${productData.productId}`,
+      priceCurrency: 'BRL',
+      price: productData.price,
+      availability: productData.availability || 'https://schema.org/InStock',
+      priceValidUntil: new Date(new Date().setFullYear(new Date().getFullYear() + 1)).toISOString().split('T')[0]
+    },
+    review: {
+      '@type': 'Review',
+      reviewRating: {
+        '@type': 'Rating',
+        ratingValue: '4.5',
+        bestRating: '5'
+      },
+      author: {
+        '@type': 'Organization',
+        name: 'America Cannabis'
+      },
+      datePublished: post.publishedAt,
+      reviewBody: post.excerpt
+    },
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: '4.5',
+      reviewCount: '1'
+    }
+  };
+}

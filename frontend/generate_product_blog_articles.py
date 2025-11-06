@@ -9,9 +9,25 @@ import requests
 from datetime import datetime, timedelta
 from typing import List, Dict, Any
 import re
+import os
 
-API_URL = "http://localhost:4000"
+# Use production URL or fallback to localhost
+API_URL = os.getenv("NEXT_PUBLIC_API_URL", "http://localhost:4000")
+SITE_URL = os.getenv("NEXT_PUBLIC_SITE_URL", "https://www.americacannabis.com")
 TENANT_ID = "0fb61585-3cb3-48b3-ae76-0a5358084a8c"
+
+def convert_image_url(url: str) -> str:
+    """Convert localhost URLs to production URLs"""
+    if not url:
+        return 'https://images.unsplash.com/photo-1605882171745-0174e1068f23?w=1200&h=630&fit=crop'
+
+    # If URL starts with localhost, convert to production domain
+    if url.startswith('http://localhost:4000'):
+        return url.replace('http://localhost:4000', SITE_URL)
+    elif url.startswith('/uploads'):
+        return f"{SITE_URL}{url}"
+
+    return url
 
 # Categorias de artigos de blog existentes
 BLOG_CATEGORIES = {
@@ -259,7 +275,7 @@ def generate_product_article(product: Dict, product_index: int) -> Dict:
         "content": content.strip(),
         "category": BLOG_CATEGORIES["produtos"],
         "tags": tags[:7],  # Máximo 7 tags
-        "imageUrl": product.get('imageUrl', product.get('images', [''])[0] if product.get('images') else 'https://images.unsplash.com/photo-1605882171745-0174e1068f23?w=1200&h=630&fit=crop'),
+        "imageUrl": convert_image_url(product.get('imageUrl', product.get('images', [''])[0] if product.get('images') else '')),
         "readTime": 12,
         "featured": False,
         "relatedPosts": [],  # Será preenchido depois
@@ -267,7 +283,14 @@ def generate_product_article(product: Dict, product_index: int) -> Dict:
         "publishedAt": published_at,
         "author": DEFAULT_AUTHOR,
         "metaTitle": title,
-        "metaDescription": excerpt
+        "metaDescription": excerpt,
+        # Product data for Product schema
+        "productData": {
+            "productId": product.get('id', ''),
+            "price": price_float,  # Already converted above
+            "brand": brand_name,
+            "availability": "https://schema.org/InStock"
+        }
     }
 
 def generate_brand_article(brand: Dict, brand_index: int, products_count: int) -> Dict:
@@ -691,12 +714,21 @@ def main():
     all_articles.extend(type_articles)
     print(f"   ✓ Total: {len(type_articles)} artigos de tipos gerados")
 
-    # 6. Carregar artigos existentes
+    # 6. Carregar artigos existentes e fazer merge (dedupe por slug)
     print("\n📚 Carregando artigos existentes...")
     try:
         with open("src/data/blog-posts.json", "r", encoding="utf-8") as f:
             existing_articles = json.load(f)
-        print(f"   ✓ {len(existing_articles)} artigos existentes carregados")
+        # Fix image URLs in existing articles
+        for article in existing_articles:
+            article['imageUrl'] = convert_image_url(article.get('imageUrl', ''))
+        print(f"   ✓ {len(existing_articles)} artigos existentes carregados (URLs de imagens atualizadas)")
+
+        # Deduplicação: manter apenas artigos que não foram regerados
+        new_slugs = {a['slug'] for a in all_articles}
+        existing_articles = [a for a in existing_articles if a['slug'] not in new_slugs]
+        print(f"   ✓ {len(existing_articles)} artigos únicos após deduplicação")
+
         all_articles = existing_articles + all_articles
     except FileNotFoundError:
         print("   ! Nenhum artigo existente encontrado")

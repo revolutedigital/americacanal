@@ -301,3 +301,38 @@ export const trackInitiateCheckout = (cart: {
     });
   }
 };
+
+// Track blog to product conversion (Enterprise SEO)
+export const trackBlogToProduct = (data: {
+  blogSlug: string;
+  blogTitle: string;
+  productId: string;
+  productName: string;
+  productPrice: number;
+}) => {
+  if (typeof window === 'undefined') return;
+
+  // Google Analytics custom event
+  if ((window as any).gtag) {
+    (window as any).gtag('event', 'blog_to_product_click', {
+      event_category: 'Blog Conversion',
+      event_label: data.blogTitle,
+      blog_slug: data.blogSlug,
+      product_id: data.productId,
+      product_name: data.productName,
+      value: data.productPrice,
+      currency: 'BRL',
+    });
+  }
+
+  // Meta Pixel custom conversion
+  if ((window as any).fbq) {
+    (window as any).fbq('trackCustom', 'BlogToProduct', {
+      blog_title: data.blogTitle,
+      product_id: data.productId,
+      product_name: data.productName,
+      value: data.productPrice,
+      currency: 'BRL',
+    });
+  }
+};

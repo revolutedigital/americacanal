@@ -9,6 +9,7 @@ import ToastContainer from "@/components/ToastContainer";
 import WebVitals from "@/components/WebVitals";
 import SkipLink from "@/components/SkipLink";
 import TrackingScripts from "@/components/TrackingScripts";
+import { Suspense } from "react";
 
 // Removido force-dynamic para melhorar performance via ISR/SSG
 // Páginas específicas que precisam de dados dinâmicos devem declarar revalidate individualmente
@@ -157,7 +158,9 @@ export default function RootLayout({
       <body className={inter.className}>
         <SkipLink />
         <WebVitals />
-        <TrackingScripts />
+        <Suspense fallback={null}>
+          <TrackingScripts />
+        </Suspense>
         <ToastProvider>
           <CustomerAuthProvider>
             <WishlistProvider>
