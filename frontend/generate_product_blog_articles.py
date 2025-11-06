@@ -714,9 +714,9 @@ def main():
     print(f"   ✓ {len(products)} produtos encontrados")
 
     # 2. Gerar artigos de produtos
-    print("\n📝 Gerando artigos de produtos...")
+    print(f"\n📝 Gerando artigos de produtos... (Total: {len(products)} produtos)")
     product_articles = []
-    for idx, product in enumerate(products[:30]):  # Primeiros 30 produtos
+    for idx, product in enumerate(products):  # Todos os produtos disponíveis
         article = generate_product_article(product, idx)
         product_articles.append(article)
         if (idx + 1) % 10 == 0:

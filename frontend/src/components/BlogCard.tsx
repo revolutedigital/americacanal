@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { BlogPost } from '@/lib/blog-types';
 
 interface BlogCardProps {
@@ -22,10 +23,13 @@ export default function BlogCard({ post, featured = false }: BlogCardProps) {
         <div className="grid md:grid-cols-2 gap-6">
           {/* Imagem */}
           <div className="relative h-64 md:h-full overflow-hidden">
-            <img
+            <Image
               src={post.imageUrl}
               alt={post.title}
-              className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+              fill
+              sizes="(max-width: 768px) 100vw, 50vw"
+              className="object-cover group-hover:scale-110 transition-transform duration-500"
+              unoptimized={post.imageUrl.includes('unsplash.com') || post.imageUrl.includes('bigcommerce.com')}
             />
             <div className="absolute top-4 left-4">
               <span
@@ -54,10 +58,12 @@ export default function BlogCard({ post, featured = false }: BlogCardProps) {
             </p>
 
             <div className="flex items-center gap-3">
-              <img
+              <Image
                 src={post.author.avatar || '/logo.svg'}
                 alt={post.author.name}
-                className="w-10 h-10 rounded-full"
+                width={40}
+                height={40}
+                className="rounded-full"
               />
               <div>
                 <div className="font-medium text-gray-900">{post.author.name}</div>
@@ -86,10 +92,13 @@ export default function BlogCard({ post, featured = false }: BlogCardProps) {
     >
       {/* Imagem */}
       <div className="relative h-48 overflow-hidden">
-        <img
+        <Image
           src={post.imageUrl}
           alt={post.title}
-          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+          fill
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          className="object-cover group-hover:scale-110 transition-transform duration-500"
+          unoptimized={post.imageUrl.includes('unsplash.com') || post.imageUrl.includes('bigcommerce.com')}
         />
         <div className="absolute top-3 left-3">
           <span
@@ -118,10 +127,12 @@ export default function BlogCard({ post, featured = false }: BlogCardProps) {
         </p>
 
         <div className="flex items-center gap-2">
-          <img
+          <Image
             src={post.author.avatar || '/logo.svg'}
             alt={post.author.name}
-            className="w-8 h-8 rounded-full"
+            width={32}
+            height={32}
+            className="rounded-full"
           />
           <div className="text-sm">
             <div className="font-medium text-gray-900">{post.author.name}</div>

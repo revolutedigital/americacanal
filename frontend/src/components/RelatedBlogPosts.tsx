@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { BlogPost } from '@/lib/blog-types';
 
 interface RelatedBlogPostsProps {
@@ -51,10 +52,13 @@ export default async function RelatedBlogPosts({ tags, category, maxPosts = 3 }:
               className="group bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover:scale-[1.02]"
             >
               <div className="relative h-32 overflow-hidden">
-                <img
+                <Image
                   src={post.imageUrl}
                   alt={post.title}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 25vw"
+                  className="object-cover group-hover:scale-110 transition-transform duration-500"
+                  unoptimized={post.imageUrl.includes('unsplash.com') || post.imageUrl.includes('bigcommerce.com')}
                 />
                 <div className="absolute top-2 left-2">
                   <span

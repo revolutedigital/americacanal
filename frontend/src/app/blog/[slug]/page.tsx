@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
+import Image from 'next/image';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import Breadcrumbs from '@/components/Breadcrumbs';
@@ -176,10 +177,12 @@ export default function BlogPostPage({ params }: PageProps) {
             </p>
 
             <div className="flex items-center gap-4 mb-6">
-              <img
+              <Image
                 src={post.author.avatar || '/logo.svg'}
                 alt={post.author.name}
-                className="w-14 h-14 rounded-full"
+                width={56}
+                height={56}
+                className="rounded-full"
               />
               <div>
                 <div className="font-bold text-gray-900">{post.author.name}</div>
@@ -205,11 +208,15 @@ export default function BlogPostPage({ params }: PageProps) {
           </header>
 
           {/* Imagem destaque */}
-          <div className="mb-12 rounded-2xl overflow-hidden">
-            <img
+          <div className="mb-12 rounded-2xl overflow-hidden relative aspect-video">
+            <Image
               src={post.imageUrl}
               alt={post.title}
-              className="w-full h-auto"
+              fill
+              sizes="(max-width: 768px) 100vw, 896px"
+              className="object-cover"
+              priority
+              unoptimized={post.imageUrl.includes('unsplash.com') || post.imageUrl.includes('bigcommerce.com')}
             />
           </div>
 
@@ -241,10 +248,12 @@ export default function BlogPostPage({ params }: PageProps) {
           {/* Autor */}
           <div className="bg-gradient-to-r from-green-50 to-green-100 rounded-2xl p-8 mb-12">
             <div className="flex items-start gap-6">
-              <img
+              <Image
                 src={post.author.avatar || '/logo.svg'}
                 alt={post.author.name}
-                className="w-20 h-20 rounded-full flex-shrink-0"
+                width={80}
+                height={80}
+                className="rounded-full flex-shrink-0"
               />
               <div>
                 <h3 className="text-2xl font-bold text-gray-900 mb-2">

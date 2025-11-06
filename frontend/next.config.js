@@ -48,6 +48,18 @@ const nextConfig = {
       },
       {
         protocol: 'https',
+        hostname: 'cdn11.bigcommerce.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'www.americacannabis.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'americacannabis.com',
+      },
+      {
+        protocol: 'https',
         hostname: '**',
       },
     ],
