@@ -5,9 +5,12 @@ import BlogHeader from '@/components/BlogHeader';
 import BlogFooter from '@/components/BlogFooter';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import BlogCard from '@/components/BlogCard';
+import FAQSchema from '@/components/FAQSchema';
+import FAQSection from '@/components/FAQSection';
 import { BlogPost } from '@/lib/blog-types';
 import { generateBlogPostingSchema, generateAuthorSchema, generateBlogBreadcrumbSchema } from '@/lib/blog-schema';
 import blogPostsData from '@/data/blog-posts.json';
+import { getFAQsForPost, hasFAQs } from '@/data/blog-faqs';
 import Script from 'next/script';
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.americacannabis.com';
@@ -120,6 +123,9 @@ export default function BlogPostPage({ params }: PageProps) {
     });
   }
 
+  // Buscar FAQs para este post
+  const faqs = getFAQsForPost(post.slug);
+
   return (
     <>
       <Script
@@ -137,6 +143,7 @@ export default function BlogPostPage({ params }: PageProps) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
+      {faqs && <FAQSchema faqs={faqs} />}
 
       <BlogHeader />
 
@@ -288,9 +295,12 @@ export default function BlogPostPage({ params }: PageProps) {
             </div>
           </div>
 
+          {/* FAQs */}
+          {faqs && <FAQSection faqs={faqs} />}
+
           {/* Posts Relacionados */}
           {relatedPosts.length > 0 && (
-            <div>
+            <div className="mt-12">
               <h2 className="text-3xl font-bold text-gray-900 mb-8">
                 📚 Artigos Relacionados
               </h2>
