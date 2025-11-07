@@ -1,0 +1,350 @@
+[
+  {
+    "id": "1",
+    "slug": "o-que-e-cbd-guia-completo",
+    "title": "O que é CBD? Guia Completo para Iniciantes 2025",
+    "category": "Guia do Iniciante",
+    "current_image": "https://images.unsplash.com/photo-1605882171745-0174e1068f23?w=1200&h=630&fit=crop",
+    "tags": [
+      "cbd",
+      "canabidiol",
+      "guia iniciante",
+      "cannabis medicinal",
+      "benefícios cbd"
+    ]
+  },
+  {
+    "id": "2",
+    "slug": "cbd-para-ansiedade-funciona",
+    "title": "CBD para Ansiedade: Funciona Mesmo? Estudos e Dosagem",
+    "category": "Saúde & Bem-Estar",
+    "current_image": "https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=1200&h=630&fit=crop",
+    "tags": [
+      "cbd ansiedade",
+      "tratamento ansiedade",
+      "cbd saúde mental",
+      "canabidiol ansiedade"
+    ]
+  },
+  {
+    "id": "3",
+    "slug": "diferenca-cbd-thc",
+    "title": "CBD vs THC: Entenda as Diferenças e Qual Escolher",
+    "category": "Guia do Iniciante",
+    "current_image": "https://images.unsplash.com/photo-1582719471384-894fbb16e074?w=1200&h=630&fit=crop",
+    "tags": [
+      "cbd vs thc",
+      "diferença cbd thc",
+      "canabinóides",
+      "cannabis"
+    ]
+  },
+  {
+    "id": "4",
+    "slug": "oleo-cbd-como-usar",
+    "title": "Óleo de CBD: Como Usar Corretamente e Maximizar Resultados",
+    "category": "Guia do Iniciante",
+    "current_image": "https://images.unsplash.com/photo-1611689037241-d8dfe4280f2e?w=1200&h=630&fit=crop",
+    "tags": [
+      "óleo cbd",
+      "como usar cbd",
+      "administração cbd",
+      "gotas cbd"
+    ]
+  },
+  {
+    "id": "5",
+    "slug": "dosagem-cbd-guia-completo",
+    "title": "Dosagem de CBD: Guia Completo de Como Calcular e Ajustar",
+    "category": "Guia do Iniciante",
+    "current_image": "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=1200&h=630&fit=crop",
+    "tags": [
+      "dosagem cbd",
+      "quanto cbd tomar",
+      "cálculo dosagem",
+      "cbd dose"
+    ]
+  },
+  {
+    "id": "6",
+    "slug": "cannabis-medicinal-brasil-lei",
+    "title": "Cannabis Medicinal no Brasil: Lei, Regulamentação e Como Acessar",
+    "category": "Legislação & Regulamentação",
+    "current_image": "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=1200&h=630&fit=crop",
+    "tags": [
+      "cannabis brasil",
+      "lei cannabis",
+      "anvisa",
+      "cannabis legal"
+    ]
+  },
+  {
+    "id": "7",
+    "slug": "cbd-para-dormir-insonia",
+    "title": "CBD para Insônia: Como Melhorar o Sono Naturalmente",
+    "category": "Saúde & Bem-Estar",
+    "current_image": "https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?w=1200&h=630&fit=crop",
+    "tags": [
+      "cbd sono",
+      "cbd insônia",
+      "melhorar sono",
+      "cbd para dormir"
+    ]
+  },
+  {
+    "id": "8",
+    "slug": "full-spectrum-vs-isolado-cbd",
+    "title": "Full Spectrum vs Isolado de CBD: Qual é Melhor?",
+    "category": "Produtos & Reviews",
+    "current_image": "https://images.unsplash.com/photo-1603376775426-a1e3b9b31840?w=1200&h=630&fit=crop",
+    "tags": [
+      "full spectrum",
+      "isolado cbd",
+      "broad spectrum",
+      "efeito entourage"
+    ]
+  },
+  {
+    "id": "9",
+    "slug": "cbd-dor-cronica",
+    "title": "CBD para Dor Crônica: Evidências Científicas e Protocolos",
+    "category": "Saúde & Bem-Estar",
+    "current_image": "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=1200&h=630&fit=crop",
+    "tags": [
+      "cbd dor",
+      "dor crônica",
+      "cbd analgésico",
+      "cannabis dor"
+    ]
+  },
+  {
+    "id": "10",
+    "slug": "como-escolher-cbd-qualidade",
+    "title": "Como Escolher CBD de Qualidade: 10 Critérios Essenciais",
+    "category": "Produtos & Reviews",
+    "current_image": "https://images.unsplash.com/photo-1614883557382-e5f8f4b7e3e6?w=1200&h=630&fit=crop",
+    "tags": [
+      "cbd qualidade",
+      "escolher cbd",
+      "certificado análise",
+      "cbd puro"
+    ]
+  },
+  {
+    "id": "11",
+    "slug": "cbd-epilepsia-estudos",
+    "title": "CBD e Epilepsia: Estudos, Eficácia e Aprovação da FDA",
+    "category": "Saúde & Bem-Estar",
+    "current_image": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=1200&h=630&fit=crop",
+    "tags": [
+      "cbd epilepsia",
+      "epidiolex",
+      "cannabis epilepsia",
+      "convulsões"
+    ]
+  },
+  {
+    "id": "12",
+    "slug": "sistema-endocanabinoide-explicado",
+    "title": "Sistema Endocanabinoide: Como Funciona e Por Que É Importante",
+    "category": "Ciência & Pesquisa",
+    "current_image": "https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=1200&h=630&fit=crop",
+    "tags": [
+      "sistema endocanabinoide",
+      "receptores cannabinoides",
+      "cb1 cb2",
+      "endocanabinoides"
+    ]
+  },
+  {
+    "id": "13",
+    "slug": "cbd-efeitos-colaterais",
+    "title": "CBD Tem Efeitos Colaterais? O Que Você Precisa Saber",
+    "category": "Saúde & Bem-Estar",
+    "current_image": "https://images.unsplash.com/photo-1587854692152-cbe660dbde88?w=1200&h=630&fit=crop",
+    "tags": [
+      "efeitos colaterais cbd",
+      "segurança cbd",
+      "cbd contraindicações",
+      "cbd riscos"
+    ]
+  },
+  {
+    "id": "14",
+    "slug": "anvisa-cannabis-2025",
+    "title": "Regulamentação ANVISA Cannabis 2025: Novidades e Mudanças",
+    "category": "Legislação & Regulamentação",
+    "current_image": "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=1200&h=630&fit=crop",
+    "tags": [
+      "anvisa 2025",
+      "regulamentação cannabis",
+      "rdc anvisa",
+      "cannabis brasil"
+    ]
+  },
+  {
+    "id": "15",
+    "slug": "cbd-pets-caes-gatos",
+    "title": "CBD para Pets: Segurança e Benefícios para Cães e Gatos",
+    "category": "Saúde & Bem-Estar",
+    "current_image": "https://images.unsplash.com/photo-1450778869180-41d0601e046e?w=1200&h=630&fit=crop",
+    "tags": [
+      "cbd pets",
+      "cbd cães",
+      "cbd gatos",
+      "cannabis veterinária"
+    ]
+  },
+  {
+    "id": "16",
+    "slug": "cannabis-cancer-estudos",
+    "title": "Cannabis e Câncer: O Que Dizem os Estudos Científicos",
+    "category": "Ciência & Pesquisa",
+    "current_image": "https://images.unsplash.com/photo-1579154204601-01588f351e67?w=1200&h=630&fit=crop",
+    "tags": [
+      "cannabis câncer",
+      "cbd oncologia",
+      "cannabis antitumoral",
+      "estudos cannabis"
+    ]
+  },
+  {
+    "id": "17",
+    "slug": "terpenos-cannabis-efeitos",
+    "title": "Terpenos da Cannabis: Tipos, Efeitos e Efeito Entourage",
+    "category": "Ciência & Pesquisa",
+    "current_image": "https://images.unsplash.com/photo-1502082553048-f009c37129b9?w=1200&h=630&fit=crop",
+    "tags": [
+      "terpenos",
+      "efeito entourage",
+      "aromáticos cannabis",
+      "limoneno mirceno"
+    ]
+  },
+  {
+    "id": "18",
+    "slug": "coa-certificado-analise-cbd",
+    "title": "COA (Certificado de Análise): Como Ler e Por Que É Essencial",
+    "category": "Produtos & Reviews",
+    "current_image": "https://images.unsplash.com/photo-1507925921958-8a62f3d1a50d?w=1200&h=630&fit=crop",
+    "tags": [
+      "coa cbd",
+      "certificado análise",
+      "qualidade cbd",
+      "testes laboratório"
+    ]
+  },
+  {
+    "id": "19",
+    "slug": "cultivo-cannabis-medicinal-brasil",
+    "title": "Cultivo de Cannabis Medicinal no Brasil: Lei e Perspectivas",
+    "category": "Legislação & Regulamentação",
+    "current_image": "https://images.unsplash.com/photo-1464639351491-a172c2aa2911?w=1200&h=630&fit=crop",
+    "tags": [
+      "cultivo cannabis brasil",
+      "autocultivo",
+      "associações cannabis",
+      "lei cultivo"
+    ]
+  },
+  {
+    "id": "20",
+    "slug": "cbd-idosos-terceira-idade",
+    "title": "CBD para Idosos: Benefícios e Cuidados na Terceira Idade",
+    "category": "Saúde & Bem-Estar",
+    "current_image": "https://images.unsplash.com/photo-1581579438747-1dc8d17bbce4?w=1200&h=630&fit=crop",
+    "tags": [
+      "cbd idosos",
+      "cbd terceira idade",
+      "cannabis idosos",
+      "cbd sênior"
+    ]
+  },
+  {
+    "id": "type-indica",
+    "slug": "cannabis-indica",
+    "title": "Cannabis Indica: Guia Completo, Efeitos e Melhores Produtos 2025",
+    "category": "Guia do Iniciante",
+    "current_image": "https://images.unsplash.com/photo-1605882171745-0174e1068f23?w=1200&h=630&fit=crop",
+    "tags": [
+      "cannabis indica",
+      "indica efeitos",
+      "produtos indica",
+      "tipos de cannabis",
+      "indica brasil"
+    ]
+  },
+  {
+    "id": "type-sativa",
+    "slug": "cannabis-sativa",
+    "title": "Cannabis Sativa: Guia Completo, Efeitos e Melhores Produtos 2025",
+    "category": "Guia do Iniciante",
+    "current_image": "https://images.unsplash.com/photo-1530587191325-3db32d826c18?w=1200&h=630&fit=crop",
+    "tags": [
+      "cannabis sativa",
+      "sativa efeitos",
+      "produtos sativa",
+      "tipos de cannabis",
+      "sativa brasil"
+    ]
+  },
+  {
+    "id": "type-hibrida",
+    "slug": "cannabis-hibrida",
+    "title": "Cannabis Híbrida: Guia Completo, Efeitos Balanceados e Top Produtos 2025",
+    "category": "Guia do Iniciante",
+    "current_image": "https://images.unsplash.com/photo-1612965110667-f0b1b5d35c9a?w=1200&h=630&fit=crop",
+    "tags": [
+      "cannabis híbrida",
+      "híbrida efeitos",
+      "produtos híbrida",
+      "tipos de cannabis",
+      "híbrida brasil"
+    ]
+  },
+  {
+    "id": "21",
+    "slug": "top-10-indica-2025",
+    "title": "Top 10 Melhores Indica 2025: Ranking Completo",
+    "category": "Produtos & Reviews",
+    "current_image": "https://images.unsplash.com/photo-1612305985116-99d6c8f54231?w=1200&h=630&fit=crop",
+    "tags": [
+      "top 10",
+      "indica",
+      "ranking",
+      "2025",
+      "delta 9",
+      "relaxamento"
+    ]
+  },
+  {
+    "id": "22",
+    "slug": "top-10-sativa-2025",
+    "title": "Top 10 Melhores Sativa 2025: Energia e Criatividade",
+    "category": "Produtos & Reviews",
+    "current_image": "https://images.unsplash.com/photo-1464375117522-1311d6a5b81f?w=1200&h=630&fit=crop",
+    "tags": [
+      "top 10",
+      "sativa",
+      "ranking",
+      "2025",
+      "energia",
+      "criatividade"
+    ]
+  },
+  {
+    "id": "23",
+    "slug": "top-10-hibrida-2025",
+    "title": "Top 10 Melhores Híbrida 2025: Equilíbrio Perfeito",
+    "category": "Produtos & Reviews",
+    "current_image": "https://images.unsplash.com/photo-1536257104079-aa99c6460a5a?w=1200&h=630&fit=crop",
+    "tags": [
+      "top 10",
+      "híbrida",
+      "ranking",
+      "2025",
+      "equilíbrio",
+      "versatilidade"
+    ]
+  }
+]
