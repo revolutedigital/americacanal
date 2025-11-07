@@ -22,6 +22,10 @@ type SortOption = 'relevance' | 'price-asc' | 'price-desc' | 'name-asc' | 'newes
 
 export default function ProdutosContent() {
   const searchParams = useSearchParams();
+
+  // Estado para controlar hydration - evita erros de SSR/Client mismatch
+  const [isMounted, setIsMounted] = useState(false);
+
   const [products, setProducts] = useState<Product[]>([]);
   const [filteredProducts, setFilteredProducts] = useState<Product[]>([]);
   const [categories, setCategories] = useState<Category[]>([]);
@@ -38,6 +42,11 @@ export default function ProdutosContent() {
 
   // Ref para controlar se já inicializou filtros da URL
   const hasInitializedFilters = useRef(false);
+
+  // Garantir que componente só renderiza após hydration
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   // Função para filtrar e ordenar produtos - declarada antes dos useEffects
   const filterAndSortProducts = useCallback((searchQuery?: string) => {
@@ -183,6 +192,27 @@ export default function ProdutosContent() {
     setPriceRange({ min: 0, max: 10000 });
     setSortBy('relevance');
   };
+
+  // Prevenir hydration mismatch - renderizar loading até mounted
+  if (!isMounted) {
+    return (
+      <main className="flex-grow">
+        <div className="container mx-auto px-4 py-12">
+          <div className="text-center mb-8">
+            <h1 className="text-5xl md:text-6xl font-extrabold bg-gradient-to-r from-primary via-primary-vibrant to-primary bg-clip-text text-transparent mb-4">
+              🌿 Nossos Produtos
+            </h1>
+            <p className="text-xl text-gray-700 max-w-2xl mx-auto font-medium">
+              Descubra nossa seleção premium de produtos de cannabis de alta qualidade
+            </p>
+          </div>
+          <div className="flex items-center justify-center h-64">
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary"></div>
+          </div>
+        </div>
+      </main>
+    );
+  }
 
   return (
     <main className="flex-grow">
