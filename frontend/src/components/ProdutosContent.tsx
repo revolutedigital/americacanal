@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState, useCallback } from 'react';
+import { useEffect, useState, useCallback, useRef } from 'react';
 import { useSearchParams } from 'next/navigation';
 import ProductCardSSR from '@/components/ProductCardSSR';
 import { Product } from '@/lib/types';
@@ -35,6 +35,9 @@ export default function ProdutosContent() {
   const [priceRange, setPriceRange] = useState<{ min: number; max: number }>({ min: 0, max: 10000 });
   const [sortBy, setSortBy] = useState<SortOption>('relevance');
   const [showFilters, setShowFilters] = useState(false);
+
+  // Ref para controlar se já inicializou filtros da URL
+  const hasInitializedFilters = useRef(false);
 
   // Função para filtrar e ordenar produtos - declarada antes dos useEffects
   const filterAndSortProducts = useCallback((searchQuery?: string) => {
@@ -129,32 +132,39 @@ export default function ProdutosContent() {
     fetchBrands();
   }, []);
 
-  // Aplicar filtros da URL apenas uma vez quando categorias e brands carregarem
+  // Aplicar filtros da URL apenas UMA VEZ quando dados carregarem
   useEffect(() => {
-    if (categories.length === 0 || brands.length === 0) return;
+    // Só roda se ainda não inicializou e os dados estão prontos
+    if (hasInitializedFilters.current || categories.length === 0 || brands.length === 0) {
+      return;
+    }
 
     const categorySlug = searchParams.get('categoria');
     const brandSlug = searchParams.get('marca');
     const typeParam = searchParams.get('tipo');
 
+    // Aplicar filtros da URL
     if (categorySlug) {
       const category = categories.find(c => c.slug === categorySlug);
-      if (category && selectedCategory !== category.id) {
+      if (category) {
         setSelectedCategory(category.id);
       }
     }
 
     if (brandSlug) {
       const brand = brands.find(b => b.slug === brandSlug);
-      if (brand && selectedBrand !== brand.id) {
+      if (brand) {
         setSelectedBrand(brand.id);
       }
     }
 
-    if (typeParam && selectedType !== typeParam) {
+    if (typeParam) {
       setSelectedType(typeParam);
     }
-  }, [categories, brands, searchParams, selectedCategory, selectedBrand, selectedType]);
+
+    // Marcar como inicializado
+    hasInitializedFilters.current = true;
+  }, [categories, brands, searchParams]);
 
   // Aplicar filtros e ordenação
   useEffect(() => {
