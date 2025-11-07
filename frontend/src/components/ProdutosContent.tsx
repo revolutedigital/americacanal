@@ -36,78 +36,7 @@ export default function ProdutosContent() {
   const [sortBy, setSortBy] = useState<SortOption>('relevance');
   const [showFilters, setShowFilters] = useState(false);
 
-  useEffect(() => {
-    fetchProducts();
-    fetchCategories();
-    fetchBrands();
-  }, []);
-
-  // Aplicar filtros da URL apenas uma vez quando categorias e brands carregarem
-  useEffect(() => {
-    if (categories.length === 0 || brands.length === 0) return;
-
-    const categorySlug = searchParams.get('categoria');
-    const brandSlug = searchParams.get('marca');
-    const typeParam = searchParams.get('tipo');
-
-    if (categorySlug) {
-      const category = categories.find(c => c.slug === categorySlug);
-      if (category && selectedCategory !== category.id) {
-        setSelectedCategory(category.id);
-      }
-    }
-
-    if (brandSlug) {
-      const brand = brands.find(b => b.slug === brandSlug);
-      if (brand && selectedBrand !== brand.id) {
-        setSelectedBrand(brand.id);
-      }
-    }
-
-    if (typeParam && selectedType !== typeParam) {
-      setSelectedType(typeParam);
-    }
-  }, [categories, brands, searchParams]);
-
-  // Aplicar filtros e ordenação
-  useEffect(() => {
-    const searchQuery = searchParams.get('search');
-    if (searchQuery) {
-      filterAndSortProducts(searchQuery);
-    } else {
-      filterAndSortProducts();
-    }
-  }, [filterAndSortProducts, searchParams]);
-
-  const fetchProducts = async () => {
-    try {
-      const response = await api.get('/api/products?tenantId=0fb61585-3cb3-48b3-ae76-0a5358084a8c');
-      setProducts(response.data);
-    } catch (error) {
-      console.error('Error fetching products:', error);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  const fetchCategories = async () => {
-    try {
-      const response = await api.get('/api/categories?tenantId=0fb61585-3cb3-48b3-ae76-0a5358084a8c');
-      setCategories(response.data);
-    } catch (error) {
-      console.error('Error fetching categories:', error);
-    }
-  };
-
-  const fetchBrands = async () => {
-    try {
-      const response = await api.get('/api/brands/active?tenantId=0fb61585-3cb3-48b3-ae76-0a5358084a8c');
-      setBrands(response.data);
-    } catch (error) {
-      console.error('Error fetching brands:', error);
-    }
-  };
-
+  // Função para filtrar e ordenar produtos - declarada antes dos useEffects
   const filterAndSortProducts = useCallback((searchQuery?: string) => {
     let filtered = [...products];
 
@@ -162,6 +91,80 @@ export default function ProdutosContent() {
 
     setFilteredProducts(filtered);
   }, [products, selectedCategory, selectedBrand, selectedType, priceRange, sortBy]);
+
+  // Fetch functions
+  const fetchProducts = async () => {
+    try {
+      const response = await api.get('/api/products?tenantId=0fb61585-3cb3-48b3-ae76-0a5358084a8c');
+      setProducts(response.data);
+    } catch (error) {
+      console.error('Error fetching products:', error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const fetchCategories = async () => {
+    try {
+      const response = await api.get('/api/categories?tenantId=0fb61585-3cb3-48b3-ae76-0a5358084a8c');
+      setCategories(response.data);
+    } catch (error) {
+      console.error('Error fetching categories:', error);
+    }
+  };
+
+  const fetchBrands = async () => {
+    try {
+      const response = await api.get('/api/brands/active?tenantId=0fb61585-3cb3-48b3-ae76-0a5358084a8c');
+      setBrands(response.data);
+    } catch (error) {
+      console.error('Error fetching brands:', error);
+    }
+  };
+
+  // Effects
+  useEffect(() => {
+    fetchProducts();
+    fetchCategories();
+    fetchBrands();
+  }, []);
+
+  // Aplicar filtros da URL apenas uma vez quando categorias e brands carregarem
+  useEffect(() => {
+    if (categories.length === 0 || brands.length === 0) return;
+
+    const categorySlug = searchParams.get('categoria');
+    const brandSlug = searchParams.get('marca');
+    const typeParam = searchParams.get('tipo');
+
+    if (categorySlug) {
+      const category = categories.find(c => c.slug === categorySlug);
+      if (category && selectedCategory !== category.id) {
+        setSelectedCategory(category.id);
+      }
+    }
+
+    if (brandSlug) {
+      const brand = brands.find(b => b.slug === brandSlug);
+      if (brand && selectedBrand !== brand.id) {
+        setSelectedBrand(brand.id);
+      }
+    }
+
+    if (typeParam && selectedType !== typeParam) {
+      setSelectedType(typeParam);
+    }
+  }, [categories, brands, searchParams, selectedCategory, selectedBrand, selectedType]);
+
+  // Aplicar filtros e ordenação
+  useEffect(() => {
+    const searchQuery = searchParams.get('search');
+    if (searchQuery) {
+      filterAndSortProducts(searchQuery);
+    } else {
+      filterAndSortProducts();
+    }
+  }, [filterAndSortProducts, searchParams]);
 
   const clearFilters = () => {
     setSelectedCategory('');
