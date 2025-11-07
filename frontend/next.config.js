@@ -20,6 +20,8 @@ const nextConfig = {
   // Experimental features for performance
   experimental: {
     optimizePackageImports: ['@/components', '@/lib'],
+    // Disable aggressive prefetching that can cause hydration issues
+    clientRouterFilter: false,
   },
 
   // Images optimization
