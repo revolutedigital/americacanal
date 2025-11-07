@@ -122,14 +122,14 @@ export default function ProductTestimonials() {
           {duplicatedTestimonials.map((testimonial, index) => (
             <div
               key={`${testimonial.id}-${index}`}
-              className="flex-shrink-0 w-[300px] md:w-[350px] group"
+              className="flex-shrink-0 w-[400px] md:w-[500px] group"
             >
               <div className="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300 h-full">
                 {/* Media Display */}
                 {testimonial.mediaUrl && (
                   <div className="relative w-full">
                     {testimonial.mediaType === 'video' ? (
-                      <div className="relative bg-black h-[400px]">
+                      <div className="relative bg-black h-[500px] md:h-[600px]">
                         <video
                           src={testimonial.mediaUrl}
                           controls
@@ -138,7 +138,7 @@ export default function ProductTestimonials() {
                         />
                       </div>
                     ) : (
-                      <div className="relative h-[400px] bg-gradient-to-br from-primary/5 to-secondary/5">
+                      <div className="relative h-[500px] md:h-[600px] bg-gradient-to-br from-primary/5 to-secondary/5">
                         <Image
                           src={testimonial.mediaUrl}
                           alt="Depoimento"
