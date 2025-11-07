@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
-import Header from '@/components/Header';
+import Header from '@/components/ClientHeader';
 import Footer from '@/components/Footer';
 import { useCustomerAuth } from '@/hooks/useCustomerAuth';
 import api from '@/lib/api';

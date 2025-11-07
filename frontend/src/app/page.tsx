@@ -1,4 +1,4 @@
-import Header from '@/components/Header';
+import Header from '@/components/ClientHeader';
 import Footer from '@/components/Footer';
 import ProductCardSSR from '@/components/ProductCardSSR';
 import HeroBanners from '@/components/HeroBanners';

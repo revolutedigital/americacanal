@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 import { notFound, redirect } from 'next/navigation';
-import Header from '@/components/Header';
+import Header from '@/components/ClientHeader';
 import Footer from '@/components/Footer';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import ProductTestimonials from '@/components/ProductTestimonials';
