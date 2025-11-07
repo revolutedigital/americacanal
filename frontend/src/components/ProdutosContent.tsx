@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import { useSearchParams } from 'next/navigation';
 import ProductCardSSR from '@/components/ProductCardSSR';
 import { Product } from '@/lib/types';
@@ -42,37 +42,42 @@ export default function ProdutosContent() {
     fetchBrands();
   }, []);
 
+  // Aplicar filtros da URL apenas uma vez quando categorias e brands carregarem
   useEffect(() => {
-    // Aplicar busca da URL se existir
-    const searchQuery = searchParams.get('search');
+    if (categories.length === 0 || brands.length === 0) return;
+
     const categorySlug = searchParams.get('categoria');
     const brandSlug = searchParams.get('marca');
     const typeParam = searchParams.get('tipo');
 
+    if (categorySlug) {
+      const category = categories.find(c => c.slug === categorySlug);
+      if (category && selectedCategory !== category.id) {
+        setSelectedCategory(category.id);
+      }
+    }
+
+    if (brandSlug) {
+      const brand = brands.find(b => b.slug === brandSlug);
+      if (brand && selectedBrand !== brand.id) {
+        setSelectedBrand(brand.id);
+      }
+    }
+
+    if (typeParam && selectedType !== typeParam) {
+      setSelectedType(typeParam);
+    }
+  }, [categories, brands, searchParams]);
+
+  // Aplicar filtros e ordenação
+  useEffect(() => {
+    const searchQuery = searchParams.get('search');
     if (searchQuery) {
       filterAndSortProducts(searchQuery);
     } else {
       filterAndSortProducts();
     }
-
-    if (categorySlug && categories.length > 0) {
-      const category = categories.find(c => c.slug === categorySlug);
-      if (category) {
-        setSelectedCategory(category.id);
-      }
-    }
-
-    if (brandSlug && brands.length > 0) {
-      const brand = brands.find(b => b.slug === brandSlug);
-      if (brand) {
-        setSelectedBrand(brand.id);
-      }
-    }
-
-    if (typeParam) {
-      setSelectedType(typeParam);
-    }
-  }, [products, selectedCategory, selectedBrand, selectedType, priceRange, sortBy, searchParams, categories, brands]);
+  }, [filterAndSortProducts, searchParams]);
 
   const fetchProducts = async () => {
     try {
@@ -103,7 +108,7 @@ export default function ProdutosContent() {
     }
   };
 
-  const filterAndSortProducts = (searchQuery?: string) => {
+  const filterAndSortProducts = useCallback((searchQuery?: string) => {
     let filtered = [...products];
 
     // Filtrar por busca
@@ -156,7 +161,7 @@ export default function ProdutosContent() {
     }
 
     setFilteredProducts(filtered);
-  };
+  }, [products, selectedCategory, selectedBrand, selectedType, priceRange, sortBy]);
 
   const clearFilters = () => {
     setSelectedCategory('');
