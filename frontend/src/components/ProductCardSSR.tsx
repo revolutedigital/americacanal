@@ -44,6 +44,23 @@ export default function ProductCardSSR({ product }: ProductCardSSRProps) {
     }
   }, [isMounted, product.createdAt]);
 
+  // Don't render until mounted to prevent hydration mismatch
+  if (!isMounted) {
+    return (
+      <article className="group relative bg-white rounded-xl overflow-hidden shadow-lg transition-all duration-300 border border-gray-100">
+        <div className="relative w-full h-72 overflow-hidden bg-gray-50">
+          <div className="w-full h-full flex items-center justify-center">
+            <div className="animate-pulse bg-gray-200 w-full h-full"></div>
+          </div>
+        </div>
+        <div className="p-5">
+          <div className="h-6 bg-gray-200 rounded animate-pulse mb-4"></div>
+          <div className="h-4 bg-gray-200 rounded animate-pulse"></div>
+        </div>
+      </article>
+    );
+  }
+
   return (
     <article className="group relative bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 hover:border-primary/30">
       <Link href={`/produtos/${product.slug || product.id}`} className="block">
