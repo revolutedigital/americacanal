@@ -203,9 +203,9 @@ export default function Header() {
                     role="menuitem"
                     prefetch={false}
                     onClick={(e) => {
-                      setShowCategoriesMenu(false);
-                      router.push('/produtos');
                       e.preventDefault();
+                      setShowCategoriesMenu(false);
+                      setTimeout(() => router.push('/produtos'), 100);
                     }}
                     className="block px-6 py-3 hover:bg-accent/10 hover:text-accent transition-all font-medium focus-visible:bg-accent/10 focus-visible:outline-none"
                   >
@@ -218,9 +218,9 @@ export default function Header() {
                       role="menuitem"
                       prefetch={false}
                       onClick={(e) => {
-                        setShowCategoriesMenu(false);
-                        router.push(`/produtos?categoria=${category.slug}`);
                         e.preventDefault();
+                        setShowCategoriesMenu(false);
+                        setTimeout(() => router.push(`/produtos?categoria=${category.slug}`), 100);
                       }}
                       className="block px-6 py-3 hover:bg-accent/10 hover:text-accent transition-all focus-visible:bg-accent/10 focus-visible:outline-none"
                     >
@@ -255,9 +255,9 @@ export default function Header() {
                     role="menuitem"
                     prefetch={false}
                     onClick={(e) => {
-                      setShowBrandsMenu(false);
-                      router.push('/produtos');
                       e.preventDefault();
+                      setShowBrandsMenu(false);
+                      setTimeout(() => router.push('/produtos'), 100);
                     }}
                     className="block px-6 py-3 hover:bg-accent/10 hover:text-accent transition-all font-medium focus-visible:bg-accent/10 focus-visible:outline-none"
                   >
@@ -270,9 +270,9 @@ export default function Header() {
                       role="menuitem"
                       prefetch={false}
                       onClick={(e) => {
-                        setShowBrandsMenu(false);
-                        router.push(`/produtos?marca=${brand.slug}`);
                         e.preventDefault();
+                        setShowBrandsMenu(false);
+                        setTimeout(() => router.push(`/produtos?marca=${brand.slug}`), 100);
                       }}
                       className="block px-6 py-3 hover:bg-accent/10 hover:text-accent transition-all focus-visible:bg-accent/10 focus-visible:outline-none"
                     >
@@ -307,9 +307,9 @@ export default function Header() {
                     role="menuitem"
                     prefetch={false}
                     onClick={(e) => {
-                      setShowTypesMenu(false);
-                      router.push('/produtos?tipo=INDICA');
                       e.preventDefault();
+                      setShowTypesMenu(false);
+                      setTimeout(() => router.push('/produtos?tipo=INDICA'), 100);
                     }}
                     className="block px-6 py-3 hover:bg-blue-50 hover:text-blue-700 transition-all focus-visible:bg-blue-50 focus-visible:outline-none"
                   >
@@ -323,9 +323,9 @@ export default function Header() {
                     role="menuitem"
                     prefetch={false}
                     onClick={(e) => {
-                      setShowTypesMenu(false);
-                      router.push('/produtos?tipo=SATIVA');
                       e.preventDefault();
+                      setShowTypesMenu(false);
+                      setTimeout(() => router.push('/produtos?tipo=SATIVA'), 100);
                     }}
                     className="block px-6 py-3 hover:bg-green-50 hover:text-green-700 transition-all focus-visible:bg-green-50 focus-visible:outline-none"
                   >
@@ -339,9 +339,9 @@ export default function Header() {
                     role="menuitem"
                     prefetch={false}
                     onClick={(e) => {
-                      setShowTypesMenu(false);
-                      router.push('/produtos?tipo=HIBRIDA');
                       e.preventDefault();
+                      setShowTypesMenu(false);
+                      setTimeout(() => router.push('/produtos?tipo=HIBRIDA'), 100);
                     }}
                     className="block px-6 py-3 hover:bg-yellow-50 hover:text-yellow-700 transition-all focus-visible:bg-yellow-50 focus-visible:outline-none"
                   >

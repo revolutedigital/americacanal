@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import Header from '@/components/ClientHeader';
+import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import api from '@/lib/api';
 import Image from 'next/image';
