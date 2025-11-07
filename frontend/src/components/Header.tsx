@@ -172,6 +172,7 @@ export default function Header() {
           <div className="flex items-center justify-center gap-6 flex-wrap">
             <Link
               href="/"
+              prefetch={false}
               aria-label="Ir para página inicial"
               className="text-white/90 hover:text-accent-light font-semibold transition-all duration-200 px-5 py-3 hover:bg-white/10 rounded-full focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 hover:scale-105"
             >
@@ -200,7 +201,12 @@ export default function Header() {
                   <Link
                     href="/produtos"
                     role="menuitem"
-                    onClick={() => setShowCategoriesMenu(false)}
+                    prefetch={false}
+                    onClick={(e) => {
+                      setShowCategoriesMenu(false);
+                      router.push('/produtos');
+                      e.preventDefault();
+                    }}
                     className="block px-6 py-3 hover:bg-accent/10 hover:text-accent transition-all font-medium focus-visible:bg-accent/10 focus-visible:outline-none"
                   >
                     Todos os Produtos
@@ -210,7 +216,12 @@ export default function Header() {
                       key={category.id}
                       href={`/produtos?categoria=${category.slug}`}
                       role="menuitem"
-                      onClick={() => setShowCategoriesMenu(false)}
+                      prefetch={false}
+                      onClick={(e) => {
+                        setShowCategoriesMenu(false);
+                        router.push(`/produtos?categoria=${category.slug}`);
+                        e.preventDefault();
+                      }}
                       className="block px-6 py-3 hover:bg-accent/10 hover:text-accent transition-all focus-visible:bg-accent/10 focus-visible:outline-none"
                     >
                       {category.name}
@@ -242,7 +253,12 @@ export default function Header() {
                   <Link
                     href="/produtos"
                     role="menuitem"
-                    onClick={() => setShowBrandsMenu(false)}
+                    prefetch={false}
+                    onClick={(e) => {
+                      setShowBrandsMenu(false);
+                      router.push('/produtos');
+                      e.preventDefault();
+                    }}
                     className="block px-6 py-3 hover:bg-accent/10 hover:text-accent transition-all font-medium focus-visible:bg-accent/10 focus-visible:outline-none"
                   >
                     Todas as Marcas
@@ -252,7 +268,12 @@ export default function Header() {
                       key={brand.id}
                       href={`/produtos?marca=${brand.slug}`}
                       role="menuitem"
-                      onClick={() => setShowBrandsMenu(false)}
+                      prefetch={false}
+                      onClick={(e) => {
+                        setShowBrandsMenu(false);
+                        router.push(`/produtos?marca=${brand.slug}`);
+                        e.preventDefault();
+                      }}
                       className="block px-6 py-3 hover:bg-accent/10 hover:text-accent transition-all focus-visible:bg-accent/10 focus-visible:outline-none"
                     >
                       {brand.name}
@@ -284,7 +305,12 @@ export default function Header() {
                   <Link
                     href="/produtos?tipo=INDICA"
                     role="menuitem"
-                    onClick={() => setShowTypesMenu(false)}
+                    prefetch={false}
+                    onClick={(e) => {
+                      setShowTypesMenu(false);
+                      router.push('/produtos?tipo=INDICA');
+                      e.preventDefault();
+                    }}
                     className="block px-6 py-3 hover:bg-blue-50 hover:text-blue-700 transition-all focus-visible:bg-blue-50 focus-visible:outline-none"
                   >
                     <span className="inline-flex items-center gap-2">
@@ -295,7 +321,12 @@ export default function Header() {
                   <Link
                     href="/produtos?tipo=SATIVA"
                     role="menuitem"
-                    onClick={() => setShowTypesMenu(false)}
+                    prefetch={false}
+                    onClick={(e) => {
+                      setShowTypesMenu(false);
+                      router.push('/produtos?tipo=SATIVA');
+                      e.preventDefault();
+                    }}
                     className="block px-6 py-3 hover:bg-green-50 hover:text-green-700 transition-all focus-visible:bg-green-50 focus-visible:outline-none"
                   >
                     <span className="inline-flex items-center gap-2">
@@ -306,7 +337,12 @@ export default function Header() {
                   <Link
                     href="/produtos?tipo=HIBRIDA"
                     role="menuitem"
-                    onClick={() => setShowTypesMenu(false)}
+                    prefetch={false}
+                    onClick={(e) => {
+                      setShowTypesMenu(false);
+                      router.push('/produtos?tipo=HIBRIDA');
+                      e.preventDefault();
+                    }}
                     className="block px-6 py-3 hover:bg-yellow-50 hover:text-yellow-700 transition-all focus-visible:bg-yellow-50 focus-visible:outline-none"
                   >
                     <span className="inline-flex items-center gap-2">
@@ -320,6 +356,7 @@ export default function Header() {
 
             <Link
               href="/blog"
+              prefetch={false}
               aria-label="Blog sobre cannabis e CBD"
               className="text-white/90 hover:text-accent-light font-semibold transition-all duration-200 px-5 py-3 hover:bg-white/10 rounded-full focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 hover:scale-105"
             >
@@ -328,6 +365,7 @@ export default function Header() {
 
             <Link
               href="/produtos"
+              prefetch={false}
               aria-label="Ver todos os produtos"
               className="text-white/90 hover:text-accent-light font-semibold transition-all duration-200 px-5 py-3 hover:bg-white/10 rounded-full focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 hover:scale-105"
             >
