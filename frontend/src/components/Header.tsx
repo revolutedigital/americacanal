@@ -22,6 +22,7 @@ interface Brand {
 export default function Header() {
   const router = useRouter();
   const pathname = usePathname();
+  const [isMounted, setIsMounted] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [categories, setCategories] = useState<Category[]>([]);
   const [brands, setBrands] = useState<Brand[]>([]);
@@ -35,10 +36,16 @@ export default function Header() {
   const brandsRef = useRef<HTMLDivElement>(null);
   const typesRef = useRef<HTMLDivElement>(null);
 
+  // Prevent hydration mismatch
   useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  useEffect(() => {
+    if (!isMounted) return;
     fetchCategories();
     fetchBrands();
-  }, []);
+  }, [isMounted]);
 
   // Fechar menu mobile ao mudar de rota
   useEffect(() => {
@@ -47,6 +54,8 @@ export default function Header() {
 
   // Click-outside-to-close para menus dropdown
   useEffect(() => {
+    if (!isMounted) return;
+
     function handleClickOutside(event: MouseEvent) {
       if (categoriesRef.current && !categoriesRef.current.contains(event.target as Node)) {
         setShowCategoriesMenu(false);
@@ -61,7 +70,7 @@ export default function Header() {
 
     document.addEventListener('mousedown', handleClickOutside);
     return () => document.removeEventListener('mousedown', handleClickOutside);
-  }, []);
+  }, [isMounted]);
 
   const fetchCategories = async () => {
     try {
@@ -182,7 +191,7 @@ export default function Header() {
                 <span className="text-xs" aria-hidden="true">▼</span>
               </button>
 
-              {showCategoriesMenu && categories.length > 0 && (
+              {isMounted && showCategoriesMenu && categories.length > 0 && (
                 <div
                   role="menu"
                   aria-label="Categorias de produtos"
@@ -224,7 +233,7 @@ export default function Header() {
                 <span className="text-xs" aria-hidden="true">▼</span>
               </button>
 
-              {showBrandsMenu && brands.length > 0 && (
+              {isMounted && showBrandsMenu && brands.length > 0 && (
                 <div
                   role="menu"
                   aria-label="Marcas de produtos"
@@ -266,7 +275,7 @@ export default function Header() {
                 <span className="text-xs" aria-hidden="true">▼</span>
               </button>
 
-              {showTypesMenu && (
+              {isMounted && showTypesMenu && (
                 <div
                   role="menu"
                   aria-label="Tipos de produto"
@@ -329,12 +338,14 @@ export default function Header() {
       </div>
 
       {/* Mobile Menu */}
-      <MobileMenu
-        isOpen={isMobileMenuOpen}
-        onClose={() => setIsMobileMenuOpen(false)}
-        categories={categories}
-        brands={brands}
-      />
+      {isMounted && (
+        <MobileMenu
+          isOpen={isMobileMenuOpen}
+          onClose={() => setIsMobileMenuOpen(false)}
+          categories={categories}
+          brands={brands}
+        />
+      )}
     </header>
   );
 }
