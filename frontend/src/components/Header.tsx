@@ -205,7 +205,7 @@ export default function Header() {
                     onClick={(e) => {
                       e.preventDefault();
                       setShowCategoriesMenu(false);
-                      setTimeout(() => router.push('/produtos'), 100);
+                      window.location.href = '/produtos';
                     }}
                     className="block px-6 py-3 hover:bg-accent/10 hover:text-accent transition-all font-medium focus-visible:bg-accent/10 focus-visible:outline-none"
                   >
@@ -220,7 +220,7 @@ export default function Header() {
                       onClick={(e) => {
                         e.preventDefault();
                         setShowCategoriesMenu(false);
-                        setTimeout(() => router.push(`/produtos?categoria=${category.slug}`), 100);
+                        window.location.href = `/produtos?categoria=${category.slug}`;
                       }}
                       className="block px-6 py-3 hover:bg-accent/10 hover:text-accent transition-all focus-visible:bg-accent/10 focus-visible:outline-none"
                     >
@@ -257,7 +257,7 @@ export default function Header() {
                     onClick={(e) => {
                       e.preventDefault();
                       setShowBrandsMenu(false);
-                      setTimeout(() => router.push('/produtos'), 100);
+                      window.location.href = '/produtos';
                     }}
                     className="block px-6 py-3 hover:bg-accent/10 hover:text-accent transition-all font-medium focus-visible:bg-accent/10 focus-visible:outline-none"
                   >
@@ -272,7 +272,7 @@ export default function Header() {
                       onClick={(e) => {
                         e.preventDefault();
                         setShowBrandsMenu(false);
-                        setTimeout(() => router.push(`/produtos?marca=${brand.slug}`), 100);
+                        window.location.href = `/produtos?marca=${brand.slug}`;
                       }}
                       className="block px-6 py-3 hover:bg-accent/10 hover:text-accent transition-all focus-visible:bg-accent/10 focus-visible:outline-none"
                     >
@@ -309,7 +309,7 @@ export default function Header() {
                     onClick={(e) => {
                       e.preventDefault();
                       setShowTypesMenu(false);
-                      setTimeout(() => router.push('/produtos?tipo=INDICA'), 100);
+                      window.location.href = '/produtos?tipo=INDICA';
                     }}
                     className="block px-6 py-3 hover:bg-blue-50 hover:text-blue-700 transition-all focus-visible:bg-blue-50 focus-visible:outline-none"
                   >
@@ -325,7 +325,7 @@ export default function Header() {
                     onClick={(e) => {
                       e.preventDefault();
                       setShowTypesMenu(false);
-                      setTimeout(() => router.push('/produtos?tipo=SATIVA'), 100);
+                      window.location.href = '/produtos?tipo=SATIVA';
                     }}
                     className="block px-6 py-3 hover:bg-green-50 hover:text-green-700 transition-all focus-visible:bg-green-50 focus-visible:outline-none"
                   >
@@ -341,7 +341,7 @@ export default function Header() {
                     onClick={(e) => {
                       e.preventDefault();
                       setShowTypesMenu(false);
-                      setTimeout(() => router.push('/produtos?tipo=HIBRIDA'), 100);
+                      window.location.href = '/produtos?tipo=HIBRIDA';
                     }}
                     className="block px-6 py-3 hover:bg-yellow-50 hover:text-yellow-700 transition-all focus-visible:bg-yellow-50 focus-visible:outline-none"
                   >
