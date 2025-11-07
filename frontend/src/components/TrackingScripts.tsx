@@ -13,8 +13,14 @@ interface TrackingConfig {
 export default function TrackingScripts() {
   const [config, setConfig] = useState<TrackingConfig>({});
   const [isReady, setIsReady] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
   const pathname = usePathname();
   const searchParams = useSearchParams();
+
+  // Prevent hydration mismatch - wait for client mount
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   // Fetch tracking configuration
   useEffect(() => {
@@ -57,7 +63,8 @@ export default function TrackingScripts() {
     }
   }, [pathname, searchParams, isReady, config]);
 
-  if (!isReady) return null;
+  // Don't render anything until mounted to prevent hydration mismatch
+  if (!isMounted || !isReady) return null;
 
   return (
     <>
