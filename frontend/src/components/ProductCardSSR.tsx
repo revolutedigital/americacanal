@@ -20,6 +20,9 @@ export default function ProductCardSSR({ product }: ProductCardSSRProps) {
     ? getWhatsAppUrl(product.name, product.price)
     : getWhatsAppUrl(product.name);
 
+  // Prevent hydration mismatch
+  const [isMounted, setIsMounted] = useState(false);
+
   // Determinar se é "Mais vendido" baseado em hash do ID
   const isBestSeller = parseInt(product.id.slice(0, 2), 16) % 3 === 0;
 
@@ -27,13 +30,19 @@ export default function ProductCardSSR({ product }: ProductCardSSRProps) {
   const [isNew, setIsNew] = useState(false);
 
   useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  useEffect(() => {
+    if (!isMounted) return;
+
     if (product.createdAt) {
       const createdDate = new Date(product.createdAt);
       const now = new Date();
       const daysDiff = (now.getTime() - createdDate.getTime()) / (1000 * 3600 * 24);
       setIsNew(daysDiff <= 30);
     }
-  }, [product.createdAt]);
+  }, [isMounted, product.createdAt]);
 
   return (
     <article className="group relative bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 hover:border-primary/30">
