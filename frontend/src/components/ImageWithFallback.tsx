@@ -46,10 +46,15 @@ export default function ImageWithFallback({
   };
 
   // Determinar se precisa de unoptimized
+  // IMPORTANTE: Railway tem problemas com otimização de imagens externas
+  // Desabilitar otimização para evitar erros 500
   const shouldUnoptimize =
     imgSrc.includes('unsplash.com') ||
     imgSrc.includes('bigcommerce.com') ||
-    imgSrc.includes('data:image/svg');
+    imgSrc.includes('backend-production1.up.railway.app') ||
+    imgSrc.includes('via.placeholder.com') ||
+    imgSrc.includes('data:image/svg') ||
+    imgSrc.startsWith('http'); // Todas as imagens externas
 
   return (
     <Image

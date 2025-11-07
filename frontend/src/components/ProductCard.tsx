@@ -27,6 +27,7 @@ export default function ProductCard({ product }: ProductCardProps) {
           fill
           className="object-cover group-hover:scale-105 transition-transform duration-300"
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          unoptimized={product.imageUrl?.includes('backend-production1.up.railway.app') || product.imageUrl?.includes('unsplash.com') || product.imageUrl?.includes('via.placeholder')}
         />
         {!hasStock && (
           <div className="absolute top-2 right-2 bg-yellow-500 text-white px-3 py-1 rounded-full text-sm font-semibold">

@@ -28,6 +28,8 @@ const nextConfig = {
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
     minimumCacheTTL: 60 * 60 * 24 * 30, // 30 days
+    // Desabilitar otimização externa temporariamente para evitar erros 500
+    unoptimized: false,
     remotePatterns: [
       {
         protocol: 'http',
@@ -62,6 +64,16 @@ const nextConfig = {
         protocol: 'https',
         hostname: '**',
       },
+    ],
+    // Domains antigos (fallback para next < 12.3)
+    domains: [
+      'backend-production1.up.railway.app',
+      'images.unsplash.com',
+      'via.placeholder.com',
+      'cdn11.bigcommerce.com',
+      'www.americacannabis.com',
+      'americacannabis.com',
+      'localhost',
     ],
   },
 

@@ -47,6 +47,7 @@ export default function ProductCardSSR({ product }: ProductCardSSRProps) {
             className="object-cover group-hover:scale-110 transition-all duration-500"
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             loading="lazy"
+            unoptimized={product.imageUrl?.includes('backend-production1.up.railway.app') || product.imageUrl?.includes('unsplash.com') || product.imageUrl?.includes('via.placeholder')}
           />
 
           {/* Overlay no hover */}
