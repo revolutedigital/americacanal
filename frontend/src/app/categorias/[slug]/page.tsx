@@ -4,6 +4,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import ProductCardSSR from '@/components/ProductCardSSR';
+import ClientOnlyWrapper from '@/components/ClientOnlyWrapper';
 import { Product } from '@/lib/types';
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5177';
@@ -370,11 +371,28 @@ export default async function CategoryPage({ params }: { params: { slug: string 
           </div>
 
           {products.length > 0 ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {products.map(product => (
-                <ProductCardSSR key={product.id} product={product} />
-              ))}
-            </div>
+            <ClientOnlyWrapper
+              fallback={
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                  {[...Array(Math.min(8, products.length))].map((_, i) => (
+                    <div key={i} className="bg-white rounded-xl shadow-lg overflow-hidden">
+                      <div className="aspect-square bg-gray-200 animate-pulse" />
+                      <div className="p-4 space-y-3">
+                        <div className="h-6 bg-gray-200 rounded animate-pulse" />
+                        <div className="h-4 bg-gray-200 rounded animate-pulse w-3/4" />
+                        <div className="h-8 bg-gray-200 rounded animate-pulse w-1/2" />
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              }
+            >
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                {products.map(product => (
+                  <ProductCardSSR key={product.id} product={product} />
+                ))}
+              </div>
+            </ClientOnlyWrapper>
           ) : (
             <div className="text-center py-12 bg-gray-50 rounded-xl">
               <p className="text-xl text-gray-600">

@@ -4,6 +4,7 @@ import ProductCardSSR from '@/components/ProductCardSSR';
 import HeroBanners from '@/components/HeroBanners';
 import TrustBadges from '@/components/TrustBadges';
 import DefaultReviewsCarousel from '@/components/DefaultReviewsCarousel';
+import ClientOnlyWrapper from '@/components/ClientOnlyWrapper';
 import { Product } from '@/lib/types';
 import Link from 'next/link';
 import { LabIcon, DeliveryIcon, SupportIcon } from '@/components/icons/Icons';
@@ -91,11 +92,28 @@ export default async function Home() {
             </div>
           ) : (
             <>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-                {products.slice(0, 8).map((product) => (
-                  <ProductCardSSR key={product.id} product={product} />
-                ))}
-              </div>
+              <ClientOnlyWrapper
+                fallback={
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+                    {[...Array(8)].map((_, i) => (
+                      <div key={i} className="bg-white rounded-xl shadow-lg overflow-hidden">
+                        <div className="aspect-square bg-gray-200 animate-pulse" />
+                        <div className="p-4 space-y-3">
+                          <div className="h-6 bg-gray-200 rounded animate-pulse" />
+                          <div className="h-4 bg-gray-200 rounded animate-pulse w-3/4" />
+                          <div className="h-8 bg-gray-200 rounded animate-pulse w-1/2" />
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                }
+              >
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+                  {products.slice(0, 8).map((product) => (
+                    <ProductCardSSR key={product.id} product={product} />
+                  ))}
+                </div>
+              </ClientOnlyWrapper>
 
               {products.length > 8 && (
                 <div className="text-center mt-16">
