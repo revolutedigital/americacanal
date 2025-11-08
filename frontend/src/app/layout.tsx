@@ -10,6 +10,7 @@ import WebVitals from "@/components/WebVitals";
 import SkipLink from "@/components/SkipLink";
 import TrackingScripts from "@/components/TrackingScripts";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
+import ClientOnlyWrapper from "@/components/ClientOnlyWrapper";
 import { Suspense } from "react";
 
 // Removido force-dynamic para melhorar performance via ISR/SSG
@@ -160,15 +161,17 @@ export default function RootLayout({
         <SkipLink />
         <WebVitals />
         <GoogleAnalytics />
-        <Suspense fallback={null}>
+        <ClientOnlyWrapper fallback={null}>
           <TrackingScripts />
-        </Suspense>
+        </ClientOnlyWrapper>
         <ToastProvider>
           <CustomerAuthProvider>
             <WishlistProvider>
               {children}
-              <StickyWhatsAppButton />
-              <ToastContainer />
+              <ClientOnlyWrapper fallback={null}>
+                <StickyWhatsAppButton />
+                <ToastContainer />
+              </ClientOnlyWrapper>
             </WishlistProvider>
           </CustomerAuthProvider>
         </ToastProvider>
