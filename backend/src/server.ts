@@ -35,7 +35,9 @@ app.use(cors({
     'http://localhost:5178',
     'http://localhost:3000',
     'http://localhost:4000',
-    'https://frontend-production1.up.railway.app'
+    'https://frontend-production1.up.railway.app',
+    'https://americannal.up.railway.app',
+    'https://www.americacannabis.com'
   ],
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
