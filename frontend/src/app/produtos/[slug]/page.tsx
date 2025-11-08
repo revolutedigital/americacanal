@@ -10,6 +10,7 @@ import ProductFAQ from '@/components/ProductFAQ';
 import ProductReviews from '@/components/ProductReviews';
 import Script from 'next/script';
 import ProductPageClient from './ProductPageClient';
+import ClientOnlyWrapper from '@/components/ClientOnlyWrapper';
 import { FAQ } from '@/lib/types';
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5177';
@@ -259,21 +260,30 @@ export default async function ProductPage({ params }: { params: { slug: string }
         <div className="container mx-auto px-4 py-8">
           <Breadcrumbs items={breadcrumbs} />
 
-          <ProductPageClient product={product} relatedProducts={relatedProducts} />
+          <ClientOnlyWrapper fallback={
+            <div className="animate-pulse">
+              <div className="h-96 bg-gray-200 rounded-lg mb-8"></div>
+              <div className="h-32 bg-gray-200 rounded-lg"></div>
+            </div>
+          }>
+            <ProductPageClient product={product} relatedProducts={relatedProducts} />
 
-          {/* FAQs do Produto */}
-          <ProductFAQ faqs={productFAQs} />
+            {/* FAQs do Produto */}
+            <ProductFAQ faqs={productFAQs} />
 
-          {/* Reviews do Produto */}
-          <ProductReviews
-            reviews={reviews}
-            averageRating={averageRating}
-            totalReviews={reviews.length}
-          />
+            {/* Reviews do Produto */}
+            <ProductReviews
+              reviews={reviews}
+              averageRating={averageRating}
+              totalReviews={reviews.length}
+            />
+          </ClientOnlyWrapper>
         </div>
       </main>
 
-      <ProductTestimonials />
+      <ClientOnlyWrapper fallback={<div className="h-64"></div>}>
+        <ProductTestimonials />
+      </ClientOnlyWrapper>
 
       <Footer />
     </div>
