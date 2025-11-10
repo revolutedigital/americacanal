@@ -29,7 +29,11 @@ export default function BlogCard({ post, featured = false }: BlogCardProps) {
               fill
               sizes="(max-width: 768px) 100vw, 50vw"
               className="object-cover group-hover:scale-110 transition-transform duration-500"
-              unoptimized={post.imageUrl.includes('unsplash.com') || post.imageUrl.includes('bigcommerce.com')}
+              unoptimized={
+                post.imageUrl.includes('unsplash.com') ||
+                post.imageUrl.includes('bigcommerce.com') ||
+                post.imageUrl.includes('backend-production1.up.railway.app')
+              }
             />
             <div className="absolute top-4 left-4">
               <span
