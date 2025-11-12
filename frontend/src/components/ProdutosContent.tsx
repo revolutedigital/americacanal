@@ -196,7 +196,7 @@ export default function ProdutosContent() {
   // Prevenir hydration mismatch - renderizar loading até mounted
   if (!isMounted) {
     return (
-      <main className="flex-grow">
+      <main className="flex-grow" suppressHydrationWarning>
         <div className="container mx-auto px-4 py-12">
           <div className="text-center mb-8">
             <h1 className="text-5xl md:text-6xl font-extrabold bg-gradient-to-r from-primary via-primary-vibrant to-primary bg-clip-text text-transparent mb-4">
@@ -215,7 +215,7 @@ export default function ProdutosContent() {
   }
 
   return (
-    <main className="flex-grow">
+    <main className="flex-grow" suppressHydrationWarning>
       <div className="container mx-auto px-4 py-12">
         {/* Título */}
         <div className="text-center mb-8">
