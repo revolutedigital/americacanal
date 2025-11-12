@@ -161,17 +161,21 @@ export default function RootLayout({
         <SkipLink />
         <WebVitals />
         <GoogleAnalytics />
-        <ClientOnlyWrapper fallback={null}>
-          <TrackingScripts />
-        </ClientOnlyWrapper>
+        <Suspense fallback={null}>
+          <ClientOnlyWrapper fallback={null}>
+            <TrackingScripts />
+          </ClientOnlyWrapper>
+        </Suspense>
         <ToastProvider>
           <CustomerAuthProvider>
             <WishlistProvider>
               {children}
-              <ClientOnlyWrapper fallback={null}>
-                <StickyWhatsAppButton />
-                <ToastContainer />
-              </ClientOnlyWrapper>
+              <Suspense fallback={null}>
+                <ClientOnlyWrapper fallback={null}>
+                  <StickyWhatsAppButton />
+                  <ToastContainer />
+                </ClientOnlyWrapper>
+              </Suspense>
             </WishlistProvider>
           </CustomerAuthProvider>
         </ToastProvider>
