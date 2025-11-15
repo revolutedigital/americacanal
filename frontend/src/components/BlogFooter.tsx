@@ -7,8 +7,8 @@ export default function BlogFooter() {
     { name: 'Guia do Iniciante', slug: 'guia-iniciante' },
     { name: 'Saúde & Bem-Estar', slug: 'saude-bem-estar' },
     { name: 'Produtos & Reviews', slug: 'produtos' },
-    { name: 'Pesquisa & Ciência', slug: 'pesquisa' },
-    { name: 'Legal & Regulamentação', slug: 'legal' },
+    { name: 'Ciência & Pesquisa', slug: 'ciencia' },
+    { name: 'Legislação', slug: 'legislacao' },
   ];
 
   return (
