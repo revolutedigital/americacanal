@@ -136,11 +136,6 @@ export default function Footer() {
             <h3 className="text-lg font-bold mb-4 text-primary-vibrant">Informações</h3>
             <ul className="space-y-2 text-white/80 mb-4">
               <li>
-                <Link href="/termos-uso" className="hover:text-info hover:translate-x-1 inline-block transition-all duration-200">
-                  → Termos de Uso
-                </Link>
-              </li>
-              <li>
                 <Link href="/faq" className="hover:text-info hover:translate-x-1 inline-block transition-all duration-200">
                   → Perguntas Frequentes
                 </Link>

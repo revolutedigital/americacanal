@@ -132,12 +132,6 @@ export default function BlogFooter() {
               © {currentYear} <strong>America Cannabis Blog</strong>. Todos os direitos reservados.
             </p>
             <div className="flex gap-6">
-              <Link href="/privacidade" className="hover:text-primary transition-colors">
-                Privacidade
-              </Link>
-              <Link href="/termos" className="hover:text-primary transition-colors">
-                Termos de Uso
-              </Link>
               <Link href="/contato" className="hover:text-primary transition-colors">
                 Contato
               </Link>
