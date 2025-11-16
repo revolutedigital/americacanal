@@ -164,19 +164,21 @@ export default function RootLayout({
             <TrackingScripts />
           </ClientOnlyWrapper>
         </Suspense>
-        <ToastProvider>
-          <CustomerAuthProvider>
-            <WishlistProvider>
-              {children}
-              <Suspense fallback={null}>
-                <ClientOnlyWrapper fallback={null}>
-                  <StickyWhatsAppButton />
-                  <ToastContainer />
-                </ClientOnlyWrapper>
-              </Suspense>
-            </WishlistProvider>
-          </CustomerAuthProvider>
-        </ToastProvider>
+        <ClientOnlyWrapper fallback={<>{children}</>}>
+          <ToastProvider>
+            <CustomerAuthProvider>
+              <WishlistProvider>
+                {children}
+                <Suspense fallback={null}>
+                  <ClientOnlyWrapper fallback={null}>
+                    <StickyWhatsAppButton />
+                    <ToastContainer />
+                  </ClientOnlyWrapper>
+                </Suspense>
+              </WishlistProvider>
+            </CustomerAuthProvider>
+          </ToastProvider>
+        </ClientOnlyWrapper>
       </body>
     </html>
   );
