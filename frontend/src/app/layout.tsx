@@ -9,7 +9,6 @@ import ToastContainer from "@/components/ToastContainer";
 import WebVitals from "@/components/WebVitals";
 import SkipLink from "@/components/SkipLink";
 import TrackingScripts from "@/components/TrackingScripts";
-import GoogleAnalytics from "@/components/GoogleAnalytics";
 import ClientOnlyWrapper from "@/components/ClientOnlyWrapper";
 import { Suspense } from "react";
 
@@ -159,10 +158,9 @@ export default function RootLayout({
     <html lang="pt-BR" suppressHydrationWarning>
       <body className={inter.className} suppressHydrationWarning>
         <SkipLink />
-        <WebVitals />
-        <GoogleAnalytics />
         <Suspense fallback={null}>
           <ClientOnlyWrapper fallback={null}>
+            <WebVitals />
             <TrackingScripts />
           </ClientOnlyWrapper>
         </Suspense>

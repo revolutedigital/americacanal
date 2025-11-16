@@ -1,7 +1,7 @@
 'use client';
 
 import { usePathname } from 'next/navigation';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 interface CanonicalUrlProps {
   baseUrl?: string;
@@ -9,28 +9,51 @@ interface CanonicalUrlProps {
 
 export default function CanonicalUrl({ baseUrl = 'https://frontend-production1.up.railway.app' }: CanonicalUrlProps) {
   const pathname = usePathname();
+  const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
-    // Remove canonical existente se houver
-    const existingCanonical = document.querySelector('link[rel="canonical"]');
-    if (existingCanonical) {
-      existingCanonical.remove();
-    }
+    setIsMounted(true);
+  }, []);
 
-    // Cria nova tag canonical sem query params
-    const canonical = document.createElement('link');
-    canonical.setAttribute('rel', 'canonical');
-    canonical.setAttribute('href', `${baseUrl}${pathname}`);
-    document.head.appendChild(canonical);
+  useEffect(() => {
+    // Só executa no cliente após montagem
+    if (!isMounted || typeof document === 'undefined') return;
+
+    // Usa setTimeout para garantir que o DOM está pronto
+    const timer = setTimeout(() => {
+      try {
+        // Remove canonical existente se houver
+        const existingCanonical = document.querySelector('link[rel="canonical"]');
+        if (existingCanonical && existingCanonical.parentNode) {
+          existingCanonical.parentNode.removeChild(existingCanonical);
+        }
+
+        // Cria nova tag canonical sem query params
+        const canonical = document.createElement('link');
+        canonical.setAttribute('rel', 'canonical');
+        canonical.setAttribute('href', `${baseUrl}${pathname}`);
+
+        if (document.head) {
+          document.head.appendChild(canonical);
+        }
+      } catch (error) {
+        console.error('Error setting canonical URL:', error);
+      }
+    }, 0);
 
     // Cleanup ao desmontar
     return () => {
-      const link = document.querySelector('link[rel="canonical"]');
-      if (link) {
-        link.remove();
+      clearTimeout(timer);
+      try {
+        const link = document.querySelector('link[rel="canonical"]');
+        if (link && link.parentNode) {
+          link.parentNode.removeChild(link);
+        }
+      } catch (error) {
+        console.error('Error removing canonical URL:', error);
       }
     };
-  }, [pathname, baseUrl]);
+  }, [pathname, baseUrl, isMounted]);
 
   return null; // Este componente não renderiza nada visualmente
 }
