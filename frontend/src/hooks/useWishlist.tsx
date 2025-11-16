@@ -49,7 +49,12 @@ export function WishlistProvider({ children }: { children: ReactNode }) {
 
     setIsLoading(true);
     try {
-      const token = localStorage.getItem('customerToken');
+      const token = typeof window !== 'undefined' ? localStorage.getItem('customerToken') : null;
+      if (!token) {
+        setIsLoading(false);
+        return;
+      }
+
       const response = await api.get('/api/wishlist', {
         headers: { Authorization: `Bearer ${token}` }
       });
@@ -75,7 +80,11 @@ export function WishlistProvider({ children }: { children: ReactNode }) {
     }
 
     try {
-      const token = localStorage.getItem('customerToken');
+      const token = typeof window !== 'undefined' ? localStorage.getItem('customerToken') : null;
+      if (!token) {
+        return { success: false, error: 'Token não encontrado' };
+      }
+
       const response = await api.post('/api/wishlist',
         { productId },
         { headers: { Authorization: `Bearer ${token}` } }
@@ -97,7 +106,11 @@ export function WishlistProvider({ children }: { children: ReactNode }) {
     }
 
     try {
-      const token = localStorage.getItem('customerToken');
+      const token = typeof window !== 'undefined' ? localStorage.getItem('customerToken') : null;
+      if (!token) {
+        return { success: false, error: 'Token não encontrado' };
+      }
+
       await api.delete(`/api/wishlist/${productId}`, {
         headers: { Authorization: `Bearer ${token}` }
       });

@@ -41,6 +41,12 @@ export function CustomerAuthProvider({ children }: { children: ReactNode }) {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
+    // Verifica se está no cliente antes de acessar localStorage
+    if (typeof window === 'undefined') {
+      setIsLoading(false);
+      return;
+    }
+
     const token = localStorage.getItem('customerToken');
     if (token) {
       // Verify token and get customer profile
@@ -70,7 +76,9 @@ export function CustomerAuthProvider({ children }: { children: ReactNode }) {
       });
 
       const { token, customer: customerData } = response.data;
-      localStorage.setItem('customerToken', token);
+      if (typeof window !== 'undefined') {
+        localStorage.setItem('customerToken', token);
+      }
       setCustomer(customerData);
 
       return { success: true };
@@ -90,7 +98,9 @@ export function CustomerAuthProvider({ children }: { children: ReactNode }) {
       });
 
       const { token, customer: customerData } = response.data;
-      localStorage.setItem('customerToken', token);
+      if (typeof window !== 'undefined') {
+        localStorage.setItem('customerToken', token);
+      }
       setCustomer(customerData);
 
       return { success: true };
@@ -103,14 +113,20 @@ export function CustomerAuthProvider({ children }: { children: ReactNode }) {
   };
 
   const logout = () => {
-    localStorage.removeItem('customerToken');
+    if (typeof window !== 'undefined') {
+      localStorage.removeItem('customerToken');
+      window.location.href = '/';
+    }
     setCustomer(null);
-    window.location.href = '/';
   };
 
   const updateProfile = async (data: Partial<Customer>) => {
     try {
-      const token = localStorage.getItem('customerToken');
+      const token = typeof window !== 'undefined' ? localStorage.getItem('customerToken') : null;
+      if (!token) {
+        return { success: false, error: 'Token não encontrado' };
+      }
+
       const response = await api.put('/api/customers/me', data, {
         headers: { Authorization: `Bearer ${token}` }
       });
