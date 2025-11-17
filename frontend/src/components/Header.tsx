@@ -122,7 +122,7 @@ export default function Header() {
 
           {/* Logo */}
           <Link href="/" className="flex-shrink-0 transform hover:scale-105 transition-transform duration-200">
-            <div className="relative w-62 sm:w-72 md:w-94 lg:w-104 h-18 md:h-26 px-2 md:px-4 py-1 md:py-2 flex items-center justify-center">
+            <div className="relative w-36 sm:w-48 md:w-60 lg:w-72 h-10 sm:h-12 md:h-14 lg:h-16 flex items-center justify-center">
               <Image
                 src="/brand.webp"
                 alt="America Cannabis"
