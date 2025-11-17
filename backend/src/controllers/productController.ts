@@ -698,7 +698,7 @@ export const getRelatedProducts = async (req: Request, res: Response): Promise<v
       },
       take: 4, // Limitar a 4 produtos
       orderBy: [
-        { featured: 'desc' },
+        { isFeatured: 'desc' },
         { stock: 'desc' },
         { createdAt: 'desc' },
       ],
@@ -725,7 +725,7 @@ export const getRelatedProducts = async (req: Request, res: Response): Promise<v
         },
         take: 4 - relatedProducts.length, // Completar até 4 produtos
         orderBy: [
-          { featured: 'desc' },
+          { isFeatured: 'desc' },
           { stock: 'desc' },
           { createdAt: 'desc' },
         ],
@@ -754,7 +754,7 @@ export const getRelatedProducts = async (req: Request, res: Response): Promise<v
         },
         take: 4 - relatedProducts.length,
         orderBy: [
-          { featured: 'desc' },
+          { isFeatured: 'desc' },
           { stock: 'desc' },
           { createdAt: 'desc' },
         ],
