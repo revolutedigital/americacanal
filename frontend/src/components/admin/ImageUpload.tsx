@@ -8,6 +8,7 @@ interface ImageUploadProps {
   onImageUploaded: (imageUrl: string) => void;
   label?: string;
   maxSizeMB?: number;
+  uploadType?: 'product' | 'category' | 'logo' | 'banner' | 'blog';
 }
 
 export default function ImageUpload({
@@ -15,6 +16,7 @@ export default function ImageUpload({
   onImageUploaded,
   label = 'Imagem do Produto',
   maxSizeMB = 10,
+  uploadType = 'product',
 }: ImageUploadProps) {
   const [uploading, setUploading] = useState(false);
   const [dragActive, setDragActive] = useState(false);
@@ -45,7 +47,7 @@ export default function ImageUpload({
       const formData = new FormData();
       formData.append('image', file);
 
-      const response = await api.post('/api/upload/product', formData, {
+      const response = await api.post(`/api/upload/${uploadType}`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },

@@ -6,6 +6,7 @@ import {
   uploadCategoryImage,
   uploadLogo,
   uploadBannerImage,
+  uploadBlogImage,
   deleteImage,
 } from '../controllers/uploadController';
 import { authMiddleware } from '../middlewares/authMiddleware';
@@ -18,6 +19,7 @@ router.post('/products', authMiddleware, upload.array('images', 10), uploadProdu
 router.post('/category', authMiddleware, upload.single('image'), uploadCategoryImage);
 router.post('/logo', authMiddleware, upload.single('image'), uploadLogo);
 router.post('/banner', authMiddleware, upload.single('image'), uploadBannerImage);
+router.post('/blog', authMiddleware, upload.single('image'), uploadBlogImage);
 router.post('/', authMiddleware, upload.single('image'), uploadBannerImage); // Rota genérica para banners
 router.delete('/image', authMiddleware, deleteImage);
 

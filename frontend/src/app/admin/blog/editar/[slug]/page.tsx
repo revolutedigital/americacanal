@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
+import ImageUpload from '@/components/admin/ImageUpload';
 
 interface FAQ {
   question: string;
@@ -42,7 +43,13 @@ export default function EditBlogPostPage({ params }: { params: { slug: string } 
       const response = await fetch(`/api/blog/posts/${params.slug}`);
       if (response.ok) {
         const data = await response.json();
-        setPost(data);
+        // Normalizar author e category para strings
+        const normalizedPost = {
+          ...data,
+          author: typeof data.author === 'string' ? data.author : data.author?.name || 'America Cannabis',
+          category: typeof data.category === 'string' ? data.category : data.category?.name || 'Cannabis',
+        };
+        setPost(normalizedPost);
         setImagePreview(data.imageUrl || '');
       } else {
         alert('Post não encontrado');
@@ -242,39 +249,28 @@ export default function EditBlogPostPage({ params }: { params: { slug: string } 
         <div className="bg-gray-800 rounded-lg p-6 border border-gray-700">
           <h2 className="text-xl font-semibold text-white mb-4">Imagem do Post</h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div>
-              <label className="block text-sm font-medium text-gray-300 mb-2">
-                URL da Imagem
-              </label>
-              <input
-                type="url"
-                value={post.imageUrl}
-                onChange={(e) => handleImageChange(e.target.value)}
-                className="w-full px-4 py-2 bg-gray-700 border border-gray-600 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                placeholder="https://images.unsplash.com/..."
-              />
-              <p className="text-xs text-gray-400 mt-1">
-                Use imagens do Unsplash ou outro serviço de imagens
-              </p>
-            </div>
+          <ImageUpload
+            currentImageUrl={post.imageUrl}
+            onImageUploaded={(url) => setPost({ ...post, imageUrl: url })}
+            label="Imagem de Destaque do Post"
+            maxSizeMB={10}
+            uploadType="blog"
+          />
 
-            <div>
-              {imagePreview && (
-                <div>
-                  <p className="text-sm font-medium text-gray-300 mb-2">Preview:</p>
-                  <img
-                    src={imagePreview}
-                    alt="Preview"
-                    className="w-full h-48 object-cover rounded-lg"
-                    onError={(e) => {
-                      const target = e.target as HTMLImageElement;
-                      target.src = '/api/placeholder?width=400&height=200&text=Erro+na+imagem';
-                    }}
-                  />
-                </div>
-              )}
-            </div>
+          <div className="mt-4">
+            <label className="block text-sm font-medium text-gray-300 mb-2">
+              Ou use uma URL externa
+            </label>
+            <input
+              type="url"
+              value={post.imageUrl}
+              onChange={(e) => handleImageChange(e.target.value)}
+              className="w-full px-4 py-2 bg-gray-700 border border-gray-600 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              placeholder="https://images.unsplash.com/..."
+            />
+            <p className="text-xs text-gray-400 mt-1">
+              Você pode fazer upload de uma imagem acima ou inserir uma URL externa
+            </p>
           </div>
         </div>
 

@@ -219,6 +219,47 @@ export const uploadBannerImage = async (req: Request, res: Response): Promise<vo
   }
 };
 
+// Upload de imagem de blog
+const blogsDir = path.join(imagesDir, 'blogs');
+if (!fs.existsSync(blogsDir)) {
+  fs.mkdirSync(blogsDir, { recursive: true });
+}
+
+export const uploadBlogImage = async (req: Request, res: Response): Promise<void> => {
+  try {
+    if (!req.file) {
+      res.status(400).json({ error: 'Nenhuma imagem fornecida' });
+      return;
+    }
+
+    const filename = `${uuidv4()}.jpg`;
+    const filepath = path.join(blogsDir, filename);
+
+    // Processar imagem com Sharp
+    // Criar versão otimizada: max 1200px de largura, qualidade 85
+    await sharp(req.file.buffer)
+      .resize(1200, 800, {
+        fit: 'inside',
+        withoutEnlargement: true,
+      })
+      .jpeg({ quality: 85 })
+      .toFile(filepath);
+
+    // URL pública da imagem
+    const imageUrl = `/uploads/images/blogs/${filename}`;
+
+    res.status(200).json({
+      success: true,
+      imageUrl,
+      filename,
+      message: 'Imagem enviada com sucesso',
+    });
+  } catch (error) {
+    console.error('Upload error:', error);
+    res.status(500).json({ error: 'Erro ao fazer upload da imagem' });
+  }
+};
+
 // Deletar imagem
 export const deleteImage = async (req: Request, res: Response): Promise<void> => {
   try {
