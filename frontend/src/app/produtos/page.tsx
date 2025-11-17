@@ -1,7 +1,7 @@
 import { Suspense } from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import CanonicalUrl from '@/components/CanonicalUrl';
+// import CanonicalUrl from '@/components/CanonicalUrl'; // TEMPORARIAMENTE REMOVIDO PARA DEBUG
 import ProdutosContent from '@/components/ProdutosContent';
 import ClientOnlyWrapper from '@/components/ClientOnlyWrapper';
 
@@ -30,9 +30,7 @@ export default function ProdutosPage() {
 
   return (
     <div className="min-h-screen flex flex-col">
-      <Suspense fallback={null}>
-        <CanonicalUrl />
-      </Suspense>
+      {/* CanonicalUrl temporariamente removido para debug */}
       <Header />
       <Suspense fallback={loadingFallback}>
         <ClientOnlyWrapper fallback={loadingFallback}>
