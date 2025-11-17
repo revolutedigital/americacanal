@@ -10,7 +10,6 @@ import FAQSection from '@/components/FAQSection';
 import { BlogPost } from '@/lib/blog-types';
 import { generateBlogPostingSchema, generateAuthorSchema, generateBlogBreadcrumbSchema } from '@/lib/blog-schema';
 import blogPostsData from '@/data/blog-posts.json';
-import { getFAQsForPost, hasFAQs } from '@/data/blog-faqs';
 import Script from 'next/script';
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.americacannabis.com';
@@ -123,10 +122,8 @@ export default function BlogPostPage({ params }: PageProps) {
     });
   }
 
-  // Priorizar FAQs do post (editáveis no admin), senão usar FAQs estáticos
-  const faqs = post.faqs && post.faqs.length > 0
-    ? post.faqs
-    : getFAQsForPost(post.slug);
+  // Usar FAQs editáveis do post (gerenciados no admin)
+  const faqs = post.faqs && post.faqs.length > 0 ? post.faqs : null;
 
   return (
     <>
