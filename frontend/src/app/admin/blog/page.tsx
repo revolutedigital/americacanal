@@ -12,7 +12,7 @@ interface BlogPost {
   content: string;
   imageUrl: string;
   author: string;
-  category: string;
+  category: string | { name: string };
   tags: string[];
   publishedAt: string;
   readTime: number;
@@ -64,7 +64,10 @@ export default function BlogManagementPage() {
 
     // Filter by category
     if (selectedCategory !== 'all') {
-      filtered = filtered.filter(post => post.category === selectedCategory);
+      filtered = filtered.filter(post => {
+        const categoryName = typeof post.category === 'string' ? post.category : post.category?.name || 'Sem categoria';
+        return categoryName === selectedCategory;
+      });
     }
 
     setFilteredPosts(filtered);
@@ -92,7 +95,9 @@ export default function BlogManagementPage() {
     }
   };
 
-  const categories = Array.from(new Set(posts.map(p => p.category)));
+  const categories = Array.from(new Set(posts.map(p =>
+    typeof p.category === 'string' ? p.category : p.category?.name || 'Sem categoria'
+  )));
 
   if (loading) {
     return (
@@ -204,7 +209,7 @@ export default function BlogManagementPage() {
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap">
                     <span className="px-2 py-1 text-xs rounded-full bg-blue-900 text-blue-200">
-                      {post.category}
+                      {typeof post.category === 'string' ? post.category : post.category?.name || 'Sem categoria'}
                     </span>
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap">
