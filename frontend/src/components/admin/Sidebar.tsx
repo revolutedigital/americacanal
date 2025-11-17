@@ -19,6 +19,7 @@ import {
   GlobeIcon,
   LogoutIcon,
   UserIcon,
+  ListIcon,
 } from '@/components/admin/icons/AdminIcons';
 
 export default function Sidebar() {
@@ -53,6 +54,7 @@ export default function Sidebar() {
       items: [
         { href: '/admin/reviews', label: 'Avaliações', Icon: StarIcon },
         { href: '/admin/depoimentos', label: 'Depoimentos', Icon: MessageIcon },
+        { href: '/admin/blog', label: 'Blog', Icon: ListIcon },
         { href: '/admin/beneficios', label: 'Benefícios Globais', Icon: GiftIcon },
         { href: '/admin/banners', label: 'Banners', Icon: ImageIcon },
       ],
