@@ -1,15 +1,12 @@
 import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { CustomerAuthProvider } from "@/hooks/useCustomerAuth";
-import { WishlistProvider } from "@/hooks/useWishlist";
-import { ToastProvider } from "@/contexts/ToastContext";
+import Providers from "@/components/Providers";
 import StickyWhatsAppButton from "@/components/StickyWhatsAppButton";
 import ToastContainer from "@/components/ToastContainer";
 import WebVitals from "@/components/WebVitals";
 import SkipLink from "@/components/SkipLink";
 import TrackingScripts from "@/components/TrackingScripts";
-import ClientOnlyWrapper from "@/components/ClientOnlyWrapper";
 import { Suspense } from "react";
 
 // Removido force-dynamic para melhorar performance via ISR/SSG
@@ -159,26 +156,16 @@ export default function RootLayout({
       <body className={inter.className} suppressHydrationWarning>
         <SkipLink />
         <Suspense fallback={null}>
-          <ClientOnlyWrapper fallback={null}>
-            <WebVitals />
-            <TrackingScripts />
-          </ClientOnlyWrapper>
+          <WebVitals />
+          <TrackingScripts />
         </Suspense>
-        <ClientOnlyWrapper fallback={<>{children}</>}>
-          <ToastProvider>
-            <CustomerAuthProvider>
-              <WishlistProvider>
-                {children}
-                <Suspense fallback={null}>
-                  <ClientOnlyWrapper fallback={null}>
-                    <StickyWhatsAppButton />
-                    <ToastContainer />
-                  </ClientOnlyWrapper>
-                </Suspense>
-              </WishlistProvider>
-            </CustomerAuthProvider>
-          </ToastProvider>
-        </ClientOnlyWrapper>
+        <Providers>
+          {children}
+          <Suspense fallback={null}>
+            <StickyWhatsAppButton />
+            <ToastContainer />
+          </Suspense>
+        </Providers>
       </body>
     </html>
   );
