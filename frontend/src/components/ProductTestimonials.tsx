@@ -211,19 +211,6 @@ export default function ProductTestimonials() {
             </div>
           ))}
         </div>
-
-        {/* CTA */}
-        <div className="text-center mt-12">
-          <Link
-            href="/depoimentos"
-            className="inline-flex items-center gap-2 text-primary hover:text-primary-dark font-semibold transition-colors group"
-          >
-            <span>Ver todos os depoimentos</span>
-            <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-            </svg>
-          </Link>
-        </div>
       </div>
 
       {/* Hide scrollbar */}

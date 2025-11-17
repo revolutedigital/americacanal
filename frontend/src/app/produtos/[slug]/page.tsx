@@ -7,7 +7,7 @@ import ProductTestimonials from '@/components/ProductTestimonials';
 import { generateProductSchema, generateBreadcrumbSchema } from '@/lib/schema';
 import { generateProductFAQs, generateFAQSchema } from '@/lib/faqs';
 import ProductFAQ from '@/components/ProductFAQ';
-import ProductReviews from '@/components/ProductReviews';
+import RelatedProducts from '@/components/RelatedProducts';
 import Script from 'next/script';
 import ProductPageClient from './ProductPageClient';
 import ClientOnlyWrapper from '@/components/ClientOnlyWrapper';
@@ -270,19 +270,16 @@ export default async function ProductPage({ params }: { params: { slug: string }
 
             {/* FAQs do Produto */}
             <ProductFAQ faqs={productFAQs} />
-
-            {/* Reviews do Produto */}
-            <ProductReviews
-              reviews={reviews}
-              averageRating={averageRating}
-              totalReviews={reviews.length}
-            />
           </ClientOnlyWrapper>
         </div>
       </main>
 
       <ClientOnlyWrapper fallback={<div className="h-64"></div>}>
         <ProductTestimonials />
+      </ClientOnlyWrapper>
+
+      <ClientOnlyWrapper fallback={<div className="h-64"></div>}>
+        <RelatedProducts products={relatedProducts} currentProductId={product.id} />
       </ClientOnlyWrapper>
 
       <Footer />
