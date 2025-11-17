@@ -641,6 +641,22 @@ export const getRelatedProducts = async (req: Request, res: Response): Promise<v
   try {
     const { id } = req.params;
 
+    // Primeiro, buscar o produto atual para obter sua categoria, tipo e tenant
+    const currentProduct = await prisma.product.findUnique({
+      where: { id },
+      select: {
+        categoryId: true,
+        tenantId: true,
+        type: true,
+      },
+    });
+
+    if (!currentProduct) {
+      res.json([]);
+      return;
+    }
+
+    // Tentar buscar produtos relacionados explicitamente
     const relations = await prisma.productRelation.findMany({
       where: {
         fromId: id,
@@ -658,7 +674,96 @@ export const getRelatedProducts = async (req: Request, res: Response): Promise<v
       },
     });
 
-    res.json(relations.map((r) => ({ ...r.to, relationType: r.type })));
+    // Se encontrou produtos relacionados, retornar eles
+    if (relations.length > 0) {
+      res.json(relations.map((r) => ({ ...r.to, relationType: r.type })));
+      return;
+    }
+
+    // Primeiro tentar buscar produtos da mesma categoria E do mesmo tipo
+    let relatedProducts = await prisma.product.findMany({
+      where: {
+        tenantId: currentProduct.tenantId,
+        categoryId: currentProduct.categoryId,
+        type: currentProduct.type, // Mesmo tipo
+        isActive: true,
+        id: { not: id }, // Excluir o produto atual
+      },
+      include: {
+        category: {
+          select: {
+            name: true,
+          },
+        },
+      },
+      take: 4, // Limitar a 4 produtos
+      orderBy: [
+        { featured: 'desc' },
+        { stock: 'desc' },
+        { createdAt: 'desc' },
+      ],
+    });
+
+    // Se não houver produtos suficientes da mesma categoria E tipo, buscar apenas da mesma categoria
+    if (relatedProducts.length < 4) {
+      const additionalProducts = await prisma.product.findMany({
+        where: {
+          tenantId: currentProduct.tenantId,
+          categoryId: currentProduct.categoryId,
+          isActive: true,
+          id: {
+            not: id,
+            notIn: relatedProducts.map(p => p.id), // Excluir produtos já encontrados
+          },
+        },
+        include: {
+          category: {
+            select: {
+              name: true,
+            },
+          },
+        },
+        take: 4 - relatedProducts.length, // Completar até 4 produtos
+        orderBy: [
+          { featured: 'desc' },
+          { stock: 'desc' },
+          { createdAt: 'desc' },
+        ],
+      });
+
+      relatedProducts = [...relatedProducts, ...additionalProducts];
+    }
+
+    // Se ainda não houver produtos suficientes, buscar produtos em destaque
+    if (relatedProducts.length < 4) {
+      const featuredProducts = await prisma.product.findMany({
+        where: {
+          tenantId: currentProduct.tenantId,
+          isActive: true,
+          id: {
+            not: id,
+            notIn: relatedProducts.map(p => p.id), // Excluir produtos já encontrados
+          },
+        },
+        include: {
+          category: {
+            select: {
+              name: true,
+            },
+          },
+        },
+        take: 4 - relatedProducts.length,
+        orderBy: [
+          { featured: 'desc' },
+          { stock: 'desc' },
+          { createdAt: 'desc' },
+        ],
+      });
+
+      relatedProducts = [...relatedProducts, ...featuredProducts];
+    }
+
+    res.json(relatedProducts);
   } catch (error) {
     console.error('Get related products error:', error);
     res.status(500).json({ error: 'Erro ao buscar produtos relacionados' });
