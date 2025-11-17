@@ -1,7 +1,12 @@
 // Server Component - no 'use client' directive
 export const dynamic = 'force-dynamic';
 
-import { ReactNode } from 'react';
+import { ReactNode, Suspense } from 'react';
+
+export const metadata = {
+  title: 'Minha Conta',
+  description: 'Área do cliente - America Cannabis',
+};
 
 export default function ContaLayout({
   children,
@@ -9,8 +14,12 @@ export default function ContaLayout({
   children: ReactNode;
 }) {
   return (
-    <div className="min-h-screen">
+    <Suspense fallback={
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary"></div>
+      </div>
+    }>
       {children}
-    </div>
+    </Suspense>
   );
 }
