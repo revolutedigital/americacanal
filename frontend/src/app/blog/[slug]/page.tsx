@@ -266,30 +266,6 @@ export default function BlogPostPage({ params }: PageProps) {
                   {post.author.name}
                 </h3>
                 <p className="text-gray-700 mb-4">{post.author.bio}</p>
-                {post.author.social && (
-                  <div className="flex gap-4">
-                    {post.author.social.instagram && (
-                      <a
-                        href={`https://instagram.com/${post.author.social.instagram.replace('@', '')}`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-green-600 hover:text-green-700 font-semibold"
-                      >
-                        Instagram
-                      </a>
-                    )}
-                    {post.author.social.twitter && (
-                      <a
-                        href={`https://twitter.com/${post.author.social.twitter.replace('@', '')}`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-green-600 hover:text-green-700 font-semibold"
-                      >
-                        Twitter
-                      </a>
-                    )}
-                  </div>
-                )}
               </div>
             </div>
           </div>
