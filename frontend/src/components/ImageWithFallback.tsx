@@ -52,7 +52,6 @@ export default function ImageWithFallback({
     imgSrc.includes('unsplash.com') ||
     imgSrc.includes('bigcommerce.com') ||
     imgSrc.includes('backend-production1.up.railway.app') ||
-    imgSrc.includes('via.placeholder.com') ||
     imgSrc.includes('data:image/svg') ||
     imgSrc.startsWith('http'); // Todas as imagens externas
 

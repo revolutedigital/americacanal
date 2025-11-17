@@ -181,11 +181,11 @@ export default function ProductsPage() {
                       <div className="flex-shrink-0 h-12 w-12">
                         <img
                           className="h-12 w-12 rounded object-cover bg-gray-100"
-                          src={product.imageUrl || 'https://via.placeholder.com/100x100?text=Sem+Imagem'}
+                          src={product.imageUrl || '/api/placeholder?width=100&height=100&text=Sem+Imagem'}
                           alt={product.name}
                           onError={(e) => {
                             const target = e.target as HTMLImageElement;
-                            target.src = 'https://via.placeholder.com/100x100?text=Sem+Imagem';
+                            target.src = '/api/placeholder?width=100&height=100&text=Erro';
                           }}
                         />
                       </div>

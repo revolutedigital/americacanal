@@ -48,10 +48,6 @@ const nextConfig = {
       },
       {
         protocol: 'https',
-        hostname: 'via.placeholder.com',
-      },
-      {
-        protocol: 'https',
         hostname: 'cdn11.bigcommerce.com',
       },
       {
@@ -71,7 +67,6 @@ const nextConfig = {
     domains: [
       'backend-production1.up.railway.app',
       'images.unsplash.com',
-      'via.placeholder.com',
       'cdn11.bigcommerce.com',
       'www.americacannabis.com',
       'americacannabis.com',
