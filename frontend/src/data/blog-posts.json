@@ -18,7 +18,7 @@
       "cannabis medicinal",
       "benefícios cbd"
     ],
-    "imageUrl": "https://images.unsplash.com/photo-1611689037241-d8dfe4280f2e?w=1200&h=630&fit=crop&q=80",
+    "imageUrl": "https://backend-production1.up.railway.app/uploads/images/products/9dfac6ce-50bf-465c-9486-b96fb49296c0.jpg",
     "readTime": 8,
     "featured": true,
     "relatedPosts": [
@@ -94,7 +94,7 @@
       "cbd saúde mental",
       "canabidiol ansiedade"
     ],
-    "imageUrl": "https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=1200&h=630&fit=crop",
+    "imageUrl": "https://backend-production1.up.railway.app/uploads/images/products/9dfac6ce-50bf-465c-9486-b96fb49296c0.jpg",
     "readTime": 10,
     "featured": false,
     "relatedPosts": [
@@ -148,7 +148,7 @@
       "canabinóides",
       "cannabis"
     ],
-    "imageUrl": "https://images.unsplash.com/photo-1582719471384-894fbb16e074?w=1200&h=630&fit=crop",
+    "imageUrl": "https://backend-production1.up.railway.app/uploads/images/products/698b2f7c-fe3f-4f9c-ac0e-c916d30d9ae7.jpg",
     "readTime": 7,
     "featured": false,
     "relatedPosts": [
@@ -220,7 +220,7 @@
       "administração cbd",
       "gotas cbd"
     ],
-    "imageUrl": "https://images.unsplash.com/photo-1611689037241-d8dfe4280f2e?w=1200&h=630&fit=crop",
+    "imageUrl": "https://backend-production1.up.railway.app/uploads/images/products/9dfac6ce-50bf-465c-9486-b96fb49296c0.jpg",
     "readTime": 9,
     "featured": false,
     "relatedPosts": [
@@ -292,7 +292,7 @@
       "cálculo dosagem",
       "cbd dose"
     ],
-    "imageUrl": "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=1200&h=630&fit=crop",
+    "imageUrl": "https://backend-production1.up.railway.app/uploads/images/products/9dfac6ce-50bf-465c-9486-b96fb49296c0.jpg",
     "readTime": 11,
     "featured": false,
     "relatedPosts": [
@@ -359,7 +359,7 @@
       "anvisa",
       "cannabis legal"
     ],
-    "imageUrl": "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=1200&h=630&fit=crop",
+    "imageUrl": "https://backend-production1.up.railway.app/uploads/images/products/0120f7a2-46c3-4be6-a438-1b4ccb4122a7.jpg",
     "readTime": 12,
     "featured": false,
     "relatedPosts": [
@@ -408,7 +408,7 @@
       "melhorar sono",
       "cbd para dormir"
     ],
-    "imageUrl": "https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?w=1200&h=630&fit=crop",
+    "imageUrl": "https://backend-production1.up.railway.app/uploads/images/products/9dfac6ce-50bf-465c-9486-b96fb49296c0.jpg",
     "readTime": 8,
     "featured": false,
     "relatedPosts": [
@@ -463,11 +463,11 @@
     "title": "Full Spectrum vs Isolado de CBD: Qual é Melhor?",
     "excerpt": "Comparação detalhada entre CBD Full Spectrum, Broad Spectrum e Isolado: efeito entourage, prós e contras de cada tipo.",
     "category": {
-      "id": "produtos",
-      "name": "Produtos & Reviews",
-      "slug": "produtos",
-      "description": "Análises detalhadas de produtos e marcas",
-      "color": "#8b5cf6"
+      "id": "guia-iniciante",
+      "name": "Guia do Iniciante",
+      "slug": "guia-iniciante",
+      "description": "Guias completos para quem está começando no mundo da cannabis",
+      "color": "#10b981"
     },
     "tags": [
       "full spectrum",
@@ -475,7 +475,7 @@
       "broad spectrum",
       "efeito entourage"
     ],
-    "imageUrl": "https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?w=1200&h=630&fit=crop&q=80",
+    "imageUrl": "https://backend-production1.up.railway.app/uploads/images/products/1e13712f-d2db-481f-a77d-6a1d335c4f8b.jpg",
     "readTime": 9,
     "featured": false,
     "relatedPosts": [
@@ -547,7 +547,7 @@
       "cbd analgésico",
       "cannabis dor"
     ],
-    "imageUrl": "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=1200&h=630&fit=crop",
+    "imageUrl": "https://backend-production1.up.railway.app/uploads/images/products/9dfac6ce-50bf-465c-9486-b96fb49296c0.jpg",
     "readTime": 10,
     "featured": false,
     "relatedPosts": [
@@ -602,11 +602,11 @@
     "title": "Como Escolher CBD de Qualidade: 10 Critérios Essenciais",
     "excerpt": "Aprenda a identificar produtos de CBD de qualidade: certificações, testes de laboratório, origem, concentração e o que evitar.",
     "category": {
-      "id": "produtos",
-      "name": "Produtos & Reviews",
-      "slug": "produtos",
-      "description": "Análises detalhadas de produtos e marcas",
-      "color": "#8b5cf6"
+      "id": "guia-iniciante",
+      "name": "Guia do Iniciante",
+      "slug": "guia-iniciante",
+      "description": "Guias completos para quem está começando no mundo da cannabis",
+      "color": "#10b981"
     },
     "tags": [
       "cbd qualidade",
@@ -614,7 +614,7 @@
       "certificado análise",
       "cbd puro"
     ],
-    "imageUrl": "https://images.unsplash.com/photo-1604135307399-86c6ce0aba8e?w=1200&h=630&fit=crop&q=80",
+    "imageUrl": "https://backend-production1.up.railway.app/uploads/images/products/1e13712f-d2db-481f-a77d-6a1d335c4f8b.jpg",
     "readTime": 10,
     "featured": false,
     "relatedPosts": [
@@ -681,7 +681,7 @@
       "cannabis epilepsia",
       "convulsões"
     ],
-    "imageUrl": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=1200&h=630&fit=crop",
+    "imageUrl": "https://backend-production1.up.railway.app/uploads/images/products/9dfac6ce-50bf-465c-9486-b96fb49296c0.jpg",
     "readTime": 12,
     "featured": false,
     "relatedPosts": [
@@ -811,7 +811,7 @@
       "cbd contraindicações",
       "cbd riscos"
     ],
-    "imageUrl": "https://images.unsplash.com/photo-1587854692152-cbe660dbde88?w=1200&h=630&fit=crop",
+    "imageUrl": "https://backend-production1.up.railway.app/uploads/images/products/9dfac6ce-50bf-465c-9486-b96fb49296c0.jpg",
     "readTime": 9,
     "featured": false,
     "relatedPosts": [
@@ -878,7 +878,7 @@
       "rdc anvisa",
       "cannabis brasil"
     ],
-    "imageUrl": "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=1200&h=630&fit=crop",
+    "imageUrl": "https://backend-production1.up.railway.app/uploads/images/products/0120f7a2-46c3-4be6-a438-1b4ccb4122a7.jpg",
     "readTime": 10,
     "featured": false,
     "relatedPosts": [
@@ -927,7 +927,7 @@
       "cbd gatos",
       "cannabis veterinária"
     ],
-    "imageUrl": "https://images.unsplash.com/photo-1450778869180-41d0601e046e?w=1200&h=630&fit=crop",
+    "imageUrl": "https://backend-production1.up.railway.app/uploads/images/products/1e13712f-d2db-481f-a77d-6a1d335c4f8b.jpg",
     "readTime": 8,
     "featured": false,
     "relatedPosts": [
@@ -988,7 +988,7 @@
       "cannabis antitumoral",
       "estudos cannabis"
     ],
-    "imageUrl": "https://images.unsplash.com/photo-1579154204601-01588f351e67?w=1200&h=630&fit=crop",
+    "imageUrl": "https://backend-production1.up.railway.app/uploads/images/products/9dfac6ce-50bf-465c-9486-b96fb49296c0.jpg",
     "readTime": 13,
     "featured": false,
     "relatedPosts": [
@@ -1031,7 +1031,7 @@
       "aromáticos cannabis",
       "limoneno mirceno"
     ],
-    "imageUrl": "https://images.unsplash.com/photo-1502082553048-f009c37129b9?w=1200&h=630&fit=crop",
+    "imageUrl": "https://backend-production1.up.railway.app/uploads/images/products/8df54376-2352-48f9-8eb9-aec87017c5cb.jpg",
     "readTime": 10,
     "featured": false,
     "relatedPosts": [
@@ -1068,11 +1068,11 @@
     "title": "COA (Certificado de Análise): Como Ler e Por Que É Essencial",
     "excerpt": "Aprenda a interpretar o COA de produtos de CBD: o que verificar, valores de cannabinoides, contaminantes e como garantir qualidade.",
     "category": {
-      "id": "produtos",
-      "name": "Produtos & Reviews",
-      "slug": "produtos",
-      "description": "Análises detalhadas de produtos e marcas",
-      "color": "#8b5cf6"
+      "id": "guia-iniciante",
+      "name": "Guia do Iniciante",
+      "slug": "guia-iniciante",
+      "description": "Guias completos para quem está começando no mundo da cannabis",
+      "color": "#10b981"
     },
     "tags": [
       "coa cbd",
@@ -1080,7 +1080,7 @@
       "qualidade cbd",
       "testes laboratório"
     ],
-    "imageUrl": "https://images.unsplash.com/photo-1507925921958-8a62f3d1a50d?w=1200&h=630&fit=crop",
+    "imageUrl": "https://backend-production1.up.railway.app/uploads/images/products/1e13712f-d2db-481f-a77d-6a1d335c4f8b.jpg",
     "readTime": 8,
     "featured": false,
     "relatedPosts": [
@@ -1147,7 +1147,7 @@
       "associações cannabis",
       "lei cultivo"
     ],
-    "imageUrl": "https://images.unsplash.com/photo-1464639351491-a172c2aa2911?w=1200&h=630&fit=crop",
+    "imageUrl": "https://backend-production1.up.railway.app/uploads/images/products/0120f7a2-46c3-4be6-a438-1b4ccb4122a7.jpg",
     "readTime": 11,
     "featured": false,
     "relatedPosts": [
@@ -1190,7 +1190,7 @@
       "cannabis idosos",
       "cbd sênior"
     ],
-    "imageUrl": "https://images.unsplash.com/photo-1581579438747-1dc8d17bbce4?w=1200&h=630&fit=crop",
+    "imageUrl": "https://backend-production1.up.railway.app/uploads/images/products/9dfac6ce-50bf-465c-9486-b96fb49296c0.jpg",
     "readTime": 9,
     "featured": false,
     "relatedPosts": [
@@ -8834,7 +8834,7 @@
       "tipos de cannabis",
       "indica brasil"
     ],
-    "imageUrl": "https://images.unsplash.com/photo-1605882171745-0174e1068f23?w=1200&h=630&fit=crop",
+    "imageUrl": "https://backend-production1.up.railway.app/uploads/images/products/698b2f7c-fe3f-4f9c-ac0e-c916d30d9ae7.jpg",
     "readTime": 15,
     "featured": true,
     "relatedPosts": [],
@@ -8885,7 +8885,7 @@
       "tipos de cannabis",
       "sativa brasil"
     ],
-    "imageUrl": "https://images.unsplash.com/photo-1503262028195-93c528f03218?w=800&h=600",
+    "imageUrl": "https://backend-production1.up.railway.app/uploads/images/products/8df54376-2352-48f9-8eb9-aec87017c5cb.jpg",
     "readTime": 15,
     "featured": false,
     "relatedPosts": [],
@@ -8936,7 +8936,7 @@
       "tipos de cannabis",
       "híbrida brasil"
     ],
-    "imageUrl": "https://images.unsplash.com/photo-1506634524920-eb412b120aab?w=1200&h=630&fit=crop&q=80",
+    "imageUrl": "https://backend-production1.up.railway.app/uploads/images/products/0120f7a2-46c3-4be6-a438-1b4ccb4122a7.jpg",
     "readTime": 15,
     "featured": false,
     "relatedPosts": [],
