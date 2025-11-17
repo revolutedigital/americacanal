@@ -1,5 +1,8 @@
 'use client';
 
+// Force dynamic rendering since this page uses authentication hooks
+export const dynamic = 'force-dynamic';
+
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
