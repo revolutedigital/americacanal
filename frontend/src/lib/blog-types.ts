@@ -1,3 +1,8 @@
+export interface FAQ {
+  question: string;
+  answer: string;
+}
+
 export interface BlogPost {
   id: string;
   slug: string;
@@ -16,6 +21,7 @@ export interface BlogPost {
   relatedPosts?: string[]; // IDs de posts relacionados
   internalLinks?: InternalLink[];
   featured?: boolean;
+  faqs?: FAQ[];
 }
 
 export interface BlogAuthor {
