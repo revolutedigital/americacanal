@@ -4,7 +4,7 @@ import path from 'path';
 
 const BLOG_POSTS_FILE = path.join(process.cwd(), 'src/data/blog-posts.json');
 
-// GET - Get single post by slug
+// GET - Get single post by slug or id
 export async function GET(
   request: NextRequest,
   { params }: { params: { slug: string } }
@@ -13,7 +13,7 @@ export async function GET(
     const fileContent = fs.readFileSync(BLOG_POSTS_FILE, 'utf-8');
     const posts = JSON.parse(fileContent);
 
-    const post = posts.find((p: any) => p.slug === params.slug);
+    const post = posts.find((p: any) => p.slug === params.slug || p.id === params.slug);
 
     if (!post) {
       return NextResponse.json(
@@ -44,8 +44,10 @@ export async function PUT(
     const fileContent = fs.readFileSync(BLOG_POSTS_FILE, 'utf-8');
     const posts = JSON.parse(fileContent);
 
-    // Find post index
-    const postIndex = posts.findIndex((p: any) => p.slug === params.slug);
+    // Find post index by slug or id
+    const postIndex = posts.findIndex((p: any) =>
+      p.slug === params.slug || p.id === params.slug
+    );
 
     if (postIndex === -1) {
       return NextResponse.json(
@@ -54,11 +56,12 @@ export async function PUT(
       );
     }
 
-    // Update post keeping the original slug
+    // Update post keeping the original slug and id
     posts[postIndex] = {
       ...posts[postIndex],
       ...updatedData,
-      slug: params.slug, // Preserve original slug
+      id: posts[postIndex].id, // Preserve original id
+      slug: posts[postIndex].slug, // Preserve original slug
       updatedAt: new Date().toISOString(),
     };
 
@@ -89,8 +92,10 @@ export async function DELETE(
     const fileContent = fs.readFileSync(BLOG_POSTS_FILE, 'utf-8');
     const posts = JSON.parse(fileContent);
 
-    // Find post
-    const postIndex = posts.findIndex((p: any) => p.slug === params.slug);
+    // Find post by slug or id
+    const postIndex = posts.findIndex((p: any) =>
+      p.slug === params.slug || p.id === params.slug
+    );
 
     if (postIndex === -1) {
       return NextResponse.json(
