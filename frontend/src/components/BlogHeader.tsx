@@ -20,8 +20,10 @@ export default function BlogHeader() {
     { name: '⭐ Reviews de Produtos', slug: 'produtos' },
     { name: 'Guia do Iniciante', slug: 'guia-iniciante' },
     { name: 'Saúde & Bem-Estar', slug: 'saude-bem-estar' },
-    { name: 'Ciência', slug: 'ciencia' },
-    { name: 'Legislação', slug: 'legislacao' },
+    { name: 'Ciência & Pesquisa', slug: 'ciencia-pesquisa' },
+    { name: 'Legislação', slug: 'legislacao-regulamentacao' },
+    { name: 'Guias de Compras', slug: 'guias-compras' },
+    { name: 'Cultivo', slug: 'cultivo-producao' },
   ];
 
   return (

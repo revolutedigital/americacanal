@@ -53,11 +53,11 @@ export interface InternalLink {
 
 export const blogCategories: BlogCategory[] = [
   {
-    id: 'guia-iniciante',
-    name: 'Guia do Iniciante',
-    slug: 'guia-iniciante',
-    description: 'Guias completos para quem está começando no mundo da cannabis',
-    color: '#10b981'
+    id: 'produtos',
+    name: 'Produtos & Reviews',
+    slug: 'produtos',
+    description: 'Análises detalhadas de produtos e marcas',
+    color: '#8b5cf6'
   },
   {
     id: 'saude-bem-estar',
@@ -67,30 +67,37 @@ export const blogCategories: BlogCategory[] = [
     color: '#3b82f6'
   },
   {
-    id: 'produtos',
-    name: 'Produtos & Reviews',
-    slug: 'produtos',
-    description: 'Análises detalhadas de produtos e marcas',
-    color: '#8b5cf6'
-  },
-  {
-    id: 'legislacao',
+    id: 'legislacao-regulamentacao',
     name: 'Legislação & Regulamentação',
-    slug: 'legislacao',
+    slug: 'legislacao-regulamentacao',
     description: 'Leis, regulamentos e novidades legais sobre cannabis',
     color: '#ef4444'
   },
   {
-    id: 'ciencia',
+    id: 'ciencia-pesquisa',
     name: 'Ciência & Pesquisa',
-    slug: 'ciencia',
+    slug: 'ciencia-pesquisa',
     description: 'Estudos científicos e pesquisas sobre cannabis',
     color: '#f59e0b'
   },
   {
-    id: 'cultivo',
+    id: 'guias-compras',
+    name: 'Guias de Compras',
+    slug: 'guias-compras',
+    description: 'Comparativos, rankings e guias para escolher os melhores produtos',
+    color: '#f59e0b'
+  },
+  {
+    id: 'guia-iniciante',
+    name: 'Guia do Iniciante',
+    slug: 'guia-iniciante',
+    description: 'Guias completos para quem está começando no mundo da cannabis',
+    color: '#10b981'
+  },
+  {
+    id: 'cultivo-producao',
     name: 'Cultivo & Produção',
-    slug: 'cultivo',
+    slug: 'cultivo-producao',
     description: 'Técnicas de cultivo e produção de cannabis',
     color: '#06b6d4'
   }
