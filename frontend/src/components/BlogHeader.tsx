@@ -34,14 +34,6 @@ export default function BlogHeader() {
               <span className="font-medium">📚 Blog America Cannabis</span>
               <span className="hidden md:inline text-white/90">Educação e Informação sobre Cannabis</span>
             </div>
-            <div className="flex items-center gap-4">
-              <a href="https://instagram.com/americacannabis" target="_blank" rel="noopener" className="hover:text-white/80 transition">
-                Instagram
-              </a>
-              <a href="https://twitter.com/americacannabis" target="_blank" rel="noopener" className="hover:text-white/80 transition">
-                Twitter
-              </a>
-            </div>
           </div>
         </div>
       </div>
