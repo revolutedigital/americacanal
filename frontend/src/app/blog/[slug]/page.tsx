@@ -123,8 +123,10 @@ export default function BlogPostPage({ params }: PageProps) {
     });
   }
 
-  // Buscar FAQs para este post
-  const faqs = getFAQsForPost(post.slug);
+  // Priorizar FAQs do post (editáveis no admin), senão usar FAQs estáticos
+  const faqs = post.faqs && post.faqs.length > 0
+    ? post.faqs
+    : getFAQsForPost(post.slug);
 
   return (
     <>
