@@ -11,7 +11,7 @@ interface BlogPost {
   excerpt: string;
   content: string;
   imageUrl: string;
-  author: string;
+  author: string | { name: string; id?: string; bio?: string; avatar?: string; role?: string; social?: any };
   category: string | { name: string };
   tags: string[];
   publishedAt: string;
@@ -213,7 +213,9 @@ export default function BlogManagementPage() {
                     </span>
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap">
-                    <div className="text-sm text-white">{post.author}</div>
+                    <div className="text-sm text-white">
+                      {typeof post.author === 'string' ? post.author : post.author?.name || 'Sem autor'}
+                    </div>
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap">
                     <div className="text-sm text-gray-300">
