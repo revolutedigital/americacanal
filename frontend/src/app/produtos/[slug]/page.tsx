@@ -7,7 +7,6 @@ import ProductTestimonials from '@/components/ProductTestimonials';
 import { generateProductSchema, generateBreadcrumbSchema } from '@/lib/schema';
 import { generateProductFAQs, generateFAQSchema } from '@/lib/faqs';
 import ProductFAQ from '@/components/ProductFAQ';
-import RelatedProducts from '@/components/RelatedProducts';
 import Script from 'next/script';
 import ProductPageClient from './ProductPageClient';
 import ClientOnlyWrapper from '@/components/ClientOnlyWrapper';
@@ -276,10 +275,6 @@ export default async function ProductPage({ params }: { params: { slug: string }
 
       <ClientOnlyWrapper fallback={<div className="h-64"></div>}>
         <ProductTestimonials />
-      </ClientOnlyWrapper>
-
-      <ClientOnlyWrapper fallback={<div className="h-64"></div>}>
-        <RelatedProducts products={relatedProducts} currentProductId={product.id} />
       </ClientOnlyWrapper>
 
       <Footer />
