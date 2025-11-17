@@ -48,6 +48,7 @@ export default function EditBlogPostPage({ params }: { params: { slug: string } 
           ...data,
           author: typeof data.author === 'string' ? data.author : data.author?.name || 'America Cannabis',
           category: typeof data.category === 'string' ? data.category : data.category?.name || 'Cannabis',
+          faqs: data.faqs || [], // Garantir que faqs sempre seja um array
         };
         setPost(normalizedPost);
         setImagePreview(data.imageUrl || '');
