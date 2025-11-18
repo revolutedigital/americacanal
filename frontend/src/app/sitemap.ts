@@ -81,5 +81,16 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: post.slug.startsWith('review-') ? 0.8 : 0.7, // Product reviews higher priority
   }));
 
-  return [...staticPages, ...categoryPages, ...productPages, ...blogPages];
+  // Blog category pages
+  const blogCategoryPages: MetadataRoute.Sitemap = [
+    { url: `${baseUrl}/blog/categoria/produtos`, lastModified: new Date(), changeFrequency: 'daily' as const, priority: 0.75 },
+    { url: `${baseUrl}/blog/categoria/guia-iniciante`, lastModified: new Date(), changeFrequency: 'weekly' as const, priority: 0.75 },
+    { url: `${baseUrl}/blog/categoria/saude-bem-estar`, lastModified: new Date(), changeFrequency: 'weekly' as const, priority: 0.75 },
+    { url: `${baseUrl}/blog/categoria/ciencia-pesquisa`, lastModified: new Date(), changeFrequency: 'weekly' as const, priority: 0.75 },
+    { url: `${baseUrl}/blog/categoria/legislacao-regulamentacao`, lastModified: new Date(), changeFrequency: 'weekly' as const, priority: 0.75 },
+    { url: `${baseUrl}/blog/categoria/guias-compras`, lastModified: new Date(), changeFrequency: 'weekly' as const, priority: 0.75 },
+    { url: `${baseUrl}/blog/categoria/cultivo-producao`, lastModified: new Date(), changeFrequency: 'weekly' as const, priority: 0.75 },
+  ];
+
+  return [...staticPages, ...categoryPages, ...productPages, ...blogCategoryPages, ...blogPages];
 }
