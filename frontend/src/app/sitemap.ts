@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next';
 import blogPosts from '@/data/blog-posts.json';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.americacannabis.com';
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://americacannabisbr.com';
   const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5177';
   const tenantId = '0fb61585-3cb3-48b3-ae76-0a5358084a8c';
 

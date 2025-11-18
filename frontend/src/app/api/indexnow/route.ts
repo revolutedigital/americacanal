@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 
 const INDEXNOW_KEY = 'ccafe3cc-5370-4247-8792-1726f0a9d32f';
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.americacannabisbr.com';
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://americacannabisbr.com';
 
 // IndexNow API endpoint
 // Spec: https://www.indexnow.org/documentation

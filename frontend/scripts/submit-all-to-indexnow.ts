@@ -5,9 +5,9 @@
  * Uso: npx ts-node scripts/submit-all-to-indexnow.ts
  */
 
-import blogPosts from '../src/data/blog-posts.json';
+import blogPosts from '../src/data/blog-posts.json' with { type: 'json' };
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.americacannabisbr.com';
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://americacannabisbr.com';
 const INDEXNOW_KEY = 'ccafe3cc-5370-4247-8792-1726f0a9d32f';
 
 async function submitToIndexNow() {
